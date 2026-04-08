@@ -3,14 +3,73 @@ import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Target, CheckCircle, ChevronDown, BookOpen,
-  Library, GraduationCap, Sigma, Binary, Box, Layers, Book,
-  Award, ScrollText, ArrowRight, Sparkles
+  Library, GraduationCap, Sigma, Binary, Box, Layers, Book
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Latex from '@/components/Latex';
 
+// === CDN LOADER ===
+const Latex = ({ children }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const containerRef = useRef(null);
 
+  useEffect(() => {
+    const loadKatex = () => {
+      if (window.katex) {
+        setIsLoaded(true);
+        return;
+      }
+      if (!document.getElementById('katex-css')) {
+        const link = document.createElement('link');
+        link.id = 'katex-css';
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css';
+        document.head.appendChild(link);
+      }
+      if (!document.getElementById('katex-js')) {
+        const script = document.createElement('script');
+        script.id = 'katex-js';
+        script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js';
+        script.onload = () => setIsLoaded(true);
+        document.head.appendChild(script);
+      } else {
+        const check = setInterval(() => {
+          if (window.katex) {
+            setIsLoaded(true);
+            clearInterval(check);
+          }
+        }, 100);
+      }
+    };
+    loadKatex();
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded && containerRef.current && window.katex) {
+      const text = children || "";
+      const parts = text.split(/(\\\[.*?\\\]|\\\(.*?\\\))/);
+
+      const html = parts.map(part => {
+        if (part.startsWith('\\(') || part.startsWith('\\[')) {
+          const math = part.replace(/^\\\(|\\\)$|^\\\[|\\\]$/g, "");
+          const displayMode = part.startsWith('\\[');
+          try {
+            return window.katex.renderToString(math, { displayMode, throwOnError: false });
+          } catch (e) {
+            return part;
+          }
+        }
+        return part;
+      }).join("");
+
+      containerRef.current.innerHTML = html;
+    } else if (containerRef.current) {
+      containerRef.current.innerText = children;
+    }
+  }, [children, isLoaded]);
+
+  return <span ref={containerRef} />;
+};
 
 // This function strips ALL LaTeX syntax for the dropdown menu
 const cleanText = (text) => {
@@ -583,123 +642,102 @@ const AdvancedCourses = () => {
   return (
     <>
       <Helmet>
-        <title>Advanced Mathematics Courses West Bengal | Research Level Coaching | Let's Study</title>
+        <title>Advanced Mathematics Courses West Bengal | Research Level Coaching | Let's Study MS</title>
         <meta name="description" content="Advanced and research-level mathematics courses in West Bengal. Specialized topics including Algebraic Topology, Differential Geometry, Functional Analysis, Measure Theory and Representation Theory. For serious mathematics students targeting top institutes." />
         <link rel="canonical" href="https://letsstudyms.com/courses/advanced-courses" />
-        <meta property="og:title" content="Advanced Mathematics Courses | Research Level | Let's Study" />
-        <meta property="og:description" content="Advanced and research-level mathematics courses including Algebraic Topology, Differential Geometry, Functional Analysis, and Representation Theory." />
-        <meta property="og:url" content="https://letsstudyms.com/courses/advanced-courses" />
-        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Advanced Mathematics Courses | Research Level | Let's Study" />
-        <meta name="twitter:description" content="Advanced and research-level mathematics courses including Algebraic Topology, Differential Geometry, and more." />
-        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen mesh-bg noise-overlay">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
         <Header />
-        <main>
 
-        {/* Mini-Hero Banner */}
-        <div className="relative bg-[#091C25] pt-32 pb-24 md:pt-40 mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
-          
-          <div className="container mx-auto px-4 text-center relative z-10">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-white py-20">
+          <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
+              className="max-w-4xl mx-auto text-center"
             >
-              <div className="bg-white/10 dark:bg-white/5 w-20 h-20 rounded-2xl backdrop-blur-md flex items-center justify-center mx-auto mb-6 ring-1 ring-white/20 shadow-2xl">
-                <Sigma size={40} className="text-[#78E2FF]" />
-              </div>
-              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#78E2FF]">
-                Advanced Courses
-              </h1>
-              <p className="text-blue-50/90 text-xl max-w-2xl mx-auto font-light leading-relaxed">
-                Specialized research-grade mathematics for aspirants targeting the highest echelons of academia.
-              </p>
+              <Target size={64} className="mx-auto mb-6" />
+              <h1 className="text-5xl font-bold mb-4">Advanced Courses</h1>
+              <p className="text-xl">Specialized topics for research and competitive excellence</p>
             </motion.div>
           </div>
-        </div>
+        </section>
 
         {/* Course Overview */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-8 tracking-tight">Advanced Mastery</h2>
-                <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
-                  <p className="text-justify hyphens-auto">
-                    Our Advanced Courses program is designed for mathematics enthusiasts who want to delve deeper
-                    into specialized research topics. We provide the mathematical rigor required for doctoral
-                    academic excellence and competitive research positions.
-                  </p>
-                  <p className="text-justify hyphens-auto">
-                    From Algebraic Topology to Representation Theory, our curriculum bridges the gap between 
-                    postgraduate study and independent research, guided by expert faculty mentors.
-                  </p>
-                </div>
+                <h2 className="text-4xl font-bold text-[#0F5A7A] mb-6">Course Overview</h2>
+                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
+                  Our Advanced Courses program is designed for mathematics enthusiasts who want to delve deeper
+                  into specialized topics. These courses are perfect for students preparing for research careers,
+                  competitive examinations, or those simply passionate about advanced mathematics.
+                </p>
+                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
+                  Led by faculty with active research interests, these courses provide exposure to cutting-edge
+                  mathematical concepts and methodologies, preparing you for the highest levels of mathematical inquiry.
+                </p>
               </motion.div>
-
-              <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <img
-                  src="https://images.pexels.com/photos/8617944/pexels-photo-8617944.jpeg"
-                  alt="Advanced Mathematics Research"
-                  loading="lazy"
-                  className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
-                />
+              <motion.div
+                {...fadeInUp}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <img className="w-full h-96 rounded-xl shadow-2xl object-cover" alt="Advanced mathematics students" src="https://images.unsplash.com/photo-1581090124321-d19ad6d7cd5a" />
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Curriculum Explorer */}
-        <section className="py-16 bg-transparent text-center transition-colors">
+        <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="mb-16">
-              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-6 tracking-tight">Advanced Research Tracks</h2>
-              <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-                Explore our deep-dive modules across core research domains in pure and applied mathematics.
-              </p>
+            <motion.div {...fadeInUp} className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">Advanced Curriculum Explorer</h2>
+              <p className="text-gray-600 text-lg mb-8">Select a specialized topic to view detailed modules and references</p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mt-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
                 {/* Course Selector */}
-                <div className="relative group text-left">
-                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Specialization</label>
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Specialization</label>
                   <div className="relative">
                     <select
                       value={selectedCourse}
                       onChange={handleCourseChange}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
                     >
                       {Object.entries(CURRICULA).map(([key, data]) => (
                         <option key={key} value={key}>{data.name}</option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
+                      <ChevronDown size={24} />
+                    </div>
                   </div>
                 </div>
 
                 {/* Module Selector */}
-                <div className="relative group text-left">
-                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Advanced Module</label>
+                <div className="relative">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Module</label>
                   <div className="relative">
                     <select
                       value={selectedModule}
                       onChange={(e) => setSelectedModule(e.target.value)}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
                     >
                       {currentCourse.subOptions.map(option => (
                         <option key={option.id} value={option.id}>
+                          {/* We clean the text for dropdowns so it shows "sl2(C)" instead of math code */}
                           {cleanText(option.name)}
                         </option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
+                      <ChevronDown size={24} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -716,72 +754,64 @@ const AdvancedCourses = () => {
                 className="max-w-5xl mx-auto"
               >
                 {/* Header Card */}
-                <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm p-8 rounded-[2rem] shadow-xl border-t-8 border-brand-teal dark:border-blue-500 mb-10 transition-colors ring-1 ring-black/[0.03] dark:ring-white/5">
+                <div className="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] mb-8">
                   <div className="flex items-center mb-4">
-                    <div className="bg-brand-teal/10 dark:bg-white/5 p-3 rounded-full mr-4">
-                      <currentCourse.icon className="text-brand-teal dark:text-blue-400" size={32} />
+                    <div className="bg-[#0F5A7A]/10 p-3 rounded-full mr-4">
+                      <currentCourse.icon className="text-[#0F5A7A]" size={32} />
                     </div>
-                    <div className="text-left">
-                      <h3 className="text-3xl font-bold text-brand-teal dark:text-blue-300">
-                        {currentCourse.name}
+                    <div>
+                      <h3 className="text-3xl font-bold text-[#0F5A7A]">
+                        <Latex>{currentCourse.name}</Latex>
                       </h3>
-                      <span className="inline-block bg-brand-teal dark:bg-blue-600 text-white text-xs px-2 py-1 rounded mt-1">
-                        {currentModuleData.name}
+                      <span className="inline-block bg-[#0F5A7A] text-white text-xs px-2 py-1 rounded mt-1">
+                        <Latex>{currentModuleData.name}</Latex>
                       </span>
                     </div>
                   </div>
-                  <p className="text-gray-600 dark:text-slate-400 text-lg italic border-l-4 border-gray-200 dark:border-white/5 pl-4">
+                  <p className="text-gray-600 text-lg italic border-l-4 border-gray-200 pl-4">
                     {currentCourse.description}
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                   {/* Topics Card */}
-                  <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm rounded-[2rem] shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors ring-1 ring-black/[0.03] dark:ring-white/5">
-                    <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
-                      <h4 className="text-xl font-bold text-brand-teal dark:text-blue-400 flex items-center">
+                  {/* Topics Card */}
+                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
+                    <div className="bg-gray-50 p-6 border-b border-gray-200">
+                      <h4 className="text-xl font-bold text-[#0F5A7A] flex items-center">
                         <BookOpen size={24} className="mr-3" /> Syllabus & Topics
                       </h4>
                     </div>
                     <div className="p-6">
-                      <div className="space-y-4 cursor-default">
+                      <ul className="space-y-3">
                         {currentModuleData.topics.map((topic, idx) => (
-                          <details key={idx} className="group bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden open:shadow-md transition-all duration-300">
-                            <summary className="flex items-center justify-between p-5 cursor-pointer font-bold text-gray-800 dark:text-slate-200 list-none shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
-                              <div className="flex items-center">
-                                <CheckCircle size={20} className="text-brand-teal dark:text-blue-400 mr-4 flex-shrink-0" />
-                                <span className="text-brand-teal dark:text-blue-300 text-lg tracking-wide">{topic}</span>
-                              </div>
-                              <span className="transition-transform duration-300 group-open:rotate-180 text-brand-teal dark:text-blue-400 flex-shrink-0 ml-4">
-                                <ChevronDown size={20} />
-                              </span>
-                            </summary>
-                            <div className="px-14 pb-5 pt-3 text-sm text-gray-600 dark:text-slate-400 bg-white dark:bg-slate-800 border-t border-gray-100 dark:border-white/5 leading-relaxed">
-                                Modules cover the essential theoretical frameworks, diverse problem-solving methodologies, and extensive previous year question analysis for <span className="font-semibold tracking-wide text-gray-800 dark:text-slate-200">{topic}</span>. Designed to ensure complete conceptual clarity and examination readiness.
-                            </div>
-                          </details>
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle size={18} className="text-[#0F5A7A] mr-2 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700">
+                              <Latex>{topic}</Latex>
+                            </span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   </div>
 
                   {/* References Card */}
-                  <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors">
-                    <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
-                      <h4 className="text-xl font-bold text-brand-teal dark:text-blue-400 flex items-center">
+                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
+                    <div className="bg-gray-50 p-6 border-b border-gray-200">
+                      <h4 className="text-xl font-bold text-[#0F5A7A] flex items-center">
                         <Library size={24} className="mr-3" /> Recommended Readings
                       </h4>
                     </div>
                     <div className="p-6">
                       <div className="grid gap-3">
                         {currentModuleData.refs.map((ref, idx) => (
-                          <div key={idx} className="flex items-center p-3 bg-gray-50/50 dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 mb-3 hover:bg-white dark:hover:bg-slate-800 transition-colors group">
-                            <Book size={18} className="text-brand-teal dark:text-blue-400 mr-3 opacity-50 group-hover:opacity-100" />
-                            <span className="text-gray-800 dark:text-slate-300 font-medium">{ref}</span>
+                          <div key={idx} className="flex items-center p-3 bg-blue-50 rounded-lg border border-blue-100">
+                            <Book size={18} className="text-[#0F5A7A] mr-3" />
+                            <span className="text-gray-800 font-medium"><Latex>{ref}</Latex></span>
                           </div>
                         ))}
                       </div>
-                      <div className="mt-6 p-4 bg-yellow-50/50 dark:bg-yellow-900/10 rounded-xl border border-yellow-200/50 dark:border-yellow-900/30 text-sm text-yellow-800 dark:text-yellow-200 transition-colors">
+                      <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-100 text-sm text-yellow-800">
                         <p className="font-bold mb-1 flex items-center"><GraduationCap size={16} className="mr-2" /> Research Tip:</p>
                         "Reading original texts and working through proofs is essential for mastering these advanced topics."
                       </div>
@@ -794,7 +824,6 @@ const AdvancedCourses = () => {
           </div>
         </section>
 
-        </main>
         <Footer />
       </div>
     </>

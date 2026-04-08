@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Block non-content pages from indexing
-Disallow: /login
-
-# Sitemap location
-Sitemap: https://letsstudyms.com/sitemap.xml

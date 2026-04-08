@@ -95,7 +95,7 @@ const ChatBot = () => {
             className="mb-4 w-[350px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col max-h-[500px]"
           >
             {/* Header */}
-            <div className="bg-brand-teal p-4 flex items-center justify-between text-white">
+            <div className="bg-[#0F5A7A] p-4 flex items-center justify-between text-white">
               <div className="flex items-center space-x-2">
                 <div className="bg-white/20 p-1.5 rounded-full">
                   <Bot size={20} />
@@ -122,7 +122,7 @@ const ChatBot = () => {
                 >
                   <div
                     className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.type === 'user'
-                      ? 'bg-brand-teal text-white rounded-br-none'
+                      ? 'bg-[#0F5A7A] text-white rounded-br-none'
                       : 'bg-white border border-gray-200 text-gray-800 rounded-bl-none shadow-sm'
                       }`}
                   >
@@ -138,7 +138,7 @@ const ChatBot = () => {
                   <input
                     type="text"
                     placeholder="Search courses..."
-                    className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/20 focus:border-brand-teal"
+                    className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 focus:border-[#0F5A7A]"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -155,10 +155,10 @@ const ChatBot = () => {
                           className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg group transition-colors border border-transparent hover:border-gray-100"
                         >
                           <div>
-                            <p className="text-sm font-medium text-brand-teal">{item.title}</p>
+                            <p className="text-sm font-medium text-[#0F5A7A]">{item.title}</p>
                             <p className="text-xs text-gray-500">{item.type}</p>
                           </div>
-                          <ChevronRight size={14} className="text-gray-400 group-hover:text-brand-teal" />
+                          <ChevronRight size={14} className="text-gray-400 group-hover:text-[#0F5A7A]" />
                         </Link>
                       ))
                     ) : (
@@ -172,13 +172,13 @@ const ChatBot = () => {
                   <div>
                     <p className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wider">Popular Links</p>
                     <div className="flex flex-wrap gap-2">
-                      <Link to="/courses/foundation-batch" className="text-xs bg-blue-50 text-brand-teal px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
+                      <Link to="/courses/foundation-batch" className="text-xs bg-blue-50 text-[#0F5A7A] px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
                         Foundation
                       </Link>
-                      <Link to="/courses/msc-mathematics" className="text-xs bg-blue-50 text-brand-teal px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
+                      <Link to="/courses/msc-mathematics" className="text-xs bg-blue-50 text-[#0F5A7A] px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
                         M.Sc Entrances
                       </Link>
-                      <Link to="/contact" className="text-xs bg-blue-50 text-brand-teal px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
+                      <Link to="/contact" className="text-xs bg-blue-50 text-[#0F5A7A] px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
                         Contact Us
                       </Link>
                     </div>
@@ -194,14 +194,14 @@ const ChatBot = () => {
               <input
                 type="text"
                 placeholder="Type a message..."
-                className="flex-1 text-sm bg-gray-50 border-0 rounded-full px-4 focus:ring-1 focus:ring-brand-teal"
+                className="flex-1 text-sm bg-gray-50 border-0 rounded-full px-4 focus:ring-1 focus:ring-[#0F5A7A]"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <button
                 type="submit"
                 disabled={!searchQuery}
-                className="bg-brand-teal text-white p-2 rounded-full hover:bg-[#0d4a63] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="bg-[#0F5A7A] text-white p-2 rounded-full hover:bg-[#0d4a63] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <Send size={16} />
               </button>
@@ -234,7 +234,7 @@ const ChatBot = () => {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className={`relative group p-3.5 rounded-full shadow-lg flex items-center justify-center transition-all ${isOpen ? 'bg-gray-200 text-gray-600 rotate-90' : 'bg-brand-teal text-white'
+          className={`relative group p-3.5 rounded-full shadow-lg flex items-center justify-center transition-all ${isOpen ? 'bg-gray-200 text-gray-600 rotate-90' : 'bg-[#0F5A7A] text-white'
             }`}
         >
           {/* Tooltip */}

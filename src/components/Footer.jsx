@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Facebook, Instagram, Linkedin, Youtube, Send, Mail, Phone, MapPin, ExternalLink, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube, Send, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -29,167 +28,116 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-[#091C25] dark:bg-[#020817] text-white pt-24 pb-12 overflow-hidden transition-colors duration-300">
-      {/* Decorative Gradient Edge */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-teal/50 to-transparent"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[400px] bg-brand-teal/10 dark:bg-blue-500/5 blur-[120px] rounded-full -z-0"></div>
+    <footer className="bg-[#0F5A7A] text-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20 text-center md:text-left">
-          
-          {/* Brand Section */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center md:items-start"
-          >
-            <div className="relative mb-8 group">
-              <div className="absolute -inset-2 bg-white/5 rounded-2xl blur-lg transition-all group-hover:bg-white/10"></div>
-              <img
-                src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg"
-                alt="Let's Study"
-                className="h-20 w-auto relative z-10 bg-white dark:bg-white/10 rounded-xl p-2 shadow-2xl transition-transform hover:scale-105 duration-500"
-              />
-            </div>
-            <p className="text-blue-100/60 text-lg leading-relaxed mb-8 max-w-sm">
-              Empowering the next generation of mathematical thinkers with rigor, clarity, and research-grade excellence.
+          {/* Brand */}
+          <div>
+            <img
+              src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg"
+              alt="Logo"
+              className="h-20 w-auto mb-4 bg-white rounded-lg p-2"
+            />
+            <p className="text-gray-200 text-sm mb-4">
+              Empowering students with excellence in mathematics education through expert guidance.
             </p>
             <div className="flex space-x-4">
-              {[
-                { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61584835031140", label: "Facebook" },
-                { icon: Instagram, href: "https://www.instagram.com/ls2m_maths?utm_source=qr", label: "Instagram" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/let-s-study-school-of-mathematics-3443073a4/", label: "LinkedIn" },
-                { icon: Youtube, href: "https://youtube.com/@letsstudysom", label: "YouTube" },
-                { icon: Send, href: "https://t.me/LetsstudySOM", label: "Telegram", isTelegram: true }
-              ].map((social, i) => (
-                <motion.a
-                  key={i}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5 }}
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-100/70 hover:text-brand-teal hover:border-brand-teal/30 transition-all hover:bg-brand-teal/5 shadow-sm group"
-                >
-                  <social.icon size={20} className={social.isTelegram ? "rotate-[-20deg]" : ""} />
-                </motion.a>
-              ))}
+              {/* Facebook */}
+              <a href="https://www.facebook.com/profile.php?id=61584835031140" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                <Facebook size={20} />
+              </a>
+
+              {/* Instagram */}
+              <a href="https://www.instagram.com/ls2m_maths?utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                <Instagram size={20} />
+              </a>
+
+              {/* LinkedIn */}
+							<a href="https://www.linkedin.com/in/let-s-study-school-of-mathematics-3443073a4/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                <Linkedin size={20} />
+              </a>
+
+              {/* YouTube */}
+              <a href="https://youtube.com/@letsstudysom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
+                <Youtube size={20} />
+              </a>
+
+              {/* Telegram (Using Send icon with a slight tilt) */}
+              <a
+                href="https://t.me/LetsstudySOM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300 transition-colors"
+              >
+                <Send size={20} className="rotate-[-20deg]" />
+              </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
-            <h3 className="text-xl font-bold mb-8 text-center md:text-left">
-              Explore
-            </h3>
-            <ul className="space-y-4">
-              {[
-                { label: 'Our Courses', id: 'courses' },
-                { label: 'Success Stories', id: 'success-stories' },
-                { label: 'Expert Team', id: 'team' }
-              ].map((link, i) => (
-                <li key={i}>
-                  <button 
-                    onClick={() => handleScrollToSection(link.id)} 
-                    className="text-blue-100/60 dark:text-slate-400 hover:text-white dark:hover:text-blue-200 transition-all text-base flex items-center group mx-auto md:mx-0"
-                  >
-                    <ArrowRight size={14} className="mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-teal" />
-                    {link.label}
-                  </button>
-                </li>
-              ))}
+          <div>
+            <span className="text-xl font-bold mb-4 block border-b border-white/20 pb-2 w-fit">Quick Links</span>
+            <ul className="space-y-3">
+              <li>
+                <button onClick={() => handleScrollToSection('courses')} className="text-gray-300 hover:text-white transition-all text-sm text-left">
+                  Our Courses
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleScrollToSection('success-stories')} className="text-gray-300 hover:text-white transition-all text-sm text-left">
+                  Success Stories
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleScrollToSection('team')} className="text-gray-300 hover:text-white transition-all text-sm text-left">
+                  Expert Team
+                </button>
+              </li>
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Academic Tracks */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            <h3 className="text-xl font-bold mb-8 text-center md:text-left">
-              Academic Tracks
-            </h3>
-            <ul className="grid grid-cols-1 gap-4">
-              {courses?.map((course, i) => (
-                <li key={i}>
-                  <Link 
-                    to={course.path} 
-                    onClick={() => window.scrollTo(0, 0)}
-                    className="text-blue-100/50 dark:text-slate-500 hover:text-brand-teal transition-all text-sm block hover:translate-x-1 duration-300"
-                  >
+          {/* Programs */}
+          <div>
+            <span className="text-xl font-bold mb-4 block border-b border-white/20 pb-2 w-fit">Programs</span>
+            <ul className="space-y-3">
+              {courses.map((course, index) => (
+                <li key={index}>
+                  <Link to={course.path} onClick={() => window.scrollTo(0, 0)} className="text-gray-300 hover:text-white transition-all text-sm block">
                     {course.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Contact Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            <h3 className="text-xl font-bold mb-8 text-center md:text-left">
-              Get in Touch
-            </h3>
-            <div className="space-y-6">
-              <a 
-                href="https://www.google.com/maps/search/?api=1&query=118/105,+Near+Maya+Apartment,+Rabindrapally,+Khardaha,+Kolkata+700117" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-start justify-center md:justify-start space-x-4 text-blue-100/60 group hover:text-white transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-teal/10 transition-all">
-                  <MapPin size={20} className="text-brand-teal" />
-                </div>
-                <div className="text-sm">
-                  118/105, Near Maya Apartment,<br />
-                  Rabindrapally, Khardaha,<br />
-                  Kolkata – 700 117
-                </div>
-              </a>
-
-              <div className="flex items-start justify-center md:justify-start space-x-4 text-blue-100/60 group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-teal/10 transition-all">
-                  <Phone size={20} className="text-brand-teal" />
-                </div>
-                <div className="flex flex-col text-sm">
-                  <a href="tel:+918481819726" className="hover:text-white transition-colors">+91 8481819726</a>
-                  <a href="tel:+918777484102" className="hover:text-white transition-colors">+91 8777484102</a>
+          {/* Contact */}
+          <div>
+            <span className="text-xl font-bold mb-4 block border-b border-white/20 pb-2 w-fit">Contact Us</span>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center space-x-3 text-gray-200">
+                <MapPin size={18} />
+                <p>Kolkata, West Bengal, India</p>
+              </div>
+              <div className="flex items-center space-x-3 text-gray-200">
+                <Phone size={18} />
+                <div>
+                  <p>+91 8481819726</p>
+                  <p>+91 8777415940</p>
                 </div>
               </div>
-
-              <a 
-                href="mailto:letsstudy2022bu@gmail.com" 
-                className="flex items-center justify-center md:justify-start space-x-4 text-blue-100/60 group hover:text-white transition-colors"
-              >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-teal/10 transition-all">
-                  <Mail size={20} className="text-brand-teal" />
-                </div>
-                <span className="text-sm truncate">letsstudy2022bu@gmail.com</span>
-              </a>
+              <div className="flex items-center space-x-3 text-gray-200">
+                <Mail size={18} />
+                <p>letsstudy2022bu@gmail.com</p>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <div className="border-t border-white/5 pt-12 text-center md:flex md:justify-between md:items-center">
-          <p className="text-blue-100/30 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Let's Study. All scholarly rights reserved.
+        <div className="border-t border-white/20 mt-8 pt-8 text-center">
+          <p className="text-gray-300 text-xs italic">
+            © {new Date().getFullYear()} Let's Study MS - School of Mathematics.
           </p>
-          <div className="flex justify-center space-x-8 text-xs font-bold uppercase tracking-widest text-blue-100/20">
-            <span className="hover:text-blue-100/40 cursor-default">Transparency</span>
-            <span className="hover:text-blue-100/40 cursor-default">Academic Integrity</span>
-            <span className="hover:text-blue-100/40 cursor-default">Mentorship</span>
-          </div>
         </div>
       </div>
     </footer>

@@ -3,7 +3,8 @@ import { Helmet } from 'react-helmet';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   TrendingUp, CheckCircle, ChevronDown, BookOpen,
-  Library, Sigma, BarChart, Book, ArrowRight // Added Book icon
+  Library, Sigma, BarChart, Book, ArrowRight,
+  GraduationCap, Award, Layers, ScrollText, Sparkles, Cpu
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -475,103 +476,114 @@ const MTechDataScience = () => {
   return (
     <>
       <Helmet>
-        <title>MTech Data Science MSc Economics Entrance Coaching West Bengal | Let's Study MS</title>
+        <title>MTech Data Science MSc Economics Entrance Coaching West Bengal | Let's Study</title>
         <meta name="description" content="Expert coaching for MTech, Data Science and MSc Economics entrance exams in West Bengal. Strong mathematics foundation for interdisciplinary programs. Coaching by faculty with ISI MTech and IIT backgrounds." />
         <link rel="canonical" href="https://letsstudyms.com/courses/mtech-datascience" />
-        <meta property="og:title" content="MTech Data Science MSc Economics Entrance Coaching | Let's Study MS" />
+        <meta property="og:title" content="MTech Data Science MSc Economics Entrance Coaching | Let's Study" />
         <meta property="og:description" content="Expert coaching for MTech, Data Science and MSc Economics entrance exams. Strong mathematics foundation for interdisciplinary programs." />
         <meta property="og:url" content="https://letsstudyms.com/courses/mtech-datascience" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
         <Header />
 
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-white py-20">
-          <div className="container mx-auto px-4">
+        {/* Mini-Hero Banner */}
+        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center"
             >
-              <TrendingUp size={64} className="mx-auto mb-6" />
-              <h1 className="text-5xl font-bold mb-4">M.Tech / Data Science / M.Sc.Economics Entrances</h1>
-              <p className="text-xl">Specialized preparation for interdisciplinary entrance exams</p>
+              <div className="bg-white/10 dark:bg-white/5 w-20 h-20 rounded-2xl backdrop-blur-md flex items-center justify-center mx-auto mb-6 ring-1 ring-white/20 shadow-2xl">
+                <BarChart size={40} className="text-[#78E2FF]" />
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#78E2FF] leading-[1.1]">
+                M.Tech · Data Science · Economics
+              </h1>
+              <p className="text-blue-50/90 text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                Master the intersection of mathematics, data, and economics with our specialized preparation modules.
+              </p>
             </motion.div>
           </div>
-        </section>
+        </div>
 
         {/* Course Overview */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-bold text-[#0F5A7A] mb-6">Course Overview</h2>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  This specialized program caters to students aiming for interdisciplinary fields that combine
-                  mathematics with technology, economics, or data science. We provide focused preparation for the
-                  quantitative and mathematical components of various entrance examinations.
-                </p>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  Our curriculum is designed by experts who understand the unique requirements of these programs,
-                  ensuring you're well-prepared for both entrance exams and the rigorous coursework that follows.
-                </p>
+                <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-8 tracking-tight">Interdisciplinary Excellence</h2>
+                <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
+                  <p className="text-justify hyphens-auto">
+                    This specialized program caters to students aiming for interdisciplinary fields that combine
+                    mathematics with technology, economics, or data science. We provide focused preparation for the
+                    quantitative and mathematical components of various entrance examinations.
+                  </p>
+                  <p className="text-justify hyphens-auto">
+                    Our curriculum is designed by experts who understand the unique requirements of these programs,
+                    ensuring you're well-prepared for both entrance exams and the rigorous coursework that follows.
+                  </p>
+                </div>
               </motion.div>
 
-              <motion.div
-                {...fadeInUp}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img className="w-full h-96 rounded-xl shadow-2xl object-cover" alt="Data science and economics students studying" src="https://i.postimg.cc/BQVQVS3C/pexels_cottonbro_6153354.jpg" />
+              <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <img
+                  src="https://i.postimg.cc/BQVQVS3C/pexels_cottonbro_6153354.jpg"
+                  alt="Data Science Preparation"
+                  className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
+                />
               </motion.div>
             </div>
           </div>
         </section>
 
         {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 text-center transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">Entrance Preparation Roadmap</h2>
-              <p className="text-gray-600 text-lg mb-8">Select your target track to view the detailed curriculum</p>
+            <motion.div {...fadeInUp} className="mb-16">
+              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">Entrance Preparation Roadmap</h2>
+              <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                Select your target track to view the detailed curriculum and specialized module breakdown.
+              </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Program Track</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mt-16">
+                <div className="relative group text-left">
+                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Program Track</label>
                   <div className="relative">
                     <select
                       value={selectedComponent}
                       onChange={handleComponentChange}
-                      className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       {Object.entries(CURRICULA).map(([key, val]) => (
                         <option key={key} value={key}>{val.name}</option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
-                      <ChevronDown size={24} />
-                    </div>
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
                   </div>
                 </div>
 
                 {CURRICULA[selectedComponent].type === 'nested' ? (
-                  <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Select Specialization / Paper</label>
+                  <div className="relative group text-left">
+                    <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Specialization / Paper</label>
                     <div className="relative">
                       <select
                         value={selectedSubOption}
                         onChange={(e) => setSelectedSubOption(e.target.value)}
-                        className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
+                        className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
                       >
                         {CURRICULA[selectedComponent].subOptions.map(option => (
                           <option key={option.id} value={option.id}>{option.name}</option>
                         ))}
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
-                        <ChevronDown size={24} />
-                      </div>
+                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
                     </div>
                   </div>
                 ) : (
@@ -590,51 +602,51 @@ const MTechDataScience = () => {
                 className="max-w-5xl mx-auto"
               >
                 {/* Header Card */}
-                <div className="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] mb-8">
+                <div className="bg-white dark:bg-slate-900/60 p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] dark:border-blue-500 mb-8 ring-1 ring-black/5 dark:ring-white/5 transition-colors">
                   <div className="flex items-center mb-2">
-                    <Library className="text-[#0F5A7A] mr-3" size={32} />
-                    <h3 className="text-3xl font-bold text-[#0F5A7A]">
+                    <Library className="text-[#0F5A7A] dark:text-blue-400 mr-3" size={32} />
+                    <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-300">
                       {currentComponentData.name}
                     </h3>
                   </div>
-                  <p className="text-gray-600 text-lg italic ml-11">
+                  <p className="text-gray-600 dark:text-slate-400 text-lg italic ml-11">
                     {currentComponentData.description}
                   </p>
                 </div>
 
                 {/* Topics Card */}
-                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
-                  <div className="bg-gray-50 p-6 border-b border-gray-200">
-                    <h4 className="text-xl font-bold text-[#0F5A7A] flex items-center">
+                <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors">
+                  <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
+                    <h4 className="text-xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center">
                       <BookOpen size={24} className="mr-3" /> Syllabus Breakdown
                     </h4>
                   </div>
                   <div className="p-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {currentComponentData.topics && currentComponentData.topics.map((category, idx) => (
-                        <motion.div
+                        <details
                           key={idx}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: idx * 0.05 }}
-                          className="flex flex-col p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-[#0F5A7A]/30 hover:bg-[#0F5A7A]/5 transition-all h-full"
+                          className="group flex flex-col bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden open:shadow-md open:bg-white dark:open:bg-slate-800 transition-all h-max"
                         >
-                          <div className="flex items-center mb-3">
-                            <div className="bg-white p-2 rounded-full shadow-sm text-[#0F5A7A] mr-3 flex-shrink-0">
-                              {idx % 2 === 0 ? <Sigma size={16} /> : <BarChart size={16} />}
+                          <summary className="flex items-center p-5 cursor-pointer font-bold text-gray-800 dark:text-slate-200 list-none shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+                            <div className="bg-white dark:bg-slate-900 p-2 rounded-full shadow-sm text-[#0F5A7A] dark:text-blue-400 mr-4 flex-shrink-0">
+                              {idx % 2 === 0 ? <Sigma size={18} /> : <BarChart size={18} />}
                             </div>
-                            <span className="font-bold text-[#0F5A7A] text-lg">{category.title}</span>
-                          </div>
+                            <span className="font-bold text-[#0F5A7A] dark:text-blue-300 text-lg flex-1">{category.title}</span>
+                            <span className="transition-transform duration-300 group-open:rotate-180 text-[#0F5A7A] dark:text-blue-400 flex-shrink-0 ml-4">
+                              <ChevronDown size={20} />
+                            </span>
+                          </summary>
 
-                          <ul className="space-y-2 ml-11">
+                          <ul className="space-y-3 px-16 pb-6 pt-2 bg-white dark:bg-slate-800 border-t border-gray-100 dark:border-white/5">
                             {category.items.map((item, itemIdx) => (
                               <li key={itemIdx} className="flex items-start text-sm text-gray-700">
-                                <div className="h-1.5 w-1.5 rounded-full bg-[#0F5A7A] mt-1.5 mr-2 flex-shrink-0"></div>
-                                <span>{item}</span>
+                                <div className="h-1.5 w-1.5 rounded-full bg-[#0F5A7A] mt-2 mr-3 flex-shrink-0"></div>
+                                <span className="leading-relaxed font-medium">{item}</span>
                               </li>
                             ))}
                           </ul>
-                        </motion.div>
+                        </details>
                       ))}
                     </div>
                   </div>
@@ -642,18 +654,18 @@ const MTechDataScience = () => {
 
                 {/* 2. ADDED SUGGESTED BOOKS CARD */}
                 {currentComponentData.refs && currentComponentData.refs.length > 0 && (
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden mt-8">
-                    <div className="bg-gray-50 p-6 border-b border-gray-200">
-                      <h4 className="text-xl font-bold text-[#0F5A7A] flex items-center">
+                  <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden mt-8 transition-colors">
+                    <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
+                      <h4 className="text-xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center">
                         <BookOpen size={24} className="mr-3" /> Suggested Books
                       </h4>
                     </div>
                     <div className="p-8">
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {currentComponentData.refs.map((book, idx) => (
-                          <li key={idx} className="flex items-start p-3 bg-blue-50 rounded-lg border border-blue-100">
-                            <Book size={18} className="text-[#0F5A7A] mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700 font-medium text-sm">{book}</span>
+                          <li key={idx} className="flex items-start p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800/30 transition-colors">
+                            <Book size={18} className="text-[#0F5A7A] dark:text-blue-400 mr-3 mt-1 flex-shrink-0" />
+                            <span className="text-gray-700 dark:text-slate-300 font-medium text-sm">{book}</span>
                           </li>
                         ))}
                       </ul>
@@ -667,11 +679,11 @@ const MTechDataScience = () => {
         </section>
 
         {/* Features */}
-        <section className="py-16">
+        <section className="py-16 bg-white dark:bg-[#020817] transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">What You'll Get</h2>
-              <p className="text-gray-600 text-lg">Specialized training for interdisciplinary success</p>
+              <h2 className="text-4xl font-bold text-[#0F5A7A] dark:text-blue-400 mb-4">What You'll Get</h2>
+              <p className="text-gray-600 dark:text-slate-400 text-lg">Specialized training for interdisciplinary success</p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -680,10 +692,10 @@ const MTechDataScience = () => {
                   key={index}
                   {...fadeInUp}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                  className="flex items-start space-x-3 bg-white dark:bg-slate-900/50 p-4 rounded-lg shadow-md hover:shadow-lg dark:hover:shadow-blue-500/10 transition-all border border-transparent dark:border-white/5"
                 >
-                  <CheckCircle className="text-green-500 flex-shrink-0 mt-1" size={24} />
-                  <span className="text-gray-700">{feature}</span>
+                  <CheckCircle className="text-green-500 dark:text-green-400 flex-shrink-0 mt-1" size={24} />
+                  <span className="text-gray-700 dark:text-slate-200">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -699,8 +711,8 @@ const MTechDataScience = () => {
                 Join our specialized program and prepare for the exciting world of data science, technology, and economics.
               </p>
               <Link to="/contact">
-                <Button className="bg-white text-[#0F5A7A] hover:bg-gray-100 font-semibold px-8 py-6 text-lg rounded-lg transition-colors">
-                  Get Started Today <ArrowRight className="ml-2" size={20} />
+                <Button className="group bg-white text-[#0F5A7A] hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
+                  Get Started Today <ArrowRight className="ml-2 group-hover:translate-x-1.5 transition-transform duration-300" size={20} />
                 </Button>
               </Link>
             </motion.div>

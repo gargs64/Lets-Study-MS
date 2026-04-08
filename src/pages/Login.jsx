@@ -104,7 +104,7 @@ const Login = () => {
         <title>Free Study Material - Let's Study School of Mathematics</title>
         <meta name="description" content="Access free study materials, notes, and previous year questions for JEE, JAM, NET, and University Exams." />
         <link rel="canonical" href="https://letsstudyms.com/login" />
-        <meta property="og:title" content="Free Study Material | Let's Study MS - School of Mathematics" />
+        <meta property="og:title" content="Free Study Material | Let's Study - School of Mathematics" />
         <meta property="og:description" content="Access free study materials, notes, and previous year questions for JAM, NET, GATE and University Exams." />
         <meta property="og:url" content="https://letsstudyms.com/login" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
@@ -113,58 +113,68 @@ const Login = () => {
       {/* Header */}
       <Header />
 
-      <div className="min-h-screen bg-gray-50 py-12">
-
-        {/* Page Header */}
-        <div className="container mx-auto px-4 mb-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h1 className="text-4xl font-bold text-[#0F5A7A] mb-4">Study Repository</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Curated notes, assignments, and problem sets to help you excel in your exams.
-              Select your category below to access resources.
-            </p>
-          </motion.div>
+      <div className="min-h-screen bg-[#f8fcfd] dark:bg-[#020817] pb-24 transition-colors duration-300">
+        
+        {/* Mini-Hero Banner */}
+        <div className="relative bg-[#091C25] py-20 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#78E2FF]">
+                Study Repository
+              </h1>
+              <p className="text-blue-50/80 dark:text-blue-100/90 max-w-2xl mx-auto text-lg font-light">
+                Curated notes, assignments, and problem sets to help you excel in your exams. Select your category below to unlock resources.
+              </p>
+            </motion.div>
+          </div>
         </div>
 
         {/* Grid Section */}
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative z-10 -mt-24">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {materialSections.map((section) => (
               <motion.div
                 key={section.id}
                 variants={itemVariants}
-                className="bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col"
+                className="group relative bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-white dark:border-white/5 hover:border-[#0F5A7A] dark:hover:border-blue-500/30 hover:-translate-y-2 transition-all duration-500 overflow-hidden cursor-pointer"
+                onClick={() => handlePlaceholderClick(section.title)}
               >
-                <div className="p-6 flex-1">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-lg ${section.color}`}>
-                      <section.icon size={24} />
-                    </div>
-                    {/* Placeholder Lock Icon */}
-                    <Lock size={16} className="text-gray-300" />
+                {/* Subtle blurred active indicator */}
+                <div className={`absolute top-0 right-0 -mt-6 -mr-6 w-32 h-32 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-500 blur-2xl ${section.color.split(' ')[0]}`}></div>
+                
+                <div className="flex items-start justify-between mb-6 relative z-10">
+                  <div className={`p-4 rounded-2xl ${section.color.replace('bg-', 'bg-').replace('100', '50')} dark:bg-slate-800/80 shadow-sm ring-1 ring-black/5 dark:ring-white/5 group-hover:scale-110 transition-transform duration-300`}>
+                    <section.icon size={28} className={`${section.color.split(' ')[1]} dark:text-blue-300`} />
                   </div>
-
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{section.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{section.description}</p>
+                  
+                  {/* Glass Lock Icon */}
+                  <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-md p-2 rounded-full border border-gray-100 dark:border-white/10 shadow-sm flex items-center justify-center text-gray-400 dark:text-slate-400 group-hover:text-[#0F5A7A] dark:group-hover:text-blue-400 transition-colors">
+                    <Lock size={16} />
+                  </div>
                 </div>
 
-                <div className="p-4 bg-gray-50 border-t border-gray-100 mt-auto">
-                  <button
-                    onClick={() => handlePlaceholderClick(section.title)}
-                    className="w-full flex items-center justify-center gap-2 bg-white border border-[#0F5A7A] text-[#0F5A7A] hover:bg-[#0F5A7A] hover:text-white py-2 px-4 rounded-lg transition-all duration-300 font-medium text-sm"
-                  >
-                    <Download size={16} />
-                    Access Material
-                  </button>
+                <div className="relative z-10 mb-6">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100 mb-3 group-hover:text-[#0F5A7A] dark:group-hover:text-blue-400 transition-colors tracking-tight">{section.title}</h3>
+                  <p className="text-gray-500 dark:text-slate-400 text-sm font-medium leading-relaxed">{section.description}</p>
+                </div>
+
+                <div className="relative z-10 mt-auto pt-4 border-t border-gray-100/50 dark:border-white/5">
+                  <div className="flex items-center text-sm font-bold text-[#0F5A7A] dark:text-blue-400 group-hover:text-[#0d4a63] dark:group-hover:text-blue-300 transition-colors">
+                    <Download size={16} className="mr-2" />
+                    Unlock Material
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -172,18 +182,26 @@ const Login = () => {
 
           {/* Bottom Call to Action */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="mt-16 text-center bg-[#0F5A7A]/10 rounded-2xl p-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20 max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl relative"
           >
-            <h3 className="text-xl font-bold text-[#0F5A7A] mb-2">Can't find what you're looking for?</h3>
-            <p className="text-gray-600 mb-6">Join our student forum to request specific notes or solutions.</p>
-            <button
-              onClick={() => handlePlaceholderClick("Student Forum")}
-              className="bg-[#0F5A7A] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#0d4a63] transition-colors"
-            >
-              Request Notes
-            </button>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0F5A7A] to-[#103D51] z-0"></div>
+            <div className="absolute top-1/2 left-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -translate-y-1/2 z-0 pointer-events-none"></div>
+            
+            <div className="relative z-10 p-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+              <div className="mb-8 md:mb-0 md:mr-8">
+                <h3 className="text-3xl font-bold text-white mb-3">Can't find what you're looking for?</h3>
+                <p className="text-blue-50/80 text-lg">Join our student forum to request specific notes or solutions.</p>
+              </div>
+              <button
+                onClick={() => handlePlaceholderClick("Student Forum")}
+                className="group shrink-0 inline-flex items-center justify-center bg-white text-[#0F5A7A] hover:bg-blue-50 px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-[0_4px_15px_rgba(255,255,255,0.2)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.4)] hover:-translate-y-1"
+              >
+                Request Notes
+              </button>
+            </div>
           </motion.div>
 
         </div>

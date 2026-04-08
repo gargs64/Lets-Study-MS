@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
 import ChatBot from '@/components/ChatBot';
+import ScrollToTop from '@/components/ScrollToTop';
 import Home from '@/pages/Home';
 import Login from '@/pages/Login';
 import Testimonials from '@/pages/Testimonials';
@@ -16,7 +17,7 @@ import AdvancedCourses from '@/pages/courses/AdvancedCourses';
 
 function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -31,6 +32,7 @@ function App() {
           <Route path="/courses/phd-entrances" element={<PhDEntrances />} />
           <Route path="/courses/advanced-courses" element={<AdvancedCourses />} />
         </Routes>
+        <ScrollToTop />
         <ChatBot />
         <Toaster />
       </div>

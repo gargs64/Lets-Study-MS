@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   BookOpen, Users, Award, TrendingUp,
-  GraduationCap, Brain, Trophy, Target, Quote, ExternalLink
+  GraduationCap, Brain, Trophy, Target, Quote, ExternalLink, ArrowRight
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -62,58 +62,59 @@ const Home = () => {
       title: 'Foundation Batch',
       description: 'Build strong mathematical fundamentals for undergraduate studies',
       icon: BookOpen,
-      color: '#0F5A7A',
+      color: '#3B82F6', // Vibrant Blue
       path: '/courses/foundation-batch'
     },
     {
       title: 'Semester Batch',
       description: 'Excel in your semester exams with targeted preparation',
       icon: GraduationCap,
-      color: '#0d4a63',
+      color: '#10B981', // Vibrant Green
       path: '/courses/semester-batch'
     },
     {
       title: 'M.Sc Mathematics Entrances',
       description: 'Master entrance exams for top mathematics programs',
       icon: Brain,
-      color: '#0F5A7A',
+      color: '#8B5CF6', // Vibrant Purple
       path: '/courses/msc-mathematics'
     },
     {
       title: 'M.Tech/Data Science/M.Sc Economics',
       description: 'Specialized preparation for interdisciplinary programs',
       icon: TrendingUp,
-      color: '#0d4a63',
+      color: '#F59E0B', // Vibrant Orange
       path: '/courses/mtech-datascience'
     },
     {
       title: 'Engineering Mathematics',
       description: 'Comprehensive engineering mathematics for all branches',
       icon: Award,
-      color: '#0F5A7A',
+      color: '#EF4444', // Vibrant Red
       path: '/courses/engineering-mathematics'
     },
     {
       title: 'PhD Entrances',
       description: 'Advanced preparation for doctoral program admissions',
       icon: Trophy,
-      color: '#0d4a63',
+      color: '#14B8A6', // Vibrant Teal
       path: '/courses/phd-entrances'
     },
     {
       title: 'Advanced Courses',
       description: 'Specialized topics for research and competitive excellence',
       icon: Target,
-      color: '#0F5A7A',
+      color: '#EAB308', // Vibrant Yellow/Gold
       path: '/courses/advanced-courses'
     },
     {
       title: 'Personalized Coaching',
       description: 'One-on-one mentorship tailored to your specific needs',
       icon: Users,
-      color: '#0d4a63',
+      color: '#6366F1', // Vibrant Indigo
       path: '/contact'
     }
+
   ];
 
   const testimonials = [
@@ -242,16 +243,6 @@ const Home = () => {
       ]
     },
     {
-      name: 'Ritobrata',
-      highlight: 'IIT Patna | GATE AIR: 704',
-      details: [
-        "Graduation: St. Xavier's College, Kolkata",
-        'Post Graduation: IIT Patna',
-        'JAM AIR: 891 (2023)',
-        'GATE AIR: 704 (2024)'
-      ]
-    },
-    {
       name: 'Arijit',
       highlight: 'IISER Mohali',
       details: [
@@ -270,16 +261,6 @@ const Home = () => {
         'GATE AIR: 25 (2024)',
         'CSIR-NET AIR: 95 (2024)'
       ]
-    },
-    {
-      name: 'Subhanon',
-      highlight: 'ISI (M.Tech) | GATE AIR: 450',
-      details: [
-        'Graduation: University of Calcutta',
-        'Post Graduation: ISI (M.Tech)',
-        'GATE AIR: 450 (math-2020)',
-        'GATE AIR: 701 (DA-2024)'
-      ]
     }
 
   ];
@@ -297,21 +278,24 @@ const Home = () => {
   };
 
   const MemberCard = ({ member }) => (
-    <div className="group bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-default">
-      <div className="flex items-center space-x-4">
-        <div className="bg-[#0F5A7A]/10 p-3 rounded-full flex-shrink-0 group-hover:bg-[#0F5A7A] transition-colors duration-300">
+    <div className="group bg-white dark:bg-slate-900/60 rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 ring-1 ring-black/[0.03] dark:ring-white/[0.05] cursor-default relative overflow-hidden">
+      {/* Subtle hover background decoration */}
+      <div className="absolute top-0 right-0 -mr-6 -mt-6 w-32 h-32 rounded-full bg-[#0F5A7A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
+
+      <div className="flex items-center space-x-5 relative z-10">
+        <div className="bg-gradient-to-br from-[#0F5A7A]/10 to-[#0F5A7A]/5 p-4 rounded-2xl flex-shrink-0 group-hover:scale-110 group-hover:bg-[#0F5A7A] transition-all duration-300 ring-1 ring-[#0F5A7A]/10 group-hover:ring-[#0F5A7A]">
           <Users className="text-[#0F5A7A] group-hover:text-white transition-colors duration-300" size={24} />
         </div>
         <div className="flex-1">
-          <h3 className="font-bold text-gray-800 text-lg group-hover:text-[#0F5A7A] transition-colors">{member.name}</h3>
-          <p className="text-[#0F5A7A] text-xs font-bold uppercase tracking-wide">{member.highlight}</p>
+          <h3 className="font-bold text-gray-800 dark:text-slate-100 text-lg group-hover:text-[#0F5A7A] dark:group-hover:text-blue-400 transition-colors">{member.name}</h3>
+          <p className="text-[#0F5A7A] dark:text-blue-300/80 text-xs font-semibold uppercase tracking-wide mt-1">{member.highlight}</p>
         </div>
       </div>
-      <div className="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 ease-in-out">
-        <div className="pt-4 mt-4 border-t border-gray-200 text-sm text-gray-700 space-y-2">
+      <div className="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 ease-in-out relative z-10">
+        <div className="pt-5 mt-5 border-t border-gray-100 dark:border-white/5 text-sm text-gray-600 dark:text-gray-400 space-y-3 font-medium">
           {member.details.map((line, i) => (
             <div key={i} className="flex items-start">
-              <span className="text-[#0F5A7A] mr-2">•</span>
+              <span className="text-[#0F5A7A]/50 dark:text-blue-400/50 mr-3 mt-0.5">•</span>
               <p className="leading-snug">{line}</p>
             </div>
           ))}
@@ -323,47 +307,82 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Let's Study MS | Top Mathematical Institute in West Bengal for Higher Education</title>
-        <meta name="description" content="Let's Study MS is one of the top mathematical institutes in West Bengal for higher education. Coaching for IIT JAM, MSc Entrances, TIFR, NBHM, ISI MMath and PhD entrances. Faculty from IIT Kanpur, ISI Kolkata, IISc Bangalore. Join hundreds of successful students." />
+        <title>Let's Study | Top Mathematical Institute in West Bengal for Higher Education</title>
+        <meta name="description" content="Let's Study is one of the top mathematical institutes in West Bengal for higher education. Coaching for IIT JAM, MSc Entrances, TIFR, NBHM, ISI MMath and PhD entrances. Faculty from IIT Kanpur, ISI Kolkata, IISc Bangalore. Join hundreds of successful students." />
         <meta name="keywords" content="mathematical institutes in west bengal, mathematics institute west bengal higher education, mathematics coaching West Bengal, college maths tutor Kolkata, IIT JAM coaching, BSc mathematics coaching, MSc entrance preparation West Bengal, higher education maths West Bengal, best maths coaching kolkata" />
         <link rel="canonical" href="https://letsstudyms.com/" />
-        <meta property="og:title" content="Let's Study MS | Top Mathematical Institute in West Bengal for Higher Education" />
+        <meta property="og:title" content="Let's Study | Top Mathematical Institute in West Bengal for Higher Education" />
         <meta property="og:description" content="One of West Bengal's top mathematical institutes for higher education. Expert faculty, proven results, 100s of successful students at IITs, ISI, TIFR, HRI and global universities." />
         <meta property="og:url" content="https://letsstudyms.com/" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
         <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Courses","item":"https://letsstudyms.com/#courses"},{"@type":"ListItem","position":3,"name":"Contact","item":"https://letsstudyms.com/contact"}]})}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
         <Header />
 
         {/* Hero Section */}
-        <section className="bg-[#0F5A7A] text-white py-20">
-          <div className="container mx-auto px-4 text-center">
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="mb-8">
-							<img src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" alt="Logo" className="h-32 w-auto mx-auto mb-6 bg-white rounded-2xl p-4 shadow-2xl" />
-              <h1 className="text-5xl font-bold mb-2">Let's Study MS</h1>
-              <p className="text-2xl font-light">School of Mathematics</p>
+        <section className="relative bg-[#091C25] dark:bg-black text-white py-24 md:py-32 overflow-hidden">
+          {/* Animated Mesh Gradient Background equivalent */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+          
+          {/* Subtly blurred glowing orb in the background */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2FA4D9] rounded-full blur-[150px] opacity-20 z-0"></div>
+
+          {/* Floating Math Symbols */}
+          <motion.div animate={{ y: [-20, 20, -20], rotate: [0, 10, -10, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} className="absolute top-20 left-10 text-6xl text-white/10 font-serif select-none z-0">∫</motion.div>
+          <motion.div animate={{ y: [20, -20, 20], rotate: [0, -15, 15, 0] }} transition={{ duration: 15, repeat: Infinity, ease: 'linear' }} className="absolute bottom-20 right-20 text-8xl text-white/10 font-serif select-none z-0">∑</motion.div>
+          <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }} transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-40 right-1/4 text-7xl text-white/10 font-serif select-none z-0">∞</motion.div>
+          <motion.div animate={{ x: [-30, 30, -30], y: [-10, 10, -10] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-40 left-1/4 text-5xl text-white/10 font-serif select-none z-0">π</motion.div>
+
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mb-10">
+              <img src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" alt="Logo" className="h-32 w-auto mx-auto mb-8 bg-white/90 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:scale-105 transition-transform duration-500" />
+              <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#78E2FF]">
+                  Let's Study
+                </span>
+              </h1>
+              <p className="text-2xl md:text-3xl font-light text-blue-50/90">School of Mathematics</p>
             </motion.div>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-xl italic max-w-3xl mx-auto">
-              "Mathematics is not about numbers, equations, or algorithms: <br />
-              it is about understanding."
-              <span className="block mt-2 text-sm">- William Paul Thurston</span>
-            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.8, delay: 0.3 }} 
+              className="max-w-3xl mx-auto"
+            >
+              <div className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                <Quote className="text-blue-300/40 w-12 h-12 mb-6 mx-auto" />
+                <p className="text-xl md:text-2xl italic leading-relaxed text-blue-50">
+                  "Mathematics is not about numbers, equations, or algorithms: <br className="hidden md:block" />
+                  it is about understanding."
+                </p>
+                <div className="mt-8 flex items-center justify-center space-x-4">
+                  <div className="h-px w-12 bg-blue-300/30"></div>
+                  <span className="text-sm font-bold tracking-widest uppercase text-blue-300">William Paul Thurston</span>
+                  <div className="h-px w-12 bg-blue-300/30"></div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Why Join Us */}
-<section className="py-16 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <h2 className="text-4xl font-bold text-center text-[#0F5A7A] mb-12">Why Join Us?</h2>
+        <section className="py-16 bg-gray-50 dark:bg-[#020817]/50 transition-colors duration-300">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-12">Why Join Us?</h2>
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
       {whyJoinUsItems.map((item, index) => (
         <motion.div
           key={index}
           {...fadeInUp}
-          className="bg-gradient-to-br from-[#0F5A7A] to-[#0d4a63] rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          className="bg-gradient-to-br from-[#0F5A7A] to-[#103D51] rounded-3xl shadow-[0_8px_30px_rgba(15,90,122,0.15)] overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,90,122,0.3)] ring-1 ring-white/10 group relative"
         >
+          {/* Subtle light sweep effect */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
+          
           {/* LOGIC: Check if it has a link, then check if external or internal */}
           {item.link ? (
             item.isExternal ? (
@@ -372,24 +391,23 @@ const Home = () => {
                 href={item.link} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block p-8 h-full text-white cursor-pointer"
+                className="block p-8 h-full text-white cursor-pointer relative z-10"
               >
-                <div className="flex justify-between items-start">
-                  <item.icon size={48} className="mb-4" />
-                  <ExternalLink size={20} className="opacity-50" />
+                <div className="flex justify-between items-start mb-6">
+                  <div className="bg-white/10 p-4 rounded-2xl group-hover:bg-white/20 transition-colors duration-300 ring-1 ring-white/10">
+                    <item.icon size={32} className="group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <ExternalLink size={20} className="opacity-50 group-hover:opacity-100 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300" />
                 </div>
-                {/* No underline classes here */}
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                <p className="text-justify text-gray-100">{item.description}</p>
+                <h3 className="text-xl font-bold mb-3 tracking-wide">{item.title}</h3>
+                <p className="text-blue-50/80 leading-relaxed text-sm font-medium">{item.description}</p>
               </a>
             ) : (
               // 2. Internal Link (Foundation/Team) - Whole Card Clickable
               <Link 
                 to={item.link} 
-                // Using onClick to ensure scroll to top
                 onClick={() => {
                   if(item.link.startsWith('#')) {
-                    // Handle anchor scroll manually if needed, or let standard behavior work
                     const id = item.link.replace('#', '');
                     const el = document.getElementById(id);
                     if(el) el.scrollIntoView({ behavior: 'smooth' });
@@ -397,41 +415,66 @@ const Home = () => {
                     window.scrollTo(0, 0);
                   }
                 }}
-                className="block p-8 h-full text-white cursor-pointer"
+                className="block p-8 h-full text-white cursor-pointer relative z-10"
               >
-                <item.icon size={48} className="mb-4" />
-                {/* Removed underline classes */}
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                <p className="text-justify text-gray-100">{item.description}</p>
+                <div className="bg-white/10 p-4 inline-block rounded-2xl mb-6 group-hover:bg-white/20 transition-colors duration-300 ring-1 ring-white/10">
+                  <item.icon size={32} className="group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 tracking-wide">{item.title}</h3>
+                <p className="text-blue-50/80 leading-relaxed text-sm font-medium">{item.description}</p>
               </Link>
-                  )
-            ) : (
+            )
+          ) : (
             // 3. No Link (Proven Results) - Just a div
-            <div className="block p-8 h-full text-white cursor-default">
-              <item.icon size={48} className="mb-4" />
-              <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-              <p className="text-justify text-gray-100">{item.description}</p>
-                      </div>
-                    )}
-                  </motion.div>
+            <div className="block p-8 h-full text-white cursor-default relative z-10">
+                <div className="bg-white/10 p-4 inline-block rounded-2xl mb-6 group-hover:bg-white/20 transition-colors duration-300 ring-1 ring-white/10">
+                  <item.icon size={32} className="group-hover:scale-110 transition-transform duration-300" />
+                </div>
+              <h3 className="text-xl font-bold mb-3 tracking-wide">{item.title}</h3>
+              <p className="text-blue-50/80 leading-relaxed text-sm font-medium">{item.description}</p>
+            </div>
+          )}
+        </motion.div>
                 ))}
               </div>
             </div>
         </section>
 
         {/* Courses Section */}
-        <section id="courses" className="py-20 bg-white scroll-mt-20">
+        <section id="courses" className="py-20 bg-white dark:bg-[#020817] scroll-mt-20 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center text-[#0F5A7A] mb-12">Our Courses</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <h2 className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-12">Our Courses</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {courses.map((course, index) => (
                 <motion.div key={index} {...fadeInUp}>
-                  <Link to={course.path} onClick={() => window.scrollTo(0, 0)}>
-                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border-t-4 h-full" style={{ borderColor: course.color }}>
-                      <course.icon size={36} style={{ color: course.color }} className="mb-4" />
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">{course.title}</h3>
-                      <p className="text-gray-600 text-sm">{course.description}</p>
+                  <Link to={course.path} onClick={() => window.scrollTo(0, 0)} className="block h-full group">
+                    <div className="bg-white dark:bg-slate-900/50 p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 ring-1 ring-black/[0.03] dark:ring-white/[0.05] h-full relative overflow-hidden group/card">
+                      {/* Vibrant background glow on hover */}
+                      <div 
+                        className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-3xl"
+                        style={{ backgroundColor: course.color }}
+                      ></div>
+                      
+                      <div 
+                        className="inline-flex items-center justify-center p-4 rounded-2xl mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm ring-1 ring-black/5" 
+                        style={{ backgroundColor: course.color + '15', color: course.color }}
+                      >
+                        <course.icon size={32} strokeWidth={2.5} />
+                      </div>
+                      
+                      <h3 className="text-xl font-extrabold text-gray-800 dark:text-slate-100 mb-4 group-hover:text-[#0F5A7A] dark:group-hover:text-blue-400 transition-colors tracking-tight">
+                        {course.title}
+                      </h3>
+                      <p className="text-gray-500 dark:text-slate-400 leading-relaxed text-sm font-medium opacity-80 group-hover:opacity-100 transition-opacity">
+                        {course.description}
+                      </p>
+                      
+                      {/* Arrow link indicator */}
+                      <div className="mt-8 flex items-center text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0" style={{ color: course.color }}>
+                        Explore Course <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
+
                   </Link>
                 </motion.div>
               ))}
@@ -440,9 +483,9 @@ const Home = () => {
         </section>
 
         {/* Success Stories Section */}
-        <section id="success-stories" className="py-20 bg-white scroll-mt-20">
+        <section id="success-stories" className="py-20 bg-white dark:bg-[#020817] scroll-mt-20 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <motion.h2 {...fadeInUp} className="text-4xl font-bold text-center text-[#0F5A7A] mb-16">Success Stories</motion.h2>
+            <motion.h2 {...fadeInUp} className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-16">Success Stories</motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {testimonials.map((student, index) => (
@@ -454,14 +497,14 @@ const Home = () => {
                   className="cursor-pointer"
                 >
                   <Link to="/testimonials" onClick={() => window.scrollTo(0, 0)} className="block h-full">
-                    <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:border-[#0F5A7A] transition-all h-full">
+                    <div className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-white/5 flex flex-col items-center text-center group hover:border-[#0F5A7A] dark:hover:border-blue-400 transition-all h-full">
                       <div className="relative -mt-16 mb-4">
                         <img src={student.image} alt={student.name} className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-800">{student.name}</h3>
-                      <p className="text-[#0F5A7A] text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
-                      <p className="text-gray-400 text-[10px] mb-4">{student.current}</p>
-                      <div className="relative italic text-gray-600 text-sm">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-slate-100">{student.name}</h3>
+                      <p className="text-[#0F5A7A] dark:text-blue-300/80 text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
+                      <p className="text-gray-400 dark:text-slate-500 text-[10px] mb-4">{student.current}</p>
+                      <div className="relative italic text-gray-600 dark:text-slate-400 text-sm">
                         <Quote size={12} className="inline mr-1 opacity-20" /> {student.quote}
                       </div>
                     </div>
@@ -485,12 +528,12 @@ const Home = () => {
         </section>
 
         {/* TEAM SECTION */}
-        <section id="team" className="py-20 bg-gray-50 scroll-mt-20 overflow-hidden">
+        <section id="team" className="py-20 bg-gray-50 dark:bg-[#020817]/50 scroll-mt-20 overflow-hidden transition-colors duration-300">
           <div className="container mx-auto px-4">
 
             <motion.h2
               {...fadeInUp}
-              className="text-4xl font-bold text-center text-[#0F5A7A] mb-16 drop-shadow-sm"
+              className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-16 drop-shadow-sm"
             >
               Our Team of Mentors
             </motion.h2>
@@ -551,11 +594,11 @@ const Home = () => {
         </section>
 
         {/* Final Year Target Badge */}
-        <div className="mt-12 mb-24 bg-gradient-to-r from-[#0d4a63] to-[#0F5A7A] p-8 text-white text-center shadow-lg">
+        <div className="mt-12 mb-24 bg-gradient-to-r from-[#0d4a63] to-[#0F5A7A] dark:from-slate-900 dark:to-[#0F5A7A]/50 p-8 text-white text-center shadow-lg">
           <div className="flex justify-center mb-4">
             <Award size={40} className="text-yellow-400" />
           </div>
-          <p className="text-white px-4 md:px-12 leading-relaxed">
+          <p className="text-white/90 dark:text-blue-100 px-4 md:px-12 leading-relaxed">
             You will never prepare alone - at every step, an exam expert stands with you, <br />
             guiding, correcting, and strengthening your journey until success.
           </p>

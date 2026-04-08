@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  @apply bg-white text-gray-900;
+  font-family: 'Outfit', sans-serif;
+  @apply bg-white text-gray-900 transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-[#020817] text-slate-100;
 }
 
 @layer base {

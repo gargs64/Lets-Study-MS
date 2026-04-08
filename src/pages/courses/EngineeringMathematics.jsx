@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Award, Clock, Users, CheckCircle, ArrowRight,
   ChevronDown, BookOpen, Library, GraduationCap,
-  Calculator, Sigma, Book, ScrollText
+  Calculator, Sigma, Book, ScrollText, Sparkles, Layers
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -184,7 +184,7 @@ const EngineeringMathematics = () => {
   return (
     <>
       <Helmet>
-        <title>Engineering Mathematics Coaching West Bengal | GATE Preparation | Let's Study MS</title>
+        <title>Engineering Mathematics Coaching West Bengal | GATE Preparation | Let's Study</title>
         <meta name="description" content="Engineering Mathematics coaching for college students in West Bengal. GATE mathematics preparation, semester coaching and competitive exam training by expert faculty. Students have secured GATE AIR 25, AIR 250 and AIR 450." />
         <meta name="keywords" content="engineering mathematics coaching West Bengal, GATE maths preparation Kolkata, engineering maths tutor West Bengal, B.Tech mathematics coaching" />
         <link rel="canonical" href="https://letsstudyms.com/courses/engineering-mathematics" />
@@ -192,81 +192,105 @@ const EngineeringMathematics = () => {
         <meta property="og:url" content="https://letsstudyms.com/courses/engineering-mathematics" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
         <Header />
 
-        <section className="bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-white py-20">
-          <div className="container mx-auto px-4 text-center">
+        {/* Mini-Hero Banner */}
+        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <Award size={64} className="mx-auto mb-6" />
-              <h1 className="text-5xl font-bold mb-4">Engineering Mathematics</h1>
-              <p className="text-xl">Mathematics for GATE & Semester Exams (JU, MAKAUT & More)</p>
+              <div className="bg-white/10 dark:bg-white/5 w-20 h-20 rounded-2xl backdrop-blur-md flex items-center justify-center mx-auto mb-6 ring-1 ring-white/20 shadow-2xl">
+                <Calculator size={40} className="text-[#78E2FF]" />
+              </div>
+              <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#78E2FF]">
+                Engineering Mathematics
+              </h1>
+              <p className="text-blue-50/90 text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                Excel in GATE and University Semesters with our application-focused mathematical training.
+              </p>
             </motion.div>
           </div>
-        </section>
+        </div>
         {/* Course Overview */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-bold text-[#0F5A7A] mb-6">Course Overview</h2>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  Our Engineering Mathematics program is designed to help students excel in GATE as well as semester examinations
-                  of universities such as Jadavpur University (JU), MAKAUT, and other leading engineering institutions. The course
-                  focuses on building strong conceptual foundations while training students to solve problems with speed, accuracy,
-                  and clarity.
-                </p>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  With structured coverage of core topics—Linear Algebra, Calculus, Differential Equations, Probability, and Complex Analysis—combined
-                  with rigorous problem practice and exam-oriented strategies, this program ensures you are fully prepared for both competitive exams
-                  and academic assessments. Guided by expert faculty with strong academic and research backgrounds, you gain the depth and confidence
-                  required to score high and stand out.
-                </p>
+                <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-8 tracking-tight">Technical Mastery</h2>
+                <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
+                  <p className="text-justify hyphens-auto">
+                    Our Engineering Mathematics program is designed to help students excel in GATE as well as semester examinations
+                    of universities such as Jadavpur University (JU), MAKAUT, and other leading engineering institutions. The course
+                    focuses on building strong conceptual foundations while training students to solve problems with speed, accuracy,
+                    and clarity.
+                  </p>
+                  <p className="text-justify hyphens-auto">
+                    With structured coverage of core topics—Linear Algebra, Calculus, Differential Equations, Probability, and Complex Analysis—combined
+                    with rigorous problem practice and exam-oriented strategies, this program ensures you are fully prepared for both competitive exams
+                    and academic assessments.
+                  </p>
+                </div>
               </motion.div>
 
-              <motion.div
-                {...fadeInUp}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img className="w-full h-96 rounded-xl shadow-2xl object-cover" alt="Students preparing for M.Sc Mathematics entrance exams" src="https://i.postimg.cc/8chj7RsB/pexels-jeswin-3380743.jpg" />
+              <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <img
+                  src="https://i.postimg.cc/8chj7RsB/pexels-jeswin-3380743.jpg"
+                  alt="Engineering Mathematics Preparation"
+                  className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
+                />
               </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-gray-50">
+        {/* Curriculum Explorer */}
+        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 text-center transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">Curriculum Explorer</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Program Track</label>
-                  <select
-                    value={selectedComponent}
-                    onChange={handleComponentChange}
-                    className="w-full bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none"
-                  >
-                    <option value="gate">Mathematics for GATE</option>
-                    <option value="semester">Semester Support</option>
-                  </select>
+            <motion.div {...fadeInUp} className="mb-16">
+              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">Technical Curriculum Roadmap</h2>
+              <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                Choose your track to access specialized modules tailored for GATE rank expansion and university semester success.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mt-16">
+                <div className="relative group text-left">
+                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Academic Track</label>
+                  <div className="relative">
+                    <select
+                      value={selectedComponent}
+                      onChange={handleComponentChange}
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                    >
+                      <option value="gate">Mathematics for GATE</option>
+                      <option value="semester">Semester Support</option>
+                    </select>
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                  </div>
                 </div>
 
                 {currentData.type === 'nested_topics' && (
-                  <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Select Module</label>
-                    <select
-                      value={selectedSubOption}
-                      onChange={(e) => setSelectedSubOption(e.target.value)}
-                      className="w-full bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none"
-                    >
-                      {currentData.subOptions.map(option => (
-                        <option key={option.id} value={option.id}>{option.name}</option>
-                      ))}
-                    </select>
+                  <div className="relative group text-left">
+                    <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Syllabus Module</label>
+                    <div className="relative">
+                      <select
+                        value={selectedSubOption}
+                        onChange={(e) => setSelectedSubOption(e.target.value)}
+                        className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      >
+                        {currentData.subOptions.map(option => (
+                          <option key={option.id} value={option.id}>{option.name}</option>
+                        ))}
+                      </select>
+                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                    </div>
                   </div>
                 )}
               </div>
@@ -284,19 +308,19 @@ const EngineeringMathematics = () => {
                 {currentData.type === 'nested_topics' && (() => {
                   const topicData = currentData.subOptions.find(o => o.id === selectedSubOption);
                   return (
-                    <div className="bg-white rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] overflow-hidden">
-                      <div className="p-8 border-b border-gray-100">
-                        <h3 className="text-3xl font-bold text-[#0F5A7A] flex items-center mb-2">
+                    <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] dark:border-blue-400 overflow-hidden ring-1 ring-black/5 dark:ring-white/5 transition-colors">
+                      <div className="p-8 border-b border-gray-100 dark:border-white/5">
+                        <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center mb-2">
                           <Calculator className="mr-3" /> {topicData.name}
                         </h3>
-                        <p className="text-gray-600 italic">{topicData.description}</p>
+                        <p className="text-gray-600 dark:text-slate-400 italic">{topicData.description}</p>
                       </div>
-                      <div className="p-8 bg-gray-50">
+                      <div className="p-8 bg-gray-50 dark:bg-white/5 transition-colors">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {topicData.topics.map((t, idx) => (
-                            <div key={idx} className="bg-white p-3 rounded shadow-sm border border-gray-200 flex items-start">
-                              <Sigma size={16} className="text-[#0F5A7A] mr-2 mt-1 flex-shrink-0" />
-                              <span className="text-gray-700 font-medium">{t}</span>
+                            <div key={idx} className="bg-white dark:bg-slate-800 p-3 rounded shadow-sm border border-gray-200 dark:border-white/5 flex items-start group">
+                              <Sigma size={16} className="text-[#0F5A7A] dark:text-blue-400 mr-2 mt-1 flex-shrink-0" />
+                              <span className="text-gray-700 dark:text-slate-300 font-medium">{t}</span>
                             </div>
                           ))}
                         </div>
@@ -309,24 +333,24 @@ const EngineeringMathematics = () => {
                   const uniData = currentData.subOptions.find(o => o.id === selectedUni);
                   return (
                     <div>
-                      <div className="bg-white p-8 rounded-2xl shadow-lg border-t-8 border-[#0F5A7A] mb-8">
-                        <h3 className="text-3xl font-bold text-[#0F5A7A] flex items-center mb-2">
+                      <div className="bg-white dark:bg-slate-900/60 p-8 rounded-2xl shadow-lg border-t-8 border-[#0F5A7A] dark:border-blue-500 mb-8 ring-1 ring-black/5 dark:ring-white/5 transition-colors">
+                        <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-300 flex items-center mb-2">
                           <Library className="mr-3" /> {uniData.name}
                         </h3>
-                        <p className="text-gray-600 italic">{uniData.description}</p>
+                        <p className="text-gray-600 dark:text-slate-400 italic">{uniData.description}</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {uniData.semesters.map((sem, idx) => (
                           <motion.div
                             key={idx}
-                            className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden"
+                            className="bg-white dark:bg-slate-900/60 rounded-xl shadow-md border border-gray-100 dark:border-white/5 overflow-hidden transition-colors"
                           >
-                            <div className="bg-[#0F5A7A] text-white p-4">
+                            <div className="bg-[#0F5A7A] dark:bg-[#0F5A7A]/80 text-white p-4">
                               <h4 className="font-bold text-lg">{sem.title}</h4>
                             </div>
                             <div className="p-6">
-                              <h5 className="text-[#0F5A7A] font-bold text-xs uppercase tracking-wider mb-3">Syllabus:</h5>
-                              <ul className="list-disc list-inside text-sm text-gray-700 space-y-2">
+                              <h5 className="text-[#0F5A7A] dark:text-blue-400 font-bold text-xs uppercase tracking-wider mb-3">Syllabus:</h5>
+                              <ul className="list-disc list-inside text-sm text-gray-700 dark:text-slate-300 space-y-2">
                                 {sem.topics.map((t, i) => <li key={i}>{t}</li>)}
                               </ul>
                             </div>

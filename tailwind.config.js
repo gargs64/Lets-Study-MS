@@ -20,6 +20,7 @@ module.exports = {
 				sans: ['Outfit', 'sans-serif'],
 			},
 			colors: {
+				'brand-teal': 'hsl(var(--brand-teal) / <alpha-value>)',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

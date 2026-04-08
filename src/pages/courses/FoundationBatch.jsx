@@ -320,14 +320,20 @@ const FoundationBatch = () => {
         <meta property="og:description" content="University-specific curriculum for Jadavpur, Calcutta, St. Xavier's and Presidency University BSc students. Build a world-class mathematical foundation." />
         <meta property="og:url" content="https://letsstudyms.com/courses/foundation-batch" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Foundation Batch | BSc Mathematics Coaching West Bengal" />
+        <meta name="twitter:description" content="University-specific curriculum for Jadavpur, Calcutta, St. Xavier's and Presidency University BSc students." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
+      <div className="min-h-screen mesh-bg noise-overlay">
         <Header />
+        <main>
 
         {/* Mini-Hero Banner */}
-        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+        <div className="relative bg-[#091C25] pt-32 pb-24 md:pt-40 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
           
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -354,7 +360,7 @@ const FoundationBatch = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-bold text-[#0F5A7A] dark:text-blue-400 mb-6">Course Overview</h2>
+                <h2 className="text-4xl font-bold text-brand-teal dark:text-blue-400 mb-6">Course Overview</h2>
                 <p className="text-justify hyphens-auto text-gray-700 dark:text-slate-300 text-lg mb-6">
                   Our Foundation Batch is designed for students beginning their journey in higher mathematics.
                   This comprehensive program covers all essential topics required for undergraduate mathematics,
@@ -367,10 +373,11 @@ const FoundationBatch = () => {
               </motion.div>
 
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=1000"
+                  src="https://images.pexels.com/photos/8197504/pexels-photo-8197504.jpeg"
                   alt="Foundation Batch Mathematics"
+                  loading="lazy"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
                 />
               </motion.div>
@@ -379,10 +386,10 @@ const FoundationBatch = () => {
         </section>
 
         {/* Curriculum Section */}
-        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 transition-colors duration-300">
+        <section className="py-16 bg-transparent transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">University Curriculum Explorer</h2>
+              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-6 tracking-tight">University Curriculum Explorer</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                 Select your university to view the detailed semester-wise breakdown designed for academic excellence.
               </p>
@@ -390,12 +397,12 @@ const FoundationBatch = () => {
               {/* Selector */}
               <div className="flex justify-center mt-12">
                 <div className="relative group min-w-[320px]">
-                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1 text-left">Academic Track</label>
+                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1 text-left">Academic Track</label>
                   <div className="relative">
                     <select
                       value={selectedTrack}
                       onChange={(e) => setSelectedTrack(e.target.value)}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       <option value="ju">Jadavpur University</option>
                       <option value="cu">Calcutta University</option>
@@ -403,7 +410,7 @@ const FoundationBatch = () => {
                       <option value="pu">Presidency University</option>
                       <option value="common">Common Track (Competitive)</option>
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={20} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={20} />
                   </div>
                 </div>
               </div>
@@ -419,27 +426,27 @@ const FoundationBatch = () => {
                 className="max-w-6xl mx-auto"
               >
                 {/* Track Details Card */}
-                <div className="bg-[#0F5A7A] rounded-[2.5rem] p-10 mb-16 flex flex-col md:flex-row items-center justify-between text-white shadow-2xl relative overflow-hidden group">
+                <div className="bg-brand-teal rounded-[2.5rem] p-8 md:p-10 mb-16 flex flex-col md:flex-row items-center justify-between text-white shadow-2xl relative overflow-hidden group gap-8">
                   <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/5 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
-                  <div className="relative z-10 mb-6 md:mb-0 text-center md:text-left">
+                  <div className="relative z-10 mb-6 md:mb-0 text-center md:text-left flex-1">
                     <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-xs font-bold tracking-[0.2em] uppercase mb-4 ring-1 ring-white/20">
                       Undergraduate Module
                     </div>
-                    <h3 className="text-4xl font-black mb-2 tracking-tight">
+                    <h3 className="text-3xl md:text-4xl font-black mb-2 tracking-tight">
                       {CURRICULA[selectedTrack].name}
                     </h3>
-                    <p className="text-blue-100/80 dark:text-blue-200/80 font-light text-xl italic">{CURRICULA[selectedTrack].description}</p>
+                    <p className="text-blue-100/80 dark:text-blue-200/80 font-light text-lg md:text-xl italic max-w-2xl">{CURRICULA[selectedTrack].description}</p>
                   </div>
-                  <div className="relative z-10 text-center md:text-right">
+                  <div className="relative z-10 text-center md:text-right flex-shrink-0">
                     <span className="text-blue-200 text-xs font-bold tracking-widest uppercase opacity-70">Focus Era</span>
-                    <div className="text-5xl font-black mt-1">2026-27</div>
+                    <div className="text-4xl md:text-5xl font-black mt-1 whitespace-nowrap">2026-27</div>
                   </div>
                 </div>
 
                 {/* Additional Note */}
                 {CURRICULA[selectedTrack].specialNote && (
-                  <div className="bg-[#0F5A7A]/5 dark:bg-blue-500/5 border-l-4 border-[#0F5A7A] p-6 rounded-r-2xl mb-16 backdrop-blur-sm ring-1 ring-[#0F5A7A]/10 dark:ring-white/5">
-                    <h4 className="text-lg font-black text-[#0F5A7A] dark:text-blue-400 mb-2 flex items-center">
+                  <div className="bg-brand-teal/5 dark:bg-blue-500/5 border-l-4 border-brand-teal p-6 rounded-r-2xl mb-16 backdrop-blur-sm ring-1 ring-brand-teal/10 dark:ring-white/5">
+                    <h4 className="text-lg font-black text-brand-teal dark:text-blue-400 mb-2 flex items-center">
                       <Award className="mr-3" size={20} /> Special Academic Note
                     </h4>
                     <p className="text-justify hyphens-auto text-gray-700 dark:text-slate-300 leading-relaxed text-sm font-medium">
@@ -454,21 +461,21 @@ const FoundationBatch = () => {
                       key={sem.id}
                       {...fadeInUp}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-white dark:bg-slate-900/60 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.03] dark:ring-white/[0.05] overflow-hidden hover:shadow-2xl hover:shadow-[#0F5A7A]/10 dark:hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500 group/sem-card"
+                      className="bg-white dark:bg-slate-900/60 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.03] dark:ring-white/[0.05] overflow-hidden hover:shadow-2xl hover:shadow-brand-teal/10 dark:hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500 group/sem-card"
                     >
-                      <div className="bg-gray-50/50 dark:bg-white/5 p-6 border-b border-gray-100 dark:border-white/5 flex items-center justify-between group-hover/sem-card:bg-[#0F5A7A]/5 dark:group-hover/sem-card:bg-[#0F5A7A]/10 transition-colors">
+                      <div className="bg-gray-50/50 dark:bg-white/5 p-6 border-b border-gray-100 dark:border-white/5 flex items-center justify-between group-hover/sem-card:bg-brand-teal/5 dark:group-hover/sem-card:bg-brand-teal/10 transition-colors">
                         <div className="flex items-center">
-                          <div className="bg-[#0F5A7A] text-white p-2.5 rounded-xl mr-4 shadow-lg shadow-[#0F5A7A]/20">
+                          <div className="bg-brand-teal text-white p-2.5 rounded-xl mr-4 shadow-lg shadow-brand-teal/20">
                             <Layers size={20} />
                           </div>
                           <h4 className="text-xl font-extrabold text-gray-800 dark:text-slate-100 tracking-tight">{sem.title}</h4>
                         </div>
-                        <span className="text-xs font-bold tracking-widest uppercase text-[#0F5A7A]/40 group-hover/sem-card:text-[#0F5A7A] transition-colors">Sem {sem.id}</span>
+                        <span className="text-xs font-bold tracking-widest uppercase text-brand-teal/40 group-hover/sem-card:text-brand-teal transition-colors">Sem {sem.id}</span>
                       </div>
                       
                       <div className="p-8 space-y-8">
                         <div>
-                          <h5 className="text-[#0F5A7A] dark:text-blue-400 font-extrabold flex items-center mb-5 text-xs uppercase tracking-widest">
+                          <h5 className="text-brand-teal dark:text-blue-400 font-extrabold flex items-center mb-5 text-xs uppercase tracking-widest">
                             <BookOpen size={18} className="mr-3" /> Core Topics
                           </h5>
                           <div className="space-y-3">
@@ -476,13 +483,13 @@ const FoundationBatch = () => {
                               <details key={i} className="group/item bg-gray-50/50 dark:bg-white/5 rounded-2xl border border-gray-100 dark:border-white/5 overflow-hidden open:shadow-md transition-all duration-300">
                                 <summary className="flex items-center justify-between p-4 cursor-pointer font-bold text-gray-800 dark:text-slate-200 list-none hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                                   <div className="flex items-center">
-                                    <div className="h-1.5 w-1.5 rounded-full bg-[#0F5A7A] dark:bg-blue-400 mr-3"></div>
-                                    <span className="text-[#0F5A7A] dark:text-blue-300 text-sm font-semibold">{topic}</span>
+                                    <div className="h-1.5 w-1.5 rounded-full bg-brand-teal dark:bg-blue-400 mr-3"></div>
+                                    <span className="text-brand-teal dark:text-blue-300 text-sm font-semibold">{topic}</span>
                                   </div>
-                                  <ChevronDown size={14} className="transition-transform duration-300 group-open/item:rotate-180 text-[#0F5A7A] dark:text-blue-400" />
+                                  <ChevronDown size={14} className="transition-transform duration-300 group-open/item:rotate-180 text-brand-teal dark:text-blue-400" />
                                 </summary>
                                 <div className="px-8 pb-5 pt-2 text-xs text-gray-600 bg-white border-t border-gray-50 leading-relaxed font-medium">
-                                  In-depth study of <span className="text-[#0F5A7A] font-bold">{topic}</span> including theoretical frameworks and university examination patterns.
+                                  In-depth study of <span className="text-brand-teal font-bold">{topic}</span> including theoretical frameworks and university examination patterns.
                                 </div>
                               </details>
                             ))}
@@ -490,12 +497,12 @@ const FoundationBatch = () => {
                         </div>
 
                         <div className="pt-6 border-t border-gray-100">
-                          <h5 className="text-[#0F5A7A] font-extrabold flex items-center mb-4 text-xs uppercase tracking-widest">
+                          <h5 className="text-brand-teal font-extrabold flex items-center mb-4 text-xs uppercase tracking-widest">
                             <Book size={18} className="mr-3" /> References
                           </h5>
                           <div className="flex flex-wrap gap-2">
                             {sem.refs.map((ref, i) => (
-                              <span key={i} className="text-[10px] uppercase font-bold bg-[#0F5A7A]/5 text-[#0F5A7A] px-3 py-1.5 rounded-lg border border-[#0F5A7A]/10 tracking-wider">
+                              <span key={i} className="text-[10px] uppercase font-bold bg-brand-teal/5 text-brand-teal px-3 py-1.5 rounded-lg border border-brand-teal/10 tracking-wider">
                                 {ref}
                               </span>
                             ))}
@@ -523,10 +530,10 @@ const FoundationBatch = () => {
         </section>
 
         {/* Features */}
-        <section className="py-20 bg-white dark:bg-[#020817] transition-colors duration-300">
+        <section className="py-20 bg-transparent dark:bg-[#020817] transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-4 tracking-tight">What You'll Get</h2>
+              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-4 tracking-tight">What You'll Get</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg font-light tracking-wide">Everything you need to build a strong foundation in mathematics</p>
             </motion.div>
 
@@ -536,7 +543,7 @@ const FoundationBatch = () => {
                   key={index}
                   {...fadeInUp}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-center space-x-5 bg-gray-50/50 dark:bg-slate-900/50 p-6 rounded-[2rem] ring-1 ring-gray-100 dark:ring-white/5 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:shadow-[#0F5A7A]/5 transition-all duration-300 group"
+                  className="flex items-center space-x-5 bg-gray-50/50 dark:bg-slate-900/50 p-6 rounded-[2rem] ring-1 ring-gray-100 dark:ring-white/5 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:shadow-brand-teal/5 transition-all duration-300 group"
                 >
                   <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-xl group-hover:bg-green-500 transition-colors duration-300">
                     <CheckCircle className="text-green-600 dark:text-green-400 group-hover:text-white transition-colors duration-300" size={24} />
@@ -549,7 +556,7 @@ const FoundationBatch = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63]">
+        <section className="py-16 bg-gradient-to-r from-brand-teal to-[#0d4a63]">
           <div className="container mx-auto px-4 text-center">
             <motion.div {...fadeInUp}>
               <h2 className="text-4xl font-bold text-white mb-6">Ready to Start Your Journey?</h2>
@@ -557,7 +564,7 @@ const FoundationBatch = () => {
                 Join our Foundation Batch and build the mathematical foundation that will support your entire academic career.
               </p>
               <Link to="/contact">
-                <Button className="group bg-white text-[#0F5A7A] hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
+                <Button className="group bg-white text-brand-teal hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
                   Enroll Now <ArrowRight className="ml-2 group-hover:translate-x-1.5 transition-transform duration-300" size={20} />
                 </Button>
               </Link>
@@ -565,6 +572,7 @@ const FoundationBatch = () => {
           </div>
         </section>
 
+        </main>
         <Footer />
       </div>
     </>

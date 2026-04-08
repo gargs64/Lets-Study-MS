@@ -483,15 +483,20 @@ const MTechDataScience = () => {
         <meta property="og:description" content="Expert coaching for MTech, Data Science and MSc Economics entrance exams. Strong mathematics foundation for interdisciplinary programs." />
         <meta property="og:url" content="https://letsstudyms.com/courses/mtech-datascience" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MTech Data Science MSc Economics Entrance Coaching" />
+        <meta name="twitter:description" content="Expert coaching for MTech, Data Science and MSc Economics entrance exams." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
+      <div className="min-h-screen mesh-bg noise-overlay">
         <Header />
+        <main>
 
-        {/* Hero Section */}
         {/* Mini-Hero Banner */}
-        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+        <div className="relative bg-[#091C25] pt-32 pb-24 md:pt-40 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
           
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -518,7 +523,7 @@ const MTechDataScience = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-8 tracking-tight">Interdisciplinary Excellence</h2>
+                <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-8 tracking-tight">Interdisciplinary Excellence</h2>
                 <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
                   <p className="text-justify hyphens-auto">
                     This specialized program caters to students aiming for interdisciplinary fields that combine
@@ -533,10 +538,11 @@ const MTechDataScience = () => {
               </motion.div>
 
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <img
                   src="https://i.postimg.cc/BQVQVS3C/pexels_cottonbro_6153354.jpg"
                   alt="Data Science Preparation"
+                  loading="lazy"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
                 />
               </motion.div>
@@ -545,45 +551,45 @@ const MTechDataScience = () => {
         </section>
 
         {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 text-center transition-colors duration-300">
+        <section className="py-16 bg-transparent text-center transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="mb-16">
-              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">Entrance Preparation Roadmap</h2>
+              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-6 tracking-tight">Entrance Preparation Roadmap</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                 Select your target track to view the detailed curriculum and specialized module breakdown.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mt-16">
                 <div className="relative group text-left">
-                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Program Track</label>
+                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Program Track</label>
                   <div className="relative">
                     <select
                       value={selectedComponent}
                       onChange={handleComponentChange}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       {Object.entries(CURRICULA).map(([key, val]) => (
                         <option key={key} value={key}>{val.name}</option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                   </div>
                 </div>
 
                 {CURRICULA[selectedComponent].type === 'nested' ? (
                   <div className="relative group text-left">
-                    <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Specialization / Paper</label>
+                    <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Specialization / Paper</label>
                     <div className="relative">
                       <select
                         value={selectedSubOption}
                         onChange={(e) => setSelectedSubOption(e.target.value)}
-                        className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                        className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                       >
                         {CURRICULA[selectedComponent].subOptions.map(option => (
                           <option key={option.id} value={option.id}>{option.name}</option>
                         ))}
                       </select>
-                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                     </div>
                   </div>
                 ) : (
@@ -602,14 +608,18 @@ const MTechDataScience = () => {
                 className="max-w-5xl mx-auto"
               >
                 {/* Header Card */}
-                <div className="bg-white dark:bg-slate-900/60 p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] dark:border-blue-500 mb-8 ring-1 ring-black/5 dark:ring-white/5 transition-colors">
-                  <div className="flex items-center mb-2">
-                    <Library className="text-[#0F5A7A] dark:text-blue-400 mr-3" size={32} />
-                    <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-300">
-                      {currentComponentData.name}
-                    </h3>
+                <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm p-8 rounded-[2rem] shadow-xl border-t-8 border-brand-teal dark:border-blue-500 mb-10 transition-colors ring-1 ring-black/[0.03] dark:ring-white/5">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-brand-teal/10 dark:bg-white/5 p-3 rounded-full mr-4 shadow-sm ring-1 ring-brand-teal/10">
+                      <Library className="text-brand-teal dark:text-blue-400" size={32} />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-3xl font-bold text-brand-teal dark:text-blue-300">
+                        {currentComponentData.name}
+                      </h3>
+                    </div>
                   </div>
-                  <p className="text-gray-600 dark:text-slate-400 text-lg italic ml-11">
+                  <p className="text-gray-600 dark:text-slate-400 text-lg italic border-l-4 border-gray-200 dark:border-white/5 pl-4 text-left">
                     {currentComponentData.description}
                   </p>
                 </div>
@@ -617,7 +627,7 @@ const MTechDataScience = () => {
                 {/* Topics Card */}
                 <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors">
                   <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
-                    <h4 className="text-xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center">
+                    <h4 className="text-xl font-bold text-brand-teal dark:text-blue-400 flex items-center">
                       <BookOpen size={24} className="mr-3" /> Syllabus Breakdown
                     </h4>
                   </div>
@@ -629,11 +639,11 @@ const MTechDataScience = () => {
                           className="group flex flex-col bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden open:shadow-md open:bg-white dark:open:bg-slate-800 transition-all h-max"
                         >
                           <summary className="flex items-center p-5 cursor-pointer font-bold text-gray-800 dark:text-slate-200 list-none shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
-                            <div className="bg-white dark:bg-slate-900 p-2 rounded-full shadow-sm text-[#0F5A7A] dark:text-blue-400 mr-4 flex-shrink-0">
+                            <div className="bg-white dark:bg-slate-900 p-2 rounded-full shadow-sm text-brand-teal dark:text-blue-400 mr-4 flex-shrink-0">
                               {idx % 2 === 0 ? <Sigma size={18} /> : <BarChart size={18} />}
                             </div>
-                            <span className="font-bold text-[#0F5A7A] dark:text-blue-300 text-lg flex-1">{category.title}</span>
-                            <span className="transition-transform duration-300 group-open:rotate-180 text-[#0F5A7A] dark:text-blue-400 flex-shrink-0 ml-4">
+                            <span className="font-bold text-brand-teal dark:text-blue-300 text-lg flex-1">{category.title}</span>
+                            <span className="transition-transform duration-300 group-open:rotate-180 text-brand-teal dark:text-blue-400 flex-shrink-0 ml-4">
                               <ChevronDown size={20} />
                             </span>
                           </summary>
@@ -641,7 +651,7 @@ const MTechDataScience = () => {
                           <ul className="space-y-3 px-16 pb-6 pt-2 bg-white dark:bg-slate-800 border-t border-gray-100 dark:border-white/5">
                             {category.items.map((item, itemIdx) => (
                               <li key={itemIdx} className="flex items-start text-sm text-gray-700">
-                                <div className="h-1.5 w-1.5 rounded-full bg-[#0F5A7A] mt-2 mr-3 flex-shrink-0"></div>
+                                <div className="h-1.5 w-1.5 rounded-full bg-brand-teal mt-2 mr-3 flex-shrink-0"></div>
                                 <span className="leading-relaxed font-medium">{item}</span>
                               </li>
                             ))}
@@ -654,18 +664,18 @@ const MTechDataScience = () => {
 
                 {/* 2. ADDED SUGGESTED BOOKS CARD */}
                 {currentComponentData.refs && currentComponentData.refs.length > 0 && (
-                  <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden mt-8 transition-colors">
-                    <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
-                      <h4 className="text-xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center">
+                  <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm rounded-[2rem] shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden mt-8 transition-colors ring-1 ring-black/[0.03] dark:ring-white/5">
+                    <div className="bg-gray-50/50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5 text-left">
+                      <h4 className="text-xl font-bold text-brand-teal dark:text-blue-400 flex items-center">
                         <BookOpen size={24} className="mr-3" /> Suggested Books
                       </h4>
                     </div>
                     <div className="p-8">
                       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {currentComponentData.refs.map((book, idx) => (
-                          <li key={idx} className="flex items-start p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800/30 transition-colors">
-                            <Book size={18} className="text-[#0F5A7A] dark:text-blue-400 mr-3 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700 dark:text-slate-300 font-medium text-sm">{book}</span>
+                          <li key={idx} className="flex items-start p-3 bg-gray-50/50 dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 hover:bg-white dark:hover:bg-slate-800 transition-all group ring-1 ring-transparent hover:ring-brand-teal/10">
+                            <Book size={18} className="text-brand-teal dark:text-blue-400 mr-3 mt-1 flex-shrink-0 opacity-50 group-hover:opacity-100" />
+                            <span className="text-gray-700 dark:text-slate-300 font-medium text-sm text-left">{book}</span>
                           </li>
                         ))}
                       </ul>
@@ -679,10 +689,10 @@ const MTechDataScience = () => {
         </section>
 
         {/* Features */}
-        <section className="py-16 bg-white dark:bg-[#020817] transition-colors duration-300">
+        <section className="py-16 bg-transparent dark:bg-[#020817] transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] dark:text-blue-400 mb-4">What You'll Get</h2>
+              <h2 className="text-4xl font-bold text-brand-teal dark:text-blue-400 mb-4">What You'll Get</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg">Specialized training for interdisciplinary success</p>
             </motion.div>
 
@@ -703,7 +713,7 @@ const MTechDataScience = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63]">
+        <section className="py-16 bg-gradient-to-r from-brand-teal to-[#0d4a63]">
           <div className="container mx-auto px-4 text-center">
             <motion.div {...fadeInUp}>
               <h2 className="text-4xl font-bold text-white mb-6">Launch Your Interdisciplinary Career</h2>
@@ -711,7 +721,7 @@ const MTechDataScience = () => {
                 Join our specialized program and prepare for the exciting world of data science, technology, and economics.
               </p>
               <Link to="/contact">
-                <Button className="group bg-white text-[#0F5A7A] hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
+                <Button className="group bg-white text-brand-teal hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
                   Get Started Today <ArrowRight className="ml-2 group-hover:translate-x-1.5 transition-transform duration-300" size={20} />
                 </Button>
               </Link>
@@ -719,6 +729,7 @@ const MTechDataScience = () => {
           </div>
         </section>
 
+        </main>
         <Footer />
       </div>
     </>

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import AmbientBackground from '@/components/AmbientBackground';
 
 const Home = () => {
   const { hash } = useLocation();
@@ -278,24 +279,24 @@ const Home = () => {
   };
 
   const MemberCard = ({ member }) => (
-    <div className="group bg-white dark:bg-slate-900/60 rounded-3xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-300 ring-1 ring-black/[0.03] dark:ring-white/[0.05] cursor-default relative overflow-hidden">
+    <div className="group glass-card float-shadow rounded-3xl p-6 cursor-default relative overflow-hidden">
       {/* Subtle hover background decoration */}
-      <div className="absolute top-0 right-0 -mr-6 -mt-6 w-32 h-32 rounded-full bg-[#0F5A7A]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
+      <div className="absolute top-0 right-0 -mr-6 -mt-6 w-32 h-32 rounded-full bg-brand-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl"></div>
 
       <div className="flex items-center space-x-5 relative z-10">
-        <div className="bg-gradient-to-br from-[#0F5A7A]/10 to-[#0F5A7A]/5 p-4 rounded-2xl flex-shrink-0 group-hover:scale-110 group-hover:bg-[#0F5A7A] transition-all duration-300 ring-1 ring-[#0F5A7A]/10 group-hover:ring-[#0F5A7A]">
-          <Users className="text-[#0F5A7A] group-hover:text-white transition-colors duration-300" size={24} />
+        <div className="bg-gradient-to-br from-brand-teal/10 to-brand-teal/5 p-4 rounded-2xl flex-shrink-0 group-hover:scale-110 group-hover:bg-brand-teal transition-all duration-300 ring-1 ring-brand-teal/10 group-hover:ring-brand-teal">
+          <Users className="text-brand-teal group-hover:text-white transition-colors duration-300" size={24} />
         </div>
         <div className="flex-1">
-          <h3 className="font-bold text-gray-800 dark:text-slate-100 text-lg group-hover:text-[#0F5A7A] dark:group-hover:text-blue-400 transition-colors">{member.name}</h3>
-          <p className="text-[#0F5A7A] dark:text-blue-300/80 text-xs font-semibold uppercase tracking-wide mt-1">{member.highlight}</p>
+          <h3 className="font-bold text-gray-800 dark:text-slate-100 text-lg group-hover:text-brand-teal dark:group-hover:text-blue-400 transition-colors">{member.name}</h3>
+          <p className="text-brand-teal dark:text-blue-300/80 text-xs font-semibold uppercase tracking-wide mt-1">{member.highlight}</p>
         </div>
       </div>
       <div className="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 ease-in-out relative z-10">
         <div className="pt-5 mt-5 border-t border-gray-100 dark:border-white/5 text-sm text-gray-600 dark:text-gray-400 space-y-3 font-medium">
           {member.details.map((line, i) => (
             <div key={i} className="flex items-start">
-              <span className="text-[#0F5A7A]/50 dark:text-blue-400/50 mr-3 mt-0.5">•</span>
+              <span className="text-brand-teal/50 dark:text-blue-400/50 mr-3 mt-0.5">•</span>
               <p className="leading-snug">{line}</p>
             </div>
           ))}
@@ -315,19 +316,28 @@ const Home = () => {
         <meta property="og:description" content="One of West Bengal's top mathematical institutes for higher education. Expert faculty, proven results, 100s of successful students at IITs, ISI, TIFR, HRI and global universities." />
         <meta property="og:url" content="https://letsstudyms.com/" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Let's Study | Top Mathematical Institute in West Bengal" />
+        <meta name="twitter:description" content="One of West Bengal's top mathematical institutes for higher education. Expert faculty, proven results." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
         <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Courses","item":"https://letsstudyms.com/#courses"},{"@type":"ListItem","position":3,"name":"Contact","item":"https://letsstudyms.com/contact"}]})}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
+      <div className="min-h-screen mesh-bg noise-overlay transition-colors duration-500 overflow-x-hidden">
+        <AmbientBackground />
         <Header />
+        <main>
 
         {/* Hero Section */}
         <section className="relative bg-[#091C25] dark:bg-black text-white py-24 md:py-32 overflow-hidden">
           {/* Animated Mesh Gradient Background equivalent */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
           
           {/* Subtly blurred glowing orb in the background */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#2FA4D9] rounded-full blur-[150px] opacity-20 z-0"></div>
+
+
 
           {/* Floating Math Symbols */}
           <motion.div animate={{ y: [-20, 20, -20], rotate: [0, 10, -10, 0] }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} className="absolute top-20 left-10 text-6xl text-white/10 font-serif select-none z-0">∫</motion.div>
@@ -336,9 +346,8 @@ const Home = () => {
           <motion.div animate={{ x: [-30, 30, -30], y: [-10, 10, -10] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }} className="absolute bottom-40 left-1/4 text-5xl text-white/10 font-serif select-none z-0">π</motion.div>
 
           <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mb-10">
-              <img src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" alt="Logo" className="h-32 w-auto mx-auto mb-8 bg-white/90 dark:bg-white/10 backdrop-blur-sm rounded-3xl p-4 shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:scale-105 transition-transform duration-500" />
-              <h1 className="text-5xl md:text-7xl font-extrabold mb-4 tracking-tight">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mb-14">
+              <h1 className="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#78E2FF]">
                   Let's Study
                 </span>
@@ -369,16 +378,19 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Why Join Us */}
-        <section className="py-16 bg-gray-50 dark:bg-[#020817]/50 transition-colors duration-300">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-12">Why Join Us?</h2>
+        {/* Why Join Us - Overlapping & Integrated */}
+        <section className="relative pt-16 pb-20 z-20">
+          {/* Decorative background orb that spans multiple sections */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-400/5 dark:bg-blue-400/10 rounded-full blur-[100px] z-0 -translate-y-1/2 translate-x-1/4"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <h2 className="text-4xl font-bold text-center text-brand-teal dark:text-blue-400 mb-12">Why Join Us?</h2>
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
       {whyJoinUsItems.map((item, index) => (
         <motion.div
           key={index}
           {...fadeInUp}
-          className="bg-gradient-to-br from-[#0F5A7A] to-[#103D51] rounded-3xl shadow-[0_8px_30px_rgba(15,90,122,0.15)] overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,90,122,0.3)] ring-1 ring-white/10 group relative"
+          className="bg-gradient-to-br from-brand-teal to-[#103D51] rounded-3xl shadow-[0_8px_30px_rgba(15,90,122,0.15)] overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,90,122,0.3)] ring-1 ring-white/10 group relative"
         >
           {/* Subtle light sweep effect */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none"></div>
@@ -440,15 +452,18 @@ const Home = () => {
             </div>
         </section>
 
-        {/* Courses Section */}
-        <section id="courses" className="py-20 bg-white dark:bg-[#020817] scroll-mt-20 transition-colors duration-300">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-12">Our Courses</h2>
+        {/* Courses Section - Unified Background & Overlapping */}
+        <section id="courses" className="relative py-24 scroll-mt-20 z-10 overflow-hidden">
+          {/* Decorative element for continuity */}
+          <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-teal/5 dark:bg-brand-teal/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2 z-0"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <h2 className="text-4xl font-bold text-center text-brand-teal dark:text-blue-400 mb-12">Our Courses</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {courses.map((course, index) => (
                 <motion.div key={index} {...fadeInUp}>
                   <Link to={course.path} onClick={() => window.scrollTo(0, 0)} className="block h-full group">
-                    <div className="bg-white dark:bg-slate-900/50 p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500 ring-1 ring-black/[0.03] dark:ring-white/[0.05] h-full relative overflow-hidden group/card">
+                    <div className="glass-card float-shadow p-8 rounded-[2rem] h-full relative overflow-hidden group/card">
                       {/* Vibrant background glow on hover */}
                       <div 
                         className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-3xl"
@@ -462,7 +477,7 @@ const Home = () => {
                         <course.icon size={32} strokeWidth={2.5} />
                       </div>
                       
-                      <h3 className="text-xl font-extrabold text-gray-800 dark:text-slate-100 mb-4 group-hover:text-[#0F5A7A] dark:group-hover:text-blue-400 transition-colors tracking-tight">
+                      <h3 className="text-xl font-extrabold text-gray-800 dark:text-slate-100 mb-4 group-hover:text-brand-teal dark:group-hover:text-blue-400 transition-colors tracking-tight">
                         {course.title}
                       </h3>
                       <p className="text-gray-500 dark:text-slate-400 leading-relaxed text-sm font-medium opacity-80 group-hover:opacity-100 transition-opacity">
@@ -483,9 +498,9 @@ const Home = () => {
         </section>
 
         {/* Success Stories Section */}
-        <section id="success-stories" className="py-20 bg-white dark:bg-[#020817] scroll-mt-20 transition-colors duration-300">
+        <section id="success-stories" className="py-20 bg-transparent dark:bg-transparent scroll-mt-20 transition-colors duration-300">
           <div className="container mx-auto px-4">
-            <motion.h2 {...fadeInUp} className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-16">Success Stories</motion.h2>
+            <motion.h2 {...fadeInUp} className="text-4xl font-bold text-center text-brand-teal dark:text-blue-400 mb-16">Success Stories</motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {testimonials.map((student, index) => (
@@ -497,12 +512,12 @@ const Home = () => {
                   className="cursor-pointer"
                 >
                   <Link to="/testimonials" onClick={() => window.scrollTo(0, 0)} className="block h-full">
-                    <div className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-white/5 flex flex-col items-center text-center group hover:border-[#0F5A7A] dark:hover:border-blue-400 transition-all h-full">
+                    <div className="glass-card float-shadow p-6 rounded-2xl flex flex-col items-center text-center group hover:border-brand-teal dark:hover:border-blue-400 transition-all h-full">
                       <div className="relative -mt-16 mb-4">
-                        <img src={student.image} alt={student.name} className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                        <img src={student.image} alt={student.name} loading="lazy" className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                       </div>
                       <h3 className="text-lg font-bold text-gray-800 dark:text-slate-100">{student.name}</h3>
-                      <p className="text-[#0F5A7A] dark:text-blue-300/80 text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
+                      <p className="text-brand-teal dark:text-blue-300/80 text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
                       <p className="text-gray-400 dark:text-slate-500 text-[10px] mb-4">{student.current}</p>
                       <div className="relative italic text-gray-600 dark:text-slate-400 text-sm">
                         <Quote size={12} className="inline mr-1 opacity-20" /> {student.quote}
@@ -518,7 +533,7 @@ const Home = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#0F5A7A] text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#0d4a63] transition-colors"
+                  className="bg-brand-teal text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#0d4a63] transition-colors"
                 >
                   Read Success Stories
                 </motion.button>
@@ -528,12 +543,12 @@ const Home = () => {
         </section>
 
         {/* TEAM SECTION */}
-        <section id="team" className="py-20 bg-gray-50 dark:bg-[#020817]/50 scroll-mt-20 overflow-hidden transition-colors duration-300">
+        <section id="team" className="py-20 bg-transparent dark:bg-transparent scroll-mt-20 overflow-hidden transition-colors duration-300">
           <div className="container mx-auto px-4">
 
             <motion.h2
               {...fadeInUp}
-              className="text-4xl font-bold text-center text-[#0F5A7A] dark:text-blue-400 mb-16 drop-shadow-sm"
+              className="text-4xl font-bold text-center text-brand-teal dark:text-blue-400 mb-16 drop-shadow-sm"
             >
               Our Team of Mentors
             </motion.h2>
@@ -557,6 +572,7 @@ const Home = () => {
                 <img
                   src="https://i.postimg.cc/8C37fr0X/undraw-educator-6dgp-Photoroom-(1).png"
                   alt="Expert Faculty Illustration"
+                  loading="lazy"
                   className="w-full h-auto max-h-[500px] object-contain"
                 />
               </div>
@@ -576,10 +592,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="flex flex-wrap justify-center gap-6">
               {bottomSideMembers.map((member, index) => (
                 <motion.div
                   key={`bottom-${index}`}
+                  className="w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(25%-1.5rem)] max-w-sm"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -593,17 +610,34 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Final Year Target Badge */}
-        <div className="mt-12 mb-24 bg-gradient-to-r from-[#0d4a63] to-[#0F5A7A] dark:from-slate-900 dark:to-[#0F5A7A]/50 p-8 text-white text-center shadow-lg">
-          <div className="flex justify-center mb-4">
-            <Award size={40} className="text-yellow-400" />
+        {/* Immersive Quote Section */}
+        <section className="relative py-20 z-10 mb-8">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-teal/10 dark:bg-blue-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+          
+          <div className="container mx-auto px-4">
+            <motion.div 
+              {...fadeInUp}
+              className="max-w-4xl mx-auto"
+            >
+              <div className="glass-card float-shadow rounded-3xl p-8 md:p-12 text-center relative overflow-hidden group border border-brand-teal/10 dark:border-white/5 bg-white/40 dark:bg-black/20 backdrop-blur-md">
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-teal/0 via-brand-teal/5 to-brand-teal/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                
+                <div className="flex justify-center mb-6 relative z-10">
+                  <div className="bg-brand-teal/10 dark:bg-white/10 p-4 rounded-full ring-1 ring-brand-teal/20 dark:ring-white/20 group-hover:scale-110 transition-transform duration-500 shadow-sm">
+                    <Award size={32} className="text-brand-teal dark:text-[#78E2FF]" />
+                  </div>
+                </div>
+                
+                <p className="text-xl md:text-2xl italic font-medium text-gray-800 dark:text-blue-50 leading-relaxed max-w-3xl mx-auto relative z-10 drop-shadow-sm">
+                  "You will never prepare alone - at every step, an exam expert stands with you, <br className="hidden md:block" />
+                  guiding, correcting, and strengthening your journey until success."
+                </p>
+              </div>
+            </motion.div>
           </div>
-          <p className="text-white/90 dark:text-blue-100 px-4 md:px-12 leading-relaxed">
-            You will never prepare alone - at every step, an exam expert stands with you, <br />
-            guiding, correcting, and strengthening your journey until success.
-          </p>
-        </div>
+        </section>
 
+        </main>
         <Footer />
       </div>
     </>

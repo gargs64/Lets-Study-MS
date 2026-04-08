@@ -8,69 +8,9 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Latex from '@/components/Latex';
 
-// === CDN LOADER ===
-const Latex = ({ children }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const containerRef = useRef(null);
 
-  useEffect(() => {
-    const loadKatex = () => {
-      if (window.katex) {
-        setIsLoaded(true);
-        return;
-      }
-      if (!document.getElementById('katex-css')) {
-        const link = document.createElement('link');
-        link.id = 'katex-css';
-        link.rel = 'stylesheet';
-        link.href = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css';
-        document.head.appendChild(link);
-      }
-      if (!document.getElementById('katex-js')) {
-        const script = document.createElement('script');
-        script.id = 'katex-js';
-        script.src = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js';
-        script.onload = () => setIsLoaded(true);
-        document.head.appendChild(script);
-      } else {
-        const check = setInterval(() => {
-          if (window.katex) {
-            setIsLoaded(true);
-            clearInterval(check);
-          }
-        }, 100);
-      }
-    };
-    loadKatex();
-  }, []);
-
-  useEffect(() => {
-    if (isLoaded && containerRef.current && window.katex) {
-      const text = children || "";
-      const parts = text.split(/(\\\[.*?\\\]|\\\(.*?\\\))/);
-
-      const html = parts.map(part => {
-        if (part.startsWith('\\(') || part.startsWith('\\[')) {
-          const math = part.replace(/^\\\(|\\\)$|^\\\[|\\\]$/g, "");
-          const displayMode = part.startsWith('\\[');
-          try {
-            return window.katex.renderToString(math, { displayMode, throwOnError: false });
-          } catch (e) {
-            return part;
-          }
-        }
-        return part;
-      }).join("");
-
-      containerRef.current.innerHTML = html;
-    } else if (containerRef.current) {
-      containerRef.current.innerText = children;
-    }
-  }, [children, isLoaded]);
-
-  return <span ref={containerRef} />;
-};
 
 // This function strips ALL LaTeX syntax for the dropdown menu
 const cleanText = (text) => {
@@ -650,14 +590,20 @@ const AdvancedCourses = () => {
         <meta property="og:description" content="Advanced and research-level mathematics courses including Algebraic Topology, Differential Geometry, Functional Analysis, and Representation Theory." />
         <meta property="og:url" content="https://letsstudyms.com/courses/advanced-courses" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Advanced Mathematics Courses | Research Level | Let's Study" />
+        <meta name="twitter:description" content="Advanced and research-level mathematics courses including Algebraic Topology, Differential Geometry, and more." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
+      <div className="min-h-screen mesh-bg noise-overlay">
         <Header />
+        <main>
 
         {/* Mini-Hero Banner */}
-        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+        <div className="relative bg-[#091C25] pt-32 pb-24 md:pt-40 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
           
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -684,7 +630,7 @@ const AdvancedCourses = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-8 tracking-tight">Advanced Mastery</h2>
+                <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-8 tracking-tight">Advanced Mastery</h2>
                 <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
                   <p className="text-justify hyphens-auto">
                     Our Advanced Courses program is designed for mathematics enthusiasts who want to delve deeper
@@ -699,10 +645,11 @@ const AdvancedCourses = () => {
               </motion.div>
 
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1509228468518-180dd4821811?auto=format&fit=crop&q=80&w=1000"
+                  src="https://images.pexels.com/photos/8617944/pexels-photo-8617944.jpeg"
                   alt="Advanced Mathematics Research"
+                  loading="lazy"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
                 />
               </motion.div>
@@ -711,10 +658,10 @@ const AdvancedCourses = () => {
         </section>
 
         {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 text-center transition-colors">
+        <section className="py-16 bg-transparent text-center transition-colors">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="mb-16">
-              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">Advanced Research Tracks</h2>
+              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-6 tracking-tight">Advanced Research Tracks</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                 Explore our deep-dive modules across core research domains in pure and applied mathematics.
               </p>
@@ -722,29 +669,29 @@ const AdvancedCourses = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mt-16">
                 {/* Course Selector */}
                 <div className="relative group text-left">
-                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Specialization</label>
+                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Specialization</label>
                   <div className="relative">
                     <select
                       value={selectedCourse}
                       onChange={handleCourseChange}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       {Object.entries(CURRICULA).map(([key, data]) => (
                         <option key={key} value={key}>{data.name}</option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                   </div>
                 </div>
 
                 {/* Module Selector */}
                 <div className="relative group text-left">
-                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Advanced Module</label>
+                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Advanced Module</label>
                   <div className="relative">
                     <select
                       value={selectedModule}
                       onChange={(e) => setSelectedModule(e.target.value)}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       {currentCourse.subOptions.map(option => (
                         <option key={option.id} value={option.id}>
@@ -752,7 +699,7 @@ const AdvancedCourses = () => {
                         </option>
                       ))}
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                   </div>
                 </div>
               </div>
@@ -769,17 +716,17 @@ const AdvancedCourses = () => {
                 className="max-w-5xl mx-auto"
               >
                 {/* Header Card */}
-                <div className="bg-white dark:bg-slate-900/60 p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] dark:border-blue-500 mb-8 transition-colors">
+                <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm p-8 rounded-[2rem] shadow-xl border-t-8 border-brand-teal dark:border-blue-500 mb-10 transition-colors ring-1 ring-black/[0.03] dark:ring-white/5">
                   <div className="flex items-center mb-4">
-                    <div className="bg-[#0F5A7A]/10 dark:bg-white/5 p-3 rounded-full mr-4">
-                      <currentCourse.icon className="text-[#0F5A7A] dark:text-blue-400" size={32} />
+                    <div className="bg-brand-teal/10 dark:bg-white/5 p-3 rounded-full mr-4">
+                      <currentCourse.icon className="text-brand-teal dark:text-blue-400" size={32} />
                     </div>
-                    <div>
-                      <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-300">
-                        <Latex>{currentCourse.name}</Latex>
+                    <div className="text-left">
+                      <h3 className="text-3xl font-bold text-brand-teal dark:text-blue-300">
+                        {currentCourse.name}
                       </h3>
-                      <span className="inline-block bg-[#0F5A7A] dark:bg-blue-600 text-white text-xs px-2 py-1 rounded mt-1">
-                        <Latex>{currentModuleData.name}</Latex>
+                      <span className="inline-block bg-brand-teal dark:bg-blue-600 text-white text-xs px-2 py-1 rounded mt-1">
+                        {currentModuleData.name}
                       </span>
                     </div>
                   </div>
@@ -790,9 +737,9 @@ const AdvancedCourses = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                    {/* Topics Card */}
-                  <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors">
+                  <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm rounded-[2rem] shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors ring-1 ring-black/[0.03] dark:ring-white/5">
                     <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
-                      <h4 className="text-xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center">
+                      <h4 className="text-xl font-bold text-brand-teal dark:text-blue-400 flex items-center">
                         <BookOpen size={24} className="mr-3" /> Syllabus & Topics
                       </h4>
                     </div>
@@ -802,15 +749,15 @@ const AdvancedCourses = () => {
                           <details key={idx} className="group bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/5 overflow-hidden open:shadow-md transition-all duration-300">
                             <summary className="flex items-center justify-between p-5 cursor-pointer font-bold text-gray-800 dark:text-slate-200 list-none shadow-sm hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                               <div className="flex items-center">
-                                <CheckCircle size={20} className="text-[#0F5A7A] dark:text-blue-400 mr-4 flex-shrink-0" />
-                                <span className="text-[#0F5A7A] dark:text-blue-300 text-lg tracking-wide"><Latex>{topic}</Latex></span>
+                                <CheckCircle size={20} className="text-brand-teal dark:text-blue-400 mr-4 flex-shrink-0" />
+                                <span className="text-brand-teal dark:text-blue-300 text-lg tracking-wide">{topic}</span>
                               </div>
-                              <span className="transition-transform duration-300 group-open:rotate-180 text-[#0F5A7A] dark:text-blue-400 flex-shrink-0 ml-4">
+                              <span className="transition-transform duration-300 group-open:rotate-180 text-brand-teal dark:text-blue-400 flex-shrink-0 ml-4">
                                 <ChevronDown size={20} />
                               </span>
                             </summary>
                             <div className="px-14 pb-5 pt-3 text-sm text-gray-600 dark:text-slate-400 bg-white dark:bg-slate-800 border-t border-gray-100 dark:border-white/5 leading-relaxed">
-                                Modules cover the essential theoretical frameworks, diverse problem-solving methodologies, and extensive previous year question analysis for <span className="font-semibold tracking-wide text-gray-800 dark:text-slate-200"><Latex>{topic}</Latex></span>. Designed to ensure complete conceptual clarity and examination readiness.
+                                Modules cover the essential theoretical frameworks, diverse problem-solving methodologies, and extensive previous year question analysis for <span className="font-semibold tracking-wide text-gray-800 dark:text-slate-200">{topic}</span>. Designed to ensure complete conceptual clarity and examination readiness.
                             </div>
                           </details>
                         ))}
@@ -821,20 +768,20 @@ const AdvancedCourses = () => {
                   {/* References Card */}
                   <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-lg border border-gray-100 dark:border-white/5 overflow-hidden h-full transition-colors">
                     <div className="bg-gray-50 dark:bg-white/5 p-6 border-b border-gray-200 dark:border-white/5">
-                      <h4 className="text-xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center">
+                      <h4 className="text-xl font-bold text-brand-teal dark:text-blue-400 flex items-center">
                         <Library size={24} className="mr-3" /> Recommended Readings
                       </h4>
                     </div>
                     <div className="p-6">
                       <div className="grid gap-3">
                         {currentModuleData.refs.map((ref, idx) => (
-                          <div key={idx} className="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800/30 transition-colors">
-                            <Book size={18} className="text-[#0F5A7A] dark:text-blue-400 mr-3" />
-                            <span className="text-gray-800 dark:text-slate-300 font-medium"><Latex>{ref}</Latex></span>
+                          <div key={idx} className="flex items-center p-3 bg-gray-50/50 dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 mb-3 hover:bg-white dark:hover:bg-slate-800 transition-colors group">
+                            <Book size={18} className="text-brand-teal dark:text-blue-400 mr-3 opacity-50 group-hover:opacity-100" />
+                            <span className="text-gray-800 dark:text-slate-300 font-medium">{ref}</span>
                           </div>
                         ))}
                       </div>
-                      <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-100 dark:border-yellow-800/30 text-sm text-yellow-800 dark:text-yellow-200 transition-colors">
+                      <div className="mt-6 p-4 bg-yellow-50/50 dark:bg-yellow-900/10 rounded-xl border border-yellow-200/50 dark:border-yellow-900/30 text-sm text-yellow-800 dark:text-yellow-200 transition-colors">
                         <p className="font-bold mb-1 flex items-center"><GraduationCap size={16} className="mr-2" /> Research Tip:</p>
                         "Reading original texts and working through proofs is essential for mastering these advanced topics."
                       </div>
@@ -847,6 +794,7 @@ const AdvancedCourses = () => {
           </div>
         </section>
 
+        </main>
         <Footer />
       </div>
     </>

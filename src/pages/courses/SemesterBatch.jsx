@@ -172,12 +172,19 @@ const SemesterBatch = () => {
         <meta property="og:description" content="Semester exam coaching for Jadavpur, Calcutta, St. Xavier's and Presidency University students. Targeted preparation by expert faculty." />
         <meta property="og:url" content="https://letsstudyms.com/courses/semester-batch" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Semester Batch | University Exam Coaching West Bengal" />
+        <meta name="twitter:description" content="Semester exam coaching for Jadavpur, Calcutta, St. Xavier's and Presidency University students." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="min-h-screen mesh-bg noise-overlay">
+        <Header />
+        <main>
         {/* Mini-Hero Banner */}
-        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+        <div className="relative bg-[#091C25] pt-32 pb-24 md:pt-40 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
           
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -204,7 +211,7 @@ const SemesterBatch = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-8 tracking-tight">Course Overview</h2>
+                <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-8 tracking-tight">Course Overview</h2>
                 <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
                   <p className="text-justify hyphens-auto">
                     Our Semester Batch is specially designed for college students who want to score high in their
@@ -218,10 +225,11 @@ const SemesterBatch = () => {
               </motion.div>
 
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <img
                   src="https://i.postimg.cc/rpb1yX5v/pexels_karola_g_6256066.jpg"
                   alt="Semester Batch Preparation"
+                  loading="lazy"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
                 />
               </motion.div>
@@ -230,10 +238,10 @@ const SemesterBatch = () => {
         </section>
 
         {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 text-center transition-colors duration-300">
+        <section className="py-16 bg-transparent text-center transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="mb-16">
-              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">University Track Selection</h2>
+              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-6 tracking-tight">University Track Selection</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                 Tailor your preparation by choosing your university track for specific syllabus alignment.
               </p>
@@ -241,19 +249,19 @@ const SemesterBatch = () => {
               {/* Selector */}
               <div className="flex justify-center mt-12">
                 <div className="relative group min-w-[300px]">
-                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1 text-left">Academic Track</label>
+                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1 text-left">Academic Track</label>
                   <div className="relative">
                     <select
                       value={selectedTrack}
                       onChange={(e) => setSelectedTrack(e.target.value)}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       <option value="ju">Jadavpur University</option>
                       <option value="cu">Calcutta University</option>
                       <option value="sxu">St. Xavier's College</option>
                       <option value="pu">Presidency University</option>
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                   </div>
                 </div>
               </div>
@@ -269,7 +277,7 @@ const SemesterBatch = () => {
                 className="max-w-6xl mx-auto"
               >
                 {/* Track Details Card */}
-                <div className="bg-[#0F5A7A] rounded-[2.5rem] p-10 mb-16 flex flex-col md:flex-row items-center justify-between text-white shadow-2xl relative overflow-hidden group">
+                <div className="bg-brand-teal rounded-[2.5rem] p-10 mb-16 flex flex-col md:flex-row items-center justify-between text-white shadow-2xl relative overflow-hidden group">
                   <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-white/5 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
                   <div className="relative z-10 mb-6 md:mb-0 text-center md:text-left">
                     <div className="inline-block px-4 py-1.5 bg-white/10 rounded-full text-xs font-bold tracking-[0.2em] uppercase mb-4 ring-1 ring-white/20">
@@ -293,15 +301,15 @@ const SemesterBatch = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group"
+                      className="glass-card float-shadow rounded-xl overflow-hidden group"
                     >
-                      <div className="bg-[#0F5A7A] text-white p-4 flex justify-between items-center">
+                      <div className="bg-brand-teal text-white p-4 flex justify-between items-center">
                         <h4 className="font-bold text-lg">{sem.title}</h4>
                         <span className="bg-white/20 px-2 py-1 rounded text-xs font-medium">Semester {sem.id}</span>
                       </div>
                       <div className="p-6">
                         <div className="mb-2">
-                          <h5 className="text-[#0F5A7A] font-semibold flex items-center mb-4">
+                          <h5 className="text-brand-teal font-semibold flex items-center mb-4">
                             <BookOpen size={18} className="mr-2" /> Curriculum Details
                           </h5>
                           <div className="space-y-3 cursor-default">
@@ -309,10 +317,10 @@ const SemesterBatch = () => {
                               <details key={i} className="group bg-gray-50/50 dark:bg-white/5 rounded-xl border border-gray-100 dark:border-white/5 overflow-hidden open:shadow-sm transition-all duration-300">
                                 <summary className="flex items-center justify-between p-3.5 cursor-pointer font-bold text-gray-800 dark:text-slate-200 list-none hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
                                   <div className="flex items-center">
-                                    <div className="h-1.5 w-1.5 rounded-full bg-[#0F5A7A] dark:bg-blue-400 mr-3"></div>
-                                    <span className="text-[#0F5A7A] dark:text-blue-300 text-sm font-medium">{topic}</span>
+                                    <div className="h-1.5 w-1.5 rounded-full bg-brand-teal dark:bg-blue-400 mr-3"></div>
+                                    <span className="text-brand-teal dark:text-blue-300 text-sm font-medium">{topic}</span>
                                   </div>
-                                  <ChevronDown size={14} className="transition-transform duration-300 group-open:rotate-180 text-[#0F5A7A] dark:text-blue-400" />
+                                  <ChevronDown size={14} className="transition-transform duration-300 group-open:rotate-180 text-brand-teal dark:text-blue-400" />
                                 </summary>
                                 <div className="px-8 pb-4 pt-2 text-xs text-gray-600 dark:text-slate-400 bg-white dark:bg-slate-800 border-t border-gray-50 dark:border-white/5 leading-relaxed">
                                   Detailed study of <span className="font-semibold">{topic}</span> including fundamental theorems, practical applications, and intensive problem-solving sessions designed for university excellence.
@@ -331,10 +339,10 @@ const SemesterBatch = () => {
         </section>
 
         {/* Features */}
-        <section className="py-16 bg-white dark:bg-[#020817] transition-colors duration-300">
+        <section className="py-16 bg-transparent dark:bg-[#020817] transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] dark:text-blue-400 mb-4">What You'll Get</h2>
+              <h2 className="text-4xl font-bold text-brand-teal dark:text-blue-400 mb-4">What You'll Get</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg">Everything you need to ace your semester exams</p>
             </motion.div>
 
@@ -344,7 +352,7 @@ const SemesterBatch = () => {
                   key={index}
                   {...fadeInUp}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start space-x-3 bg-white dark:bg-slate-900/50 p-4 rounded-lg shadow-md hover:shadow-lg transition-all"
+                  className="flex items-start space-x-3 glass-card p-4 rounded-lg transition-all"
                 >
                   <CheckCircle className="text-green-500 dark:text-green-400 flex-shrink-0 mt-1" size={24} />
                   <span className="text-gray-700 dark:text-slate-200">{feature}</span>
@@ -355,7 +363,7 @@ const SemesterBatch = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63]">
+        <section className="py-16 bg-gradient-to-r from-brand-teal to-[#0d4a63]">
           <div className="container mx-auto px-4 text-center">
             <motion.div {...fadeInUp}>
               <h2 className="text-4xl font-bold text-white mb-6">Ready to Excel in Your Exams?</h2>
@@ -363,7 +371,7 @@ const SemesterBatch = () => {
                 Join our Semester Batch and achieve the grades you deserve with expert guidance and structured preparation.
               </p>
               <Link to="/contact">
-                <Button className="group bg-white text-[#0F5A7A] hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
+                <Button className="group bg-white text-brand-teal hover:bg-blue-50 font-bold px-8 py-6 text-lg rounded-full shadow-[0_4px_15px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_25px_rgba(255,255,255,0.5)] transition-all duration-300 hover:-translate-y-1">
                   Enroll Now <ArrowRight className="ml-2 group-hover:translate-x-1.5 transition-transform duration-300" size={20} />
                 </Button>
               </Link>
@@ -371,6 +379,7 @@ const SemesterBatch = () => {
           </div>
         </section>
 
+        </main>
         <Footer />
       </div>
     </>

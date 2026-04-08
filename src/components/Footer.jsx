@@ -31,8 +31,8 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#091C25] dark:bg-[#020817] text-white pt-24 pb-12 overflow-hidden transition-colors duration-300">
       {/* Decorative Gradient Edge */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#2FA4D9]/50 to-transparent"></div>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[400px] bg-[#0F5A7A]/10 dark:bg-blue-500/5 blur-[120px] rounded-full -z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-teal/50 to-transparent"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[400px] bg-brand-teal/10 dark:bg-blue-500/5 blur-[120px] rounded-full -z-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20 text-center md:text-left">
@@ -69,7 +69,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-100/70 hover:text-[#78E2FF] hover:border-[#78E2FF]/30 transition-all hover:bg-[#78E2FF]/5 shadow-sm group"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-blue-100/70 hover:text-brand-teal hover:border-brand-teal/30 transition-all hover:bg-brand-teal/5 shadow-sm group"
                 >
                   <social.icon size={20} className={social.isTelegram ? "rotate-[-20deg]" : ""} />
                 </motion.a>
@@ -84,8 +84,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-xl font-bold mb-8 flex items-center justify-center md:justify-start">
-              <span className="w-8 h-[2px] bg-[#2FA4D9] mr-4 hidden md:block"></span>
+            <h3 className="text-xl font-bold mb-8 text-center md:text-left">
               Explore
             </h3>
             <ul className="space-y-4">
@@ -99,7 +98,7 @@ const Footer = () => {
                     onClick={() => handleScrollToSection(link.id)} 
                     className="text-blue-100/60 dark:text-slate-400 hover:text-white dark:hover:text-blue-200 transition-all text-base flex items-center group mx-auto md:mx-0"
                   >
-                    <ArrowRight size={14} className="mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#2FA4D9]" />
+                    <ArrowRight size={14} className="mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-teal" />
                     {link.label}
                   </button>
                 </li>
@@ -114,17 +113,16 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-xl font-bold mb-8 flex items-center justify-center md:justify-start">
-              <span className="w-8 h-[2px] bg-[#2FA4D9] mr-4 hidden md:block"></span>
+            <h3 className="text-xl font-bold mb-8 text-center md:text-left">
               Academic Tracks
             </h3>
             <ul className="grid grid-cols-1 gap-4">
-              {courses.map((course, i) => (
+              {courses?.map((course, i) => (
                 <li key={i}>
                   <Link 
                     to={course.path} 
                     onClick={() => window.scrollTo(0, 0)}
-                    className="text-blue-100/50 dark:text-slate-500 hover:text-[#78E2FF] transition-all text-sm block hover:translate-x-1 duration-300"
+                    className="text-blue-100/50 dark:text-slate-500 hover:text-brand-teal transition-all text-sm block hover:translate-x-1 duration-300"
                   >
                     {course.name}
                   </Link>
@@ -140,8 +138,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h3 className="text-xl font-bold mb-8 flex items-center justify-center md:justify-start">
-              <span className="w-8 h-[2px] bg-[#2FA4D9] mr-4 hidden md:block"></span>
+            <h3 className="text-xl font-bold mb-8 text-center md:text-left">
               Get in Touch
             </h3>
             <div className="space-y-6">
@@ -151,8 +148,8 @@ const Footer = () => {
                 rel="noopener noreferrer" 
                 className="flex items-start justify-center md:justify-start space-x-4 text-blue-100/60 group hover:text-white transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2FA4D9]/10 transition-all">
-                  <MapPin size={20} className="text-[#2FA4D9]" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-teal/10 transition-all">
+                  <MapPin size={20} className="text-brand-teal" />
                 </div>
                 <div className="text-sm">
                   118/105, Near Maya Apartment,<br />
@@ -162,8 +159,8 @@ const Footer = () => {
               </a>
 
               <div className="flex items-start justify-center md:justify-start space-x-4 text-blue-100/60 group">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2FA4D9]/10 transition-all">
-                  <Phone size={20} className="text-[#2FA4D9]" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-teal/10 transition-all">
+                  <Phone size={20} className="text-brand-teal" />
                 </div>
                 <div className="flex flex-col text-sm">
                   <a href="tel:+918481819726" className="hover:text-white transition-colors">+91 8481819726</a>
@@ -175,8 +172,8 @@ const Footer = () => {
                 href="mailto:letsstudy2022bu@gmail.com" 
                 className="flex items-center justify-center md:justify-start space-x-4 text-blue-100/60 group hover:text-white transition-colors"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-[#2FA4D9]/10 transition-all">
-                  <Mail size={20} className="text-[#2FA4D9]" />
+                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-teal/10 transition-all">
+                  <Mail size={20} className="text-brand-teal" />
                 </div>
                 <span className="text-sm truncate">letsstudy2022bu@gmail.com</span>
               </a>

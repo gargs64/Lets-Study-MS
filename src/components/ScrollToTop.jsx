@@ -8,18 +8,26 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show/hide button
-      const scrolled = window.scrollY;
-      setIsVisible(scrolled > 300);
-
-      // Calculate progress
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrolled / height) * 100;
-      setScrollProgress(progress);
+      const scrollPx = document.documentElement.scrollTop || window.scrollY;
+      const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      // Handle case where page is not scrollable (winHeightPx <= 0)
+      const scrolled = winHeightPx > 0 ? scrollPx / winHeightPx : 0;
+      
+      setScrollProgress(Math.min(Math.max(scrolled, 0), 1)); // Clamp between 0 and 1
+      setIsVisible(scrollPx > 300);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Add resize listener in case document length changes
+    window.addEventListener("resize", handleScroll, { passive: true });
+    
+    // Initial calculation
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -32,7 +40,7 @@ const ScrollToTop = () => {
   // SVG Circle properties
   const radius = 24;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (scrollProgress / 100) * circumference;
+  const offset = circumference - scrollProgress * circumference;
 
   return (
     <AnimatePresence>
@@ -41,49 +49,48 @@ const ScrollToTop = () => {
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          className="fixed bottom-8 left-8 z-[60]" // Positioned to avoid overlapping with user's other buttons usually on right
+          className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-[60]"
         >
           <button
             onClick={scrollToTop}
-            className="relative group flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-[0_10px_40px_rgba(15,90,122,0.2)] border border-blue-50 transition-transform hover:scale-110 active:scale-95"
-            aria-label="Scroll to top"
+            className="relative group flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-white dark:bg-slate-900 rounded-full shadow-[0_10px_40px_rgba(15,90,122,0.25)] dark:shadow-[0_10px_40px_rgba(15,90,122,0.1)] border border-brand-teal/10 transition-transform hover:scale-110 active:scale-95"
+            aria-label="Scroll up"
           >
-            {/* Progress Circle */}
+            {/* Background Track */}
             <svg className="absolute inset-0 w-full h-full -rotate-90">
               <circle
-                cx="32"
-                cy="32"
+                cx="50%"
+                cy="50%"
                 r={radius}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3"
-                className="text-blue-50"
+                className="text-gray-100 dark:text-white/5"
               />
-              <motion.circle
-                cx="32"
-                cy="32"
+              <circle
+                cx="50%"
+                cy="50%"
                 r={radius}
                 fill="none"
-                stroke="#0F5A7A"
-                strokeWidth="3"
                 strokeDasharray={circumference}
-                animate={{ strokeDashoffset: offset }}
-                transition={{ type: 'spring', stiffness: 50, damping: 20 }}
+                strokeDashoffset={offset}
+                strokeLinecap="round"
+                strokeWidth="3"
+                className="stroke-brand-teal transition-all duration-150 ease-out"
               />
             </svg>
 
             {/* Pointer Icon */}
-            <div className="relative z-10 flex flex-col items-center">
+            <div className="relative z-10 flex items-center justify-center">
               <ChevronUp 
-                className="text-[#0F5A7A] transition-transform group-hover:-translate-y-1" 
-                size={24} 
+                className="text-brand-teal transition-transform group-hover:-translate-y-1" 
+                size={22} 
                 strokeWidth={3}
               />
-              <span className="text-[10px] font-black text-[#0F5A7A]/40 uppercase tracking-tighter">Top</span>
             </div>
 
             {/* Hover Glow */}
-            <div className="absolute inset-0 bg-[#0F5A7A] rounded-full opacity-0 group-hover:opacity-5 blur-xl transition-opacity"></div>
+            <div className="absolute inset-0 bg-brand-teal rounded-full opacity-0 group-hover:opacity-5 blur-xl transition-opacity"></div>
           </button>
         </motion.div>
       )}

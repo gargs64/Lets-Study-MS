@@ -189,15 +189,23 @@ const EngineeringMathematics = () => {
         <meta name="keywords" content="engineering mathematics coaching West Bengal, GATE maths preparation Kolkata, engineering maths tutor West Bengal, B.Tech mathematics coaching" />
         <link rel="canonical" href="https://letsstudyms.com/courses/engineering-mathematics" />
         <meta property="og:title" content="Engineering Mathematics Coaching West Bengal | GATE Prep" />
+        <meta property="og:description" content="Engineering Mathematics coaching for GATE preparation and university semester exams. Expert training for all engineering branches in West Bengal." />
         <meta property="og:url" content="https://letsstudyms.com/courses/engineering-mathematics" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Engineering Mathematics Coaching West Bengal | GATE Prep" />
+        <meta name="twitter:description" content="Engineering Mathematics coaching for GATE preparation and university semester exams." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-[#020817] dark:to-[#0A1A23]">
+      <div className="min-h-screen mesh-bg noise-overlay">
         <Header />
+        <main>
 
         {/* Mini-Hero Banner */}
-        <div className="relative bg-[#091C25] py-24 mb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0F5A7A] via-[#103D51] to-[#091C25] z-0"></div>
+        <div className="relative bg-[#091C25] pt-32 pb-24 md:pt-40 mb-16 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-teal via-[#103D51] to-[#091C25] z-0"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#2FA4D9] rounded-full blur-[120px] opacity-20 z-0"></div>
           
           <div className="container mx-auto px-4 text-center relative z-10">
@@ -223,7 +231,7 @@ const EngineeringMathematics = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-8 tracking-tight">Technical Mastery</h2>
+                <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-8 tracking-tight">Technical Mastery</h2>
                 <div className="space-y-6 text-gray-700 dark:text-slate-300 text-lg leading-relaxed">
                   <p className="text-justify hyphens-auto">
                     Our Engineering Mathematics program is designed to help students excel in GATE as well as semester examinations
@@ -240,10 +248,11 @@ const EngineeringMathematics = () => {
               </motion.div>
 
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#0F5A7A] to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="absolute -inset-4 bg-gradient-to-r from-brand-teal to-[#2FA4D9] rounded-3xl blur-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"></div>
                 <img
                   src="https://i.postimg.cc/8chj7RsB/pexels-jeswin-3380743.jpg"
                   alt="Engineering Mathematics Preparation"
+                  loading="lazy"
                   className="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px]"
                 />
               </motion.div>
@@ -252,44 +261,44 @@ const EngineeringMathematics = () => {
         </section>
 
         {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50/50 dark:bg-[#020817]/50 text-center transition-colors duration-300">
+        <section className="py-16 bg-transparent text-center transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div {...fadeInUp} className="mb-16">
-              <h2 className="text-4xl font-extrabold text-[#0F5A7A] dark:text-blue-400 mb-6 tracking-tight">Technical Curriculum Roadmap</h2>
+              <h2 className="text-4xl font-extrabold text-brand-teal dark:text-blue-400 mb-6 tracking-tight">Technical Curriculum Roadmap</h2>
               <p className="text-gray-600 dark:text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
                 Choose your track to access specialized modules tailored for GATE rank expansion and university semester success.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto mt-16">
                 <div className="relative group text-left">
-                  <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Academic Track</label>
+                  <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Academic Track</label>
                   <div className="relative">
                     <select
                       value={selectedComponent}
                       onChange={handleComponentChange}
-                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                      className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                     >
                       <option value="gate">Mathematics for GATE</option>
                       <option value="semester">Semester Support</option>
                     </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                   </div>
                 </div>
 
                 {currentData.type === 'nested_topics' && (
                   <div className="relative group text-left">
-                    <label className="block text-xs font-bold text-[#0F5A7A]/50 uppercase tracking-widest mb-2 ml-1">Syllabus Module</label>
+                    <label className="block text-xs font-bold text-brand-teal/50 uppercase tracking-widest mb-2 ml-1">Syllabus Module</label>
                     <div className="relative">
                       <select
                         value={selectedSubOption}
                         onChange={(e) => setSelectedSubOption(e.target.value)}
-                        className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-[#0F5A7A]/10 dark:border-white/10 text-[#0F5A7A] dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-[#0F5A7A]/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-[#0F5A7A]/10 transition-all cursor-pointer pr-12 outline-none"
+                        className="w-full appearance-none bg-white dark:bg-slate-900 border-2 border-brand-teal/10 dark:border-white/10 text-brand-teal dark:text-blue-300 font-bold py-3.5 px-8 rounded-2xl shadow-sm hover:border-brand-teal/30 dark:hover:border-blue-500/30 focus:ring-4 focus:ring-brand-teal/10 transition-all cursor-pointer pr-12 outline-none"
                       >
                         {currentData.subOptions.map(option => (
                           <option key={option.id} value={option.id}>{option.name}</option>
                         ))}
                       </select>
-                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-[#0F5A7A] dark:text-blue-400 pointer-events-none" size={18} />
+                      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-teal dark:text-blue-400 pointer-events-none" size={18} />
                     </div>
                   </div>
                 )}
@@ -308,19 +317,22 @@ const EngineeringMathematics = () => {
                 {currentData.type === 'nested_topics' && (() => {
                   const topicData = currentData.subOptions.find(o => o.id === selectedSubOption);
                   return (
-                    <div className="bg-white dark:bg-slate-900/60 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] dark:border-blue-400 overflow-hidden ring-1 ring-black/5 dark:ring-white/5 transition-colors">
-                      <div className="p-8 border-b border-gray-100 dark:border-white/5">
-                        <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-400 flex items-center mb-2">
-                          <Calculator className="mr-3" /> {topicData.name}
+                    <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm rounded-[2.5rem] shadow-xl border-t-8 border-brand-teal dark:border-blue-400 overflow-hidden ring-1 ring-black/[0.03] dark:ring-white/5 transition-all duration-300">
+                      <div className="p-8 border-b border-gray-100 dark:border-white/5 flex flex-col items-center md:items-start text-center md:text-left">
+                        <div className="bg-brand-teal/10 dark:bg-white/5 p-4 rounded-2xl mb-4 md:mb-6 shadow-sm ring-1 ring-brand-teal/10">
+                          <Calculator className="text-brand-teal dark:text-blue-400" size={32} />
+                        </div>
+                        <h3 className="text-3xl font-bold text-brand-teal dark:text-blue-400 mb-2">
+                           {topicData.name}
                         </h3>
-                        <p className="text-gray-600 dark:text-slate-400 italic">{topicData.description}</p>
+                        <p className="text-gray-600 dark:text-slate-400 italic border-l-4 border-gray-200 dark:border-white/5 pl-4">{topicData.description}</p>
                       </div>
-                      <div className="p-8 bg-gray-50 dark:bg-white/5 transition-colors">
+                      <div className="p-8 bg-gray-50/50 dark:bg-white/5 transition-colors">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           {topicData.topics.map((t, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-800 p-3 rounded shadow-sm border border-gray-200 dark:border-white/5 flex items-start group">
-                              <Sigma size={16} className="text-[#0F5A7A] dark:text-blue-400 mr-2 mt-1 flex-shrink-0" />
-                              <span className="text-gray-700 dark:text-slate-300 font-medium">{t}</span>
+                            <div key={idx} className="bg-white/80 dark:bg-slate-800/60 p-4 rounded-2xl shadow-sm ring-1 ring-black/[0.03] dark:ring-white/5 flex items-start group hover:bg-white dark:hover:bg-slate-700 transition-all">
+                              <Sigma size={16} className="text-brand-teal dark:text-blue-400 mr-3 mt-1 flex-shrink-0 opacity-50 group-hover:opacity-100" />
+                              <span className="text-gray-700 dark:text-slate-300 font-medium text-left">{t}</span>
                             </div>
                           ))}
                         </div>
@@ -333,25 +345,35 @@ const EngineeringMathematics = () => {
                   const uniData = currentData.subOptions.find(o => o.id === selectedUni);
                   return (
                     <div>
-                      <div className="bg-white dark:bg-slate-900/60 p-8 rounded-2xl shadow-lg border-t-8 border-[#0F5A7A] dark:border-blue-500 mb-8 ring-1 ring-black/5 dark:ring-white/5 transition-colors">
-                        <h3 className="text-3xl font-bold text-[#0F5A7A] dark:text-blue-300 flex items-center mb-2">
-                          <Library className="mr-3" /> {uniData.name}
+                      <div className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm p-8 rounded-[2.5rem] shadow-lg border-t-8 border-brand-teal dark:border-blue-500 mb-10 ring-1 ring-black/[0.03] dark:ring-white/5 transition-all duration-300 flex flex-col items-center md:items-start text-center md:text-left">
+                        <div className="bg-brand-teal/10 dark:bg-white/5 p-4 rounded-2xl mb-4 md:mb-6 shadow-sm ring-1 ring-brand-teal/10">
+                          <Library className="text-brand-teal dark:text-blue-400" size={32} />
+                        </div>
+                        <h3 className="text-3xl font-bold text-brand-teal dark:text-blue-300 mb-2">
+                          {uniData.name}
                         </h3>
-                        <p className="text-gray-600 dark:text-slate-400 italic">{uniData.description}</p>
+                        <p className="text-gray-600 dark:text-slate-400 italic border-l-4 border-gray-200 dark:border-white/5 pl-4">{uniData.description}</p>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {uniData.semesters.map((sem, idx) => (
                           <motion.div
                             key={idx}
-                            className="bg-white dark:bg-slate-900/60 rounded-xl shadow-md border border-gray-100 dark:border-white/5 overflow-hidden transition-colors"
+                            className="bg-white/80 dark:bg-slate-900/40 backdrop-blur-sm rounded-[2rem] shadow-md ring-1 ring-black/[0.03] dark:ring-white/5 overflow-hidden hover:shadow-xl transition-all duration-300 group"
                           >
-                            <div className="bg-[#0F5A7A] dark:bg-[#0F5A7A]/80 text-white p-4">
-                              <h4 className="font-bold text-lg">{sem.title}</h4>
+                            <div className="bg-brand-teal p-5 text-white shadow-lg">
+                              <h4 className="font-extrabold text-lg tracking-tight">{sem.title}</h4>
                             </div>
-                            <div className="p-6">
-                              <h5 className="text-[#0F5A7A] dark:text-blue-400 font-bold text-xs uppercase tracking-wider mb-3">Syllabus:</h5>
-                              <ul className="list-disc list-inside text-sm text-gray-700 dark:text-slate-300 space-y-2">
-                                {sem.topics.map((t, i) => <li key={i}>{t}</li>)}
+                            <div className="p-8">
+                              <h5 className="text-brand-teal dark:text-blue-400 font-black text-[10px] uppercase tracking-widest mb-4 flex items-center">
+                                <ScrollText size={14} className="mr-2" /> Syllabus Breakdown
+                              </h5>
+                              <ul className="space-y-3">
+                                {sem.topics.map((t, i) => (
+                                  <li key={i} className="flex items-start text-sm text-gray-700 dark:text-slate-300 group/item">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-brand-teal/30 dark:bg-blue-400/30 mt-1.5 mr-3 flex-shrink-0 group-hover/item:bg-brand-teal dark:group-hover/item:bg-blue-400 transition-colors"></div>
+                                    <span className="leading-relaxed font-medium text-left">{t}</span>
+                                  </li>
+                                ))}
                               </ul>
                             </div>
                           </motion.div>
@@ -365,6 +387,7 @@ const EngineeringMathematics = () => {
           </div>
         </section>
 
+        </main>
         <Footer />
       </div>
     </>

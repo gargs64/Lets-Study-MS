@@ -92,38 +92,42 @@ const ChatBot = () => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="mb-4 w-[350px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col max-h-[500px]"
+            className="mb-4 w-[350px] bg-card/80 backdrop-blur-2xl rounded-3xl shadow-2xl border border-border overflow-hidden flex flex-col max-h-[550px] ring-1 ring-white/10"
           >
             {/* Header */}
-            <div className="bg-[#0F5A7A] p-4 flex items-center justify-between text-white">
-              <div className="flex items-center space-x-2">
-                <div className="bg-white/20 p-1.5 rounded-full">
-                  <Bot size={20} />
+            <div className="bg-primary p-6 flex items-center justify-between text-primary-foreground relative overflow-hidden">
+               <div className="absolute inset-0 opacity-10 noise-bg" />
+              <div className="flex items-center space-x-3 relative z-10">
+                <div className="bg-primary-foreground/20 p-2 rounded-xl">
+                  <Bot size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">Student Assistant</h3>
-                  <p className="text-xs text-blue-100">Online</p>
+                  <h3 className="font-black text-sm uppercase tracking-widest">Assistant</h3>
+                  <div className="flex items-center space-x-1.5">
+                    <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                    <p className="text-[10px] font-bold opacity-80 uppercase tracking-tighter">Online</p>
+                  </div>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="hover:bg-white/20 p-1 rounded-full transition-colors"
+                className="hover:bg-primary-foreground/20 p-2 rounded-xl transition-all relative z-10"
               >
-                <X size={18} />
+                <X size={20} />
               </button>
             </div>
 
             {/* Chat Body */}
-            <div className="flex-1 overflow-y-auto p-4 bg-gray-50 min-h-[300px]">
+            <div className="flex-1 overflow-y-auto p-6 space-y-4 max-h-[400px]">
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
-                  className={`flex mb-4 ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
+                  className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] p-3 rounded-2xl text-sm ${msg.type === 'user'
-                      ? 'bg-[#0F5A7A] text-white rounded-br-none'
-                      : 'bg-white border border-gray-200 text-gray-800 rounded-bl-none shadow-sm'
+                    className={`max-w-[85%] p-4 rounded-2xl text-sm font-medium leading-relaxed ${msg.type === 'user'
+                      ? 'bg-primary text-primary-foreground rounded-br-none shadow-lg'
+                      : 'bg-secondary/50 border border-border text-foreground rounded-bl-none'
                       }`}
                   >
                     {msg.text}
@@ -132,13 +136,13 @@ const ChatBot = () => {
               ))}
 
               {/* Search Interface inside Chat */}
-              <div className="bg-white p-3 rounded-xl border border-gray-200 shadow-sm mb-4">
-                <div className="relative mb-3">
-                  <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
+              <div className="bg-secondary/30 p-4 rounded-2xl border border-border shadow-inner">
+                <div className="relative mb-4">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                   <input
                     type="text"
                     placeholder="Search courses..."
-                    className="w-full pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 focus:border-[#0F5A7A]"
+                    className="w-full pl-11 pr-4 py-3 bg-background border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -152,34 +156,34 @@ const ChatBot = () => {
                         <Link
                           key={idx}
                           to={item.path}
-                          className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg group transition-colors border border-transparent hover:border-gray-100"
+                          className="flex items-center justify-between p-3 hover:bg-primary/5 rounded-xl group transition-all border border-transparent hover:border-primary/10"
                         >
                           <div>
-                            <p className="text-sm font-medium text-[#0F5A7A]">{item.title}</p>
-                            <p className="text-xs text-gray-500">{item.type}</p>
+                            <p className="text-sm font-black text-primary uppercase tracking-tighter">{item.title}</p>
+                            <p className="text-[10px] text-muted-foreground font-bold uppercase">{item.type}</p>
                           </div>
-                          <ChevronRight size={14} className="text-gray-400 group-hover:text-[#0F5A7A]" />
+                          <ChevronRight size={14} className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                         </Link>
                       ))
                     ) : (
-                      <p className="text-xs text-center text-gray-500 py-2">No courses found matching "{searchQuery}"</p>
+                      <p className="text-xs text-center text-muted-foreground py-2 font-medium">No results for "{searchQuery}"</p>
                     )}
                   </div>
                 )}
 
-                {/* Quick Links (Show only when no search) */}
+                {/* Quick Links */}
                 {!searchQuery && (
-                  <div>
-                    <p className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wider">Popular Links</p>
+                  <div className="pt-2">
+                    <p className="text-[10px] font-black text-muted-foreground mb-3 uppercase tracking-widest">Popular Tracks</p>
                     <div className="flex flex-wrap gap-2">
-                      <Link to="/courses/foundation-batch" className="text-xs bg-blue-50 text-[#0F5A7A] px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
+                      <Link to="/courses/foundation-batch" className="text-[10px] font-black bg-primary/10 text-primary px-3 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-tighter">
                         Foundation
                       </Link>
-                      <Link to="/courses/msc-mathematics" className="text-xs bg-blue-50 text-[#0F5A7A] px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
-                        M.Sc Entrances
+                      <Link to="/courses/msc-mathematics" className="text-[10px] font-black bg-primary/10 text-primary px-3 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-tighter">
+                        Entrances
                       </Link>
-                      <Link to="/contact" className="text-xs bg-blue-50 text-[#0F5A7A] px-2 py-1 rounded-md hover:bg-blue-100 transition-colors">
-                        Contact Us
+                      <Link to="/contact" className="text-[10px] font-black bg-primary/10 text-primary px-3 py-1.5 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-tighter">
+                        Help
                       </Link>
                     </div>
                   </div>
@@ -190,59 +194,57 @@ const ChatBot = () => {
             </div>
 
             {/* Input Footer */}
-            <form onSubmit={handleSendMessage} className="p-3 bg-white border-t border-gray-100 flex gap-2">
+            <form onSubmit={handleSendMessage} className="p-4 bg-background/50 border-t border-border flex gap-2">
               <input
                 type="text"
-                placeholder="Type a message..."
-                className="flex-1 text-sm bg-gray-50 border-0 rounded-full px-4 focus:ring-1 focus:ring-[#0F5A7A]"
+                placeholder="Message..."
+                className="flex-1 text-sm bg-secondary/50 border border-border rounded-full px-5 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/20 appearance-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
               <button
                 type="submit"
                 disabled={!searchQuery}
-                className="bg-[#0F5A7A] text-white p-2 rounded-full hover:bg-[#0d4a63] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="bg-primary text-primary-foreground p-3 rounded-full hover:scale-105 disabled:opacity-30 disabled:hover:scale-100 transition-all shadow-lg"
               >
-                <Send size={16} />
+                <Send size={18} />
               </button>
             </form>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Buttons Container - CHANGED TO VERTICAL (flex-col) */}
-      <div className="flex flex-col items-end gap-4">
+      {/* Buttons Container */}
+      <div className="flex flex-col items-end gap-6">
 
         {/* WhatsApp Button */}
         <motion.a
           href="https://wa.me/918481819726"
           target="_blank"
           rel="noopener noreferrer"
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="bg-[#25D366] text-white p-3.5 rounded-full shadow-lg flex items-center justify-center hover:bg-[#20ba5a] transition-colors relative group"
+          className="bg-[#25D366] text-white p-4 rounded-[1.25rem] shadow-2xl flex items-center justify-center transition-all relative group ring-4 ring-[#25D366]/20"
         >
-          {/* Tooltip */}
-          <span className="absolute right-full mr-3 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            Chat on WhatsApp
+          <span className="absolute right-full mr-4 bg-gray-900 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest py-2 px-3 rounded-xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
+            WhatsApp Support
           </span>
-          <WhatsAppIcon size={24} className="text-white" />
+          <WhatsAppIcon size={28} className="text-white" />
         </motion.a>
 
         {/* Chat Toggle Button */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
-          className={`relative group p-3.5 rounded-full shadow-lg flex items-center justify-center transition-all ${isOpen ? 'bg-gray-200 text-gray-600 rotate-90' : 'bg-[#0F5A7A] text-white'
+          className={`relative group p-4 rounded-[1.25rem] shadow-2xl flex items-center justify-center transition-all ring-4 ${isOpen ? 'bg-secondary text-foreground ring-foreground/5 rotate-90' : 'bg-primary text-primary-foreground ring-primary/20'
             }`}
         >
-          {/* Tooltip */}
-          <span className="absolute right-full mr-3 bg-gray-800 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-            {isOpen ? 'Close Chat' : 'Student Assistant'}
+          <span className="absolute right-full mr-4 bg-gray-900 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest py-2 px-3 rounded-xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
+            {isOpen ? 'Close' : 'Chat Assistant'}
           </span>
 
-          {isOpen ? <X size={24} /> : <Bot size={24} />}
+          {isOpen ? <X size={28} /> : <Bot size={28} />}
         </motion.button>
       </div>
     </div>

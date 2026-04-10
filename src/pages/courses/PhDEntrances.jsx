@@ -128,7 +128,7 @@ const PhDEntrances = () => {
   const currentModuleData = currentBatchData.subOptions.find(o => o.id === selectedModule);
 
   return (
-    <>
+    <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
         <title>PhD Mathematics Entrance Coaching West Bengal | TIFR IIT IISc HRI | Let's Study MS</title>
         <meta name="description" content="PhD Mathematics entrance coaching at one of West Bengal's top mathematical institutes for higher education. Prepare for TIFR, IIT, IISc, HRI and international PhD programs. Faculty who have cracked TIFR Mumbai, IIT Madras, IIT Bombay and University of Tokyo PhD programmes." />
@@ -136,183 +136,255 @@ const PhDEntrances = () => {
         <link rel="canonical" href="https://letsstudyms.com/courses/phd-entrances" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Header />
+      <Header />
 
-        <section className="bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-white py-20">
-          <div className="container mx-auto px-4 text-center">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <Trophy size={64} className="mx-auto mb-6" />
-              <h1 className="text-5xl font-bold mb-4">PhD Entrances</h1>
-              <p className="text-xl">Advanced preparation for doctoral program admissions</p>
-            </motion.div>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="relative py-24 px-4 overflow-hidden border-b border-border">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
+        </div>
 
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-bold text-[#0F5A7A] mb-6 text-left">Course Overview</h2>
-                <p className="text-justify text-gray-700 text-lg mb-6">
+        <div className="container mx-auto text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-5xl mx-auto">
+            <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center mx-auto mb-8 ring-1 ring-primary/20">
+              <Trophy size={40} className="text-primary" />
+            </div>
+            <h1 className="text-6xl font-black mb-6 shimmer-text tracking-tight uppercase leading-tight">PhD Foundations</h1>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium">
+              Advanced preparation for doctoral program admissions and research excellence.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Course Overview */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <motion.div {...fadeInUp}>
+              <h2 className="text-4xl font-bold text-primary mb-8 tracking-tight uppercase">Research Track Overview</h2>
+              <div className="space-y-6">
+                <p className="text-muted-foreground text-lg leading-relaxed">
                   Our PhD Entrance preparation programs are tailored for aspiring researchers.
-                  Whether you need a high rank in competitive exams like NET & GATE via our Rank Booster batch
+                  Whether you need a high rank in competitive exams like NET & GATE via our Rank Booster batch 
                   or deep conceptual mastery with our Pioneer batch, we provide the rigorous training required.
                 </p>
+              </div>
 
-                {/* ===== ADDITIONAL NOTE ===== */}
-                <div className="mt-8 p-6 bg-blue-50 border-l-4 border-[#0F5A7A] rounded-xl text-left">
-                  <h3 className="text-2xl font-bold text-[#0F5A7A] mb-4">Additional Note</h3>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-lg text-gray-800 mb-2">PURE PORTION</h4>
-                    <p className="text-sm text-gray-700 mb-3">
-                      <strong>Aim:</strong> CSIR-NET · GATE · TIFR · NBHM · ISI · PhD Interviews
-                    </p>
-                    <ul className="list-disc list-inside text-gray-700 space-y-1">
-                      <li>Metric Spaces & Topology — 30+ classes</li>
-                      <li>Functional Analysis — 25+ classes</li>
-                      <li>Complex Analysis — 25+ classes</li>
-                      <li>Rings & Modules — 30 classes</li>
-                      <li>Multivariable Calculus — 10 classes</li>
-                      <li>Field Extension & Galois Theory — 20 classes</li>
-                      <li>Group Theory — 30 classes</li>
-                      <li>Linear Algebra — 40 classes</li>
-                      <li>Real Analysis — 40 classes</li>
-                    </ul>
-                  </div>
-
+              {/* ===== PREMIUM ACADEMIC ROADMAP ===== */}
+              <div className="mt-12 bg-card rounded-[2.5rem] border border-border overflow-hidden shadow-2xl">
+                <div className="bg-secondary/50 p-8 border-b border-border">
+                   <h3 className="text-2xl font-black text-primary flex items-center uppercase tracking-tight">
+                     <GraduationCap className="mr-3" /> Comprehensive Roadmap
+                   </h3>
+                </div>
+                <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold text-lg text-gray-800 mb-2">APPLIED PORTION</h4>
-                    <p className="text-sm text-gray-700 mb-3">
-                      <strong>Aim:</strong> CSIR-NET & GATE (Applied Focus)
-                    </p>
-                    <ul className="list-disc list-inside text-gray-700 space-y-1">
-                      <li>Calculus of Variations — 5 classes</li>
-                      <li>Numerical Analysis — 6 classes</li>
-                      <li>Integral Equations — 3 classes</li>
-                      <li>Linear Programming Problems (LPP) — 3 classes</li>
-                      <li>ODE & PDE — 30 classes</li>
+                    <h4 className="font-black text-xs text-primary uppercase tracking-[0.2em] mb-4">Pure Portion</h4>
+                    <ul className="space-y-2 text-sm text-foreground/80 font-medium">
+                      {['Metric Spaces & Topology (30+)', 'Functional Analysis (25+)', 'Complex Analysis (25+)', 'Rings & Modules (30)', 'Group Theory (30)', 'Linear Algebra (40)', 'Real Analysis (40)'].map((item, i) => (
+                        <li key={i} className="flex items-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-3" /> {item} classes
+                        </li>
+                      ))}
                     </ul>
                   </div>
-
-                  <p className="mt-4 font-semibold text-gray-800">
-                    Total 270+ Classes, Mock Tests and PhD Interviews
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="sticky top-24">
-                <img
-                  className="w-full h-[600px] rounded-xl shadow-2xl object-cover"
-                  alt="Research"
-                  src="https://i.postimg.cc/kMk7Qjvc/pexels_mart_production_8472919.jpg"
-                />
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">Curriculum Explorer</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-                <div className="relative text-left">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Program</label>
-                  <div className="relative">
-                    <select value={selectedBatch} onChange={handleBatchChange} className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold py-3 px-6 rounded-xl shadow-md cursor-pointer">
-                      <option value="rank_booster">Rank Booster Batch (NET & GATE)</option>
-                      <option value="pioneer">Pioneer Batch (PhD Research)</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-[#0F5A7A]"><ChevronDown size={24} /></div>
-                  </div>
-                </div>
-                <div className="relative text-left">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Module</label>
-                  <div className="relative">
-                    <select value={selectedModule} onChange={(e) => setSelectedModule(e.target.value)} className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold py-3 px-6 rounded-xl shadow-md cursor-pointer">
-                      {currentBatchData.subOptions.map(option => (
-                        <option key={option.id} value={option.id}>{option.name}</option>
+                  <div>
+                    <h4 className="font-black text-xs text-primary uppercase tracking-[0.2em] mb-4">Applied Portion</h4>
+                    <ul className="space-y-2 text-sm text-foreground/80 font-medium">
+                      {['ODE & PDE (30)', 'Numerical Analysis (6)', 'Calculus of Variations (5)', 'Integral Equations (3)', 'LPP (3)'].map((item, i) => (
+                        <li key={i} className="flex items-center">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-3" /> {item} classes
+                        </li>
                       ))}
-                    </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-[#0F5A7A]"><ChevronDown size={24} /></div>
+                    </ul>
                   </div>
+                </div>
+                <div className="bg-primary p-6 text-center">
+                   <p className="text-primary-foreground font-black uppercase tracking-widest text-xs">Total 270+ Intensive Classes & Mock PhD Interviews</p>
                 </div>
               </div>
             </motion.div>
 
-            <AnimatePresence mode="wait">
-              <motion.div key={`${selectedBatch}-${selectedModule}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.3 }} className="max-w-5xl mx-auto">
-                <div className="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] mb-8">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-[#0F5A7A]/10 p-3 rounded-full mr-4"><currentBatchData.icon className="text-[#0F5A7A]" size={32} /></div>
-                    <div className="text-left">
-                      <h3 className="text-3xl font-bold text-[#0F5A7A]">{currentBatchData.name}</h3>
-                      <span className="inline-block bg-[#0F5A7A] text-white text-xs px-2 py-1 rounded mt-1">{currentModuleData.name}</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-lg italic border-l-4 pl-4 text-left">{currentBatchData.description}</p>
-                </div>
+            <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="relative group lg:sticky lg:top-32">
+               <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl opacity-50 group-hover:opacity-100 transition duration-700" />
+               <img className="relative w-full h-[600px] rounded-[2.5rem] shadow-2xl object-cover border border-border" alt="Research level mathematics" src="https://i.postimg.cc/kMk7Qjvc/pexels_mart_production_8472919.jpg" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left">
-                    <div className="bg-gray-50 p-6 border-b"><h4 className="text-xl font-bold text-[#0F5A7A] flex items-center"><BookOpen size={24} className="mr-3" /> Syllabus Topics</h4></div>
-                    <div className="p-6">
-                      <ul className="space-y-3">
-                        {currentModuleData.topics.map((topic, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <CheckCircle size={18} className="text-[#0F5A7A] mr-2 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700">{topic}</span>
-                          </li>
-                        ))}
-                      </ul>
+      {/* Curriculum Explorer */}
+      <section className="py-24 bg-secondary/30 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <h2 className="text-5xl font-black text-foreground mb-4 tracking-tight uppercase">Curriculum Explorer</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+              <div className="relative text-left">
+                <label className="block text-xs font-black text-primary uppercase tracking-widest ml-4 mb-2">Track selection</label>
+                <div className="relative">
+                  <select 
+                    value={selectedBatch} 
+                    onChange={handleBatchChange} 
+                    className="w-full appearance-none bg-card border-2 border-primary/20 text-foreground font-bold text-lg py-5 px-8 rounded-2xl shadow-xl focus:ring-4 focus:ring-primary/10 outline-none cursor-pointer transition-all hover:border-primary/40"
+                  >
+                    <option value="rank_booster">Rank Booster (NET & GATE)</option>
+                    <option value="pioneer">Pioneer Batch (PhD Research)</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-primary">
+                    <ChevronDown size={24} />
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative text-left">
+                <label className="block text-xs font-black text-primary uppercase tracking-widest ml-4 mb-2">Module details</label>
+                <div className="relative">
+                  <select 
+                    value={selectedModule} 
+                    onChange={(e) => setSelectedModule(e.target.value)} 
+                    className="w-full appearance-none bg-card border-2 border-primary/20 text-foreground font-bold text-lg py-5 px-8 rounded-2xl shadow-xl focus:ring-4 focus:ring-primary/10 outline-none cursor-pointer transition-all hover:border-primary/40"
+                  >
+                    {currentBatchData.subOptions.map(option => (
+                      <option key={option.id} value={option.id}>{option.name}</option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-primary">
+                    <ChevronDown size={24} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={`${selectedBatch}-${selectedModule}`} 
+              initial={{ opacity: 0, x: -20 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              exit={{ opacity: 0, x: 20 }} 
+              transition={{ duration: 0.5, ease: "circOut" }} 
+              className="max-w-6xl mx-auto"
+            >
+              <div className="bg-card p-10 rounded-[2.5rem] shadow-2xl border border-border mb-12 relative overflow-hidden group">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-[1.5rem] flex items-center justify-center mr-6 ring-1 ring-primary/20">
+                    <currentBatchData.icon className="text-primary" size={36} />
+                  </div>
+                  <div>
+                    <h3 className="text-4xl font-black text-primary leading-tight">
+                      {currentBatchData.name}
+                    </h3>
+                    <div className="mt-2 text-xs font-black bg-primary/10 text-primary px-4 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                      {currentModuleData.name}
                     </div>
                   </div>
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden text-left">
-                    <div className="bg-gray-50 p-6 border-b"><h4 className="text-xl font-bold text-[#0F5A7A] flex items-center"><Library size={24} className="mr-3" /> References</h4></div>
-                    <div className="p-6">
-                      {currentModuleData.refs.map((ref, idx) => (
-                        <div key={idx} className="flex items-center p-3 bg-blue-50 rounded-lg border border-blue-100 mb-3">
-                          <Book size={18} className="text-[#0F5A7A] mr-3" />
-                          <span className="text-gray-800 font-medium">{ref}</span>
-                        </div>
+                </div>
+                <p className="text-muted-foreground text-lg italic pl-24 font-medium border-l-2 border-primary/20 ml-8">
+                  {currentBatchData.description}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Topics Card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  className="bg-card rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-border overflow-hidden hover-lift group"
+                >
+                  <div className="bg-secondary/50 p-6 border-b border-border">
+                    <h4 className="font-black text-primary flex items-center text-xl uppercase tracking-tight">
+                       <BookOpen size={24} className="mr-3" /> Syllabus Breakdown
+                    </h4>
+                  </div>
+                  <div className="p-8">
+                    <ul className="space-y-4">
+                      {currentModuleData.topics.map((topic, idx) => (
+                        <li key={idx} className="flex items-start text-foreground/80 font-medium text-sm">
+                           <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-3 mt-1.5 flex-shrink-0" />
+                           {topic}
+                        </li>
                       ))}
-                      <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-100 text-sm text-yellow-800">
-                        <p className="font-bold flex items-center"><GraduationCap size={16} className="mr-2" /> Note:</p>
+                    </ul>
+                  </div>
+                </motion.div>
+
+                {/* References Card */}
+                <motion.div 
+                   initial={{ opacity: 0, y: 20 }} 
+                   whileInView={{ opacity: 1, y: 0 }} 
+                   className="bg-card rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-border overflow-hidden hover-lift group"
+                >
+                   <div className="bg-secondary/50 p-6 border-b border-border">
+                     <h4 className="font-black text-primary flex items-center text-xl uppercase tracking-tight">
+                        <Library size={24} className="mr-3" /> Recommended Literature
+                     </h4>
+                   </div>
+                   <div className="p-8">
+                      <div className="space-y-4">
+                         {currentModuleData.refs.map((ref, idx) => (
+                           <div key={idx} className="flex items-center p-4 bg-secondary/30 rounded-2xl border border-border group-hover:border-primary/20 transition-all">
+                              <Book size={18} className="text-primary mr-4 shrink-0" />
+                              <span className="text-foreground text-sm font-medium leading-relaxed italic">{ref}</span>
+                           </div>
+                         ))}
+                      </div>
+                      <div className="mt-8 p-6 bg-primary/5 rounded-3xl border border-primary/20 text-sm text-foreground/80 font-medium">
+                        <p className="font-black mb-2 flex items-center text-primary uppercase tracking-wider"><GraduationCap size={18} className="mr-2" /> Academic Note:</p>
                         "Focus on these specific authors to build the depth required for PhD interviews."
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                   </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Target Exams */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div {...fadeInUp} className="mb-16">
+            <h2 className="text-5xl font-black text-foreground mb-4 tracking-tight uppercase">Target Examinations</h2>
+            <p className="text-muted-foreground text-lg font-medium">Comprehensive preparation for the world's most rigorous mathematics entrances.</p>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+             {targetExams.map((exam, index) => (
+               <motion.div 
+                 key={index} 
+                 initial={{ opacity: 0, scale: 0.9 }} 
+                 whileInView={{ opacity: 1, scale: 1 }} 
+                 transition={{ delay: index * 0.05 }}
+                 className="bg-card p-6 rounded-2xl border-l-[6px] border-primary shadow-sm hover:shadow-xl transition-all font-black text-primary text-sm uppercase tracking-tight text-left"
+               >
+                 {exam}
+               </motion.div>
+             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold text-[#0F5A7A] mb-12">Target Examinations</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {targetExams.map((exam, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow border-l-4 border-[#0F5A7A] text-left font-medium">{exam}</div>
-              ))}
-            </div>
+      {/* CTA section */}
+      <section className="py-24 relative overflow-hidden bg-primary">
+          <div className="absolute inset-0 opacity-10 noise-bg" />
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.div {...fadeInUp}>
+              <h2 className="text-6xl font-black text-primary-foreground mb-8 tracking-tighter uppercase leading-none">Begin Your Research Career</h2>
+              <p className="text-primary-foreground/80 text-xl mb-12 max-w-2xl mx-auto font-medium">
+                 Step beyond the textbook into the frontier of mathematical research.
+              </p>
+              <Link to="/contact">
+                <button className="bg-primary-foreground text-primary hover:scale-105 transition-all font-black px-12 py-5 rounded-2xl text-lg shadow-2xl flex items-center mx-auto uppercase tracking-widest">
+                  Enroll Now <ArrowRight className="ml-3" size={24} />
+                </button>
+              </Link>
+            </motion.div>
           </div>
-        </section>
+      </section>
 
-        <section className="py-16 bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Begin Your Research Career</h2>
-          <Link to="/contact">
-            <Button className="bg-white text-[#0F5A7A] px-8 py-6 text-lg rounded-lg hover:bg-gray-100 transition-colors">
-              Enroll Now <ArrowRight className="ml-2" size={20} />
-            </Button>
-          </Link>
-        </section>
-
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

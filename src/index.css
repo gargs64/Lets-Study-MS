@@ -1,25 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@layer base {
+  :root {
+    /* Premium Light Mode - "Ocean Azure" */
+    --background: 210 20% 98%;
+    --foreground: 224 71% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    --primary: 198 100% 24%; /* This is #005479 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222 47% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 198 100% 24%;
+    --radius: 0.75rem;
+  }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  @apply bg-white text-gray-900;
+  .dark {
+    /* Premium Dark Mode - "Deep Ocean" */
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+    --card: 224 71% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 95%; /* Whitish Azure */
+    --primary-foreground: 224 71% 4%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 210 40% 95%;
+  }
 }
 
 @layer base {
   * {
     @apply border-border;
+    cursor: none !important;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-['Outfit',sans-serif] selection:bg-primary/30 selection:text-foreground overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-background/60 backdrop-blur-md border border-white/10 shadow-2xl;
+}
+
+.dark .glass {
+  @apply bg-card/60 border-white/5;
+}
+
+/* Dynamic Island Style */
+.dynamic-island {
+  @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 glass rounded-full px-6 py-2 transition-all duration-500;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  @apply fixed w-2 h-2 bg-primary rounded-full pointer-events-none z-[999] shadow-[0_0_10px_rgba(var(--primary),0.5)];
+  transition: transform 0.15s ease-out;
+}
+
+.cursor-outline {
+  @apply fixed w-8 h-8 border border-primary/30 rounded-full pointer-events-none z-[999];
+  transition: transform 0.25s ease-out, width 0.3s, height 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Interactive Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Shimmer Text */
+.shimmer-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary bg-[length:300%_auto];
+  animation: shimmer 5s linear infinite;
+}
+
+.dark .shimmer-text {
+  @apply bg-gradient-to-r from-secondary via-primary to-secondary;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Noise Texture Overlay */
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  z-index: 100;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
 }

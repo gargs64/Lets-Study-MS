@@ -162,180 +162,183 @@ const SemesterBatch = () => {
   };
 
   return (
-    <>
+    <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
         <title>Semester Batch | Mathematics Exam Coaching for West Bengal University Students | Let's Study MS</title>
         <meta name="description" content="Semester Batch at Let's Study MS — specialized maths coaching for West Bengal university students. Targeted preparation for Jadavpur, Calcutta, St. Xavier's and Presidency University semester examinations by expert faculty." />
-        <meta name="keywords" content="semester maths coaching west bengal, university mathematics tutor kolkata, jadavpur university semester coaching, calcutta university maths preparation" />
         <link rel="canonical" href="https://letsstudyms.com/courses/semester-batch" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Header />
+      <Header />
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-white py-20">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <GraduationCap size={64} className="mx-auto mb-6" />
-              <h1 className="text-5xl font-bold mb-4">Semester Batch</h1>
-              <p className="text-xl">Excel in your semester exams with targeted preparation</p>
-            </motion.div>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="relative py-24 px-4 overflow-hidden border-b border-border">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
+        </div>
 
-        {/* Course Overview */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-bold text-[#0F5A7A] mb-6">Course Overview</h2>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  Our Semester Batch is specially designed for college students who want to score high in their
+        <div className="container mx-auto text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto">
+            <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center mx-auto mb-8 ring-1 ring-primary/20">
+              <GraduationCap size={40} className="text-primary" />
+            </div>
+            <h1 className="text-6xl font-black mb-6 shimmer-text tracking-tight uppercase">Semester Batch</h1>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Excel in your semester exams with targeted preparation aligned perfectly with your university syllabus.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Course Overview */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div {...fadeInUp}>
+              <h2 className="text-4xl font-bold text-primary mb-8 tracking-tight">Structured to Succeed</h2>
+              <div className="space-y-6">
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Our Semester Batch is specially designed for college students who want to score high in their 
                   semester examinations. We provide focused preparation that aligns perfectly with your university syllabus.
                 </p>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  With regular practice sessions, mock tests, and expert guidance, we ensure that you're fully
-                  prepared to tackle your semester exams with confidence and achieve excellent results.
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  With regular practice sessions, mock tests, and expert guidance, we ensure that you're fully prepared to tackle exams with confidence.
                 </p>
-              </motion.div>
-
-              <motion.div
-                {...fadeInUp}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img className="w-full h-96 rounded-xl shadow-2xl object-cover" alt="College students preparing for semester exams" src="https://i.postimg.cc/rpb1yX5v/pexels_karola_g_6256066.jpg" />
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">University Curriculum Explorer</h2>
-              <p className="text-gray-600 text-lg mb-8">Select your university to view the detailed semester-wise breakdown</p>
-
-              {/* Dropdown Selector */}
-              <div className="relative max-w-md mx-auto z-10">
-                <div className="relative">
-                  <select
-                    value={selectedTrack}
-                    onChange={(e) => setSelectedTrack(e.target.value)}
-                    className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-4 px-6 rounded-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
-                  >
-                    <option value="ju">Jadavpur University</option>
-                    <option value="cu">Calcutta University</option>
-                    <option value="sxu">St. Xavier's College</option>
-                    <option value="pu">Presidency University</option>
-                  </select>
-                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
-                    <ChevronDown size={24} />
-                  </div>
-                </div>
               </div>
             </motion.div>
 
-            {/* Curriculum Display */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={selectedTrack}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.3 }}
-                className="max-w-6xl mx-auto"
-              >
-                <div className="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] mb-12">
-                  <h3 className="text-3xl font-bold text-[#0F5A7A] mb-2 flex items-center">
-                    <Library className="mr-3" /> {CURRICULA[selectedTrack].name}
-                  </h3>
-                  <p className="text-gray-600 text-lg italic">{CURRICULA[selectedTrack].description}</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {CURRICULA[selectedTrack].semesters.map((sem, index) => (
-                    <motion.div
-                      key={sem.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 group"
-                    >
-                      <div className="bg-[#0F5A7A] text-white p-4 flex justify-between items-center">
-                        <h4 className="font-bold text-lg">{sem.title}</h4>
-                        <span className="bg-white/20 px-2 py-1 rounded text-xs font-medium">Semester {sem.id}</span>
-                      </div>
-                      <div className="p-6">
-                        <div className="mb-2">
-                          <h5 className="text-[#0F5A7A] font-semibold flex items-center mb-3">
-                            <BookOpen size={16} className="mr-2" /> Topics Covered
-                          </h5>
-                          <ul className="list-disc list-inside text-sm text-gray-700 space-y-2 ml-1">
-                            {sem.topics.map((topic, i) => (
-                              <li key={i}>{topic}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </section>
-
-        {/* Features */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">What You'll Get</h2>
-              <p className="text-gray-600 text-lg">Everything you need to ace your semester exams</p>
+            <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="relative group">
+              <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl opacity-50 group-hover:opacity-100 transition duration-700" />
+              <img className="relative w-full h-[500px] rounded-[2.5rem] shadow-2xl object-cover border border-border" alt="Students learning" src="https://i.postimg.cc/rpb1yX5v/pexels_karola_g_6256066.jpg" />
             </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  {...fadeInUp}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                >
-                  <CheckCircle className="text-green-500 flex-shrink-0 mt-1" size={24} />
-                  <span className="text-gray-700">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63]">
-          <div className="container mx-auto px-4 text-center">
+      {/* Curriculum Explorer */}
+      <section className="py-24 bg-secondary/30 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <h2 className="text-5xl font-extrabold text-foreground mb-6 tracking-tight">University Track Selection</h2>
+            <p className="text-muted-foreground text-lg mb-10">Select your university to view the detailed semester-wise breakdown</p>
+
+            <div className="relative max-w-md mx-auto">
+              <select 
+                value={selectedTrack} 
+                onChange={e => setSelectedTrack(e.target.value)} 
+                className="w-full appearance-none bg-card border-2 border-primary/20 text-foreground font-bold text-lg py-5 px-8 rounded-2xl shadow-xl focus:ring-4 focus:ring-primary/10 outline-none cursor-pointer transition-all hover:border-primary/40"
+              >
+                <option value="ju">Jadavpur University</option>
+                <option value="cu">Calcutta University</option>
+                <option value="sxu">St. Xavier's College</option>
+                <option value="pu">Presidency University</option>
+              </select>
+              <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-primary">
+                <ChevronDown size={24} />
+              </div>
+            </div>
+          </motion.div>
+
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={selectedTrack} 
+              initial={{ opacity: 0, x: -20 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              exit={{ opacity: 0, x: 20 }} 
+              transition={{ duration: 0.5, ease: "circOut" }} 
+              className="max-w-6xl mx-auto"
+            >
+              <div className="bg-card p-10 rounded-[2.5rem] shadow-2xl border border-border mb-12 relative overflow-hidden group">
+                <div className="relative z-10">
+                  <h3 className="text-4xl font-black text-primary mb-4 flex items-center">
+                    <Library className="mr-4" size={36} /> {CURRICULA[selectedTrack].name}
+                  </h3>
+                  <p className="text-muted-foreground text-lg mb-0 leading-relaxed italic">{CURRICULA[selectedTrack].description}</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {CURRICULA[selectedTrack].semesters.map((sem, index) => (
+                  <motion.div 
+                    key={sem.id} 
+                    initial={{ opacity: 0, y: 20 }} 
+                    animate={{ opacity: 1, y: 0 }} 
+                    transition={{ delay: index * 0.05 }} 
+                    className="bg-card rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden border border-border group hover-lift"
+                  >
+                    <div className="bg-primary text-primary-foreground p-6 flex justify-between items-center">
+                      <h4 className="font-bold text-xl">{sem.title}</h4>
+                      <div className="bg-white/20 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">SEM {sem.id}</div>
+                    </div>
+                    <div className="p-8">
+                      <h5 className="text-primary font-black text-xs uppercase tracking-widest flex items-center mb-6">
+                        <BookOpen size={16} className="mr-2" /> Modules Covered
+                      </h5>
+                      <ul className="grid grid-cols-1 gap-3">
+                        {sem.topics.map((topic, i) => (
+                          <li key={i} className="flex items-center text-sm text-foreground/80 font-medium">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-4" />
+                            {topic}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div {...fadeInUp} className="mb-16">
+            <h2 className="text-5xl font-black text-foreground mb-4">What You'll Get</h2>
+            <p className="text-muted-foreground text-lg">Everything you need to ace your semester exams.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {features.map((feature, index) => (
+              <motion.div 
+                key={index} 
+                {...fadeInUp} 
+                transition={{ duration: 0.5, delay: index * 0.1 }} 
+                className="bg-card p-8 rounded-3xl border border-border hover:border-primary/30 transition-all group"
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <CheckCircle size={24} />
+                </div>
+                <p className="text-foreground text-left font-medium leading-relaxed">{feature}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 relative overflow-hidden bg-primary">
+          <div className="absolute inset-0 opacity-10 noise-bg" />
+          <div className="container mx-auto px-4 text-center relative z-10">
             <motion.div {...fadeInUp}>
-              <h2 className="text-4xl font-bold text-white mb-6">Ready to Excel in Your Exams?</h2>
-              <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
-                Join our Semester Batch and achieve the grades you deserve with expert guidance and structured preparation.
+              <h2 className="text-5xl font-black text-primary-foreground mb-8">Ready to Excel in Your Exams?</h2>
+              <p className="text-primary-foreground/80 text-xl mb-12 max-w-2xl mx-auto">
+                Join our Semester Batch and achieve the grades you deserve with expert guidance.
               </p>
               <Link to="/contact">
-                <Button className="bg-white text-[#0F5A7A] hover:bg-gray-100 font-semibold px-8 py-6 text-lg rounded-lg transition-colors duration-200">
-                  Enroll Now <ArrowRight className="ml-2" size={20} />
-                </Button>
+                <button className="bg-primary-foreground text-primary hover:scale-105 transition-all font-black px-12 py-5 rounded-2xl text-lg shadow-2xl flex items-center mx-auto uppercase tracking-widest">
+                  Enroll Now <ArrowRight className="ml-3" size={24} />
+                </button>
               </Link>
             </motion.div>
           </div>
-        </section>
+      </section>
 
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
+
   );
 };
 

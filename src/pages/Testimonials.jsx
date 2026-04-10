@@ -131,90 +131,99 @@ const Testimonials = () => {
   };
 
   return (
-    <>
+    <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
         <title>Student Success Stories | IIT JAM AIR 37, CSIR NET AIR 6, ISI, TIFR | Let's Study MS</title>
         <meta name="description" content="Real success stories from Let's Study MS students in West Bengal. Alumni have secured IIT JAM AIR 37, CSIR NET AIR 6, AIR 25 GATE, joined ISI Kolkata, TIFR, IIT Bombay, HRI, IISER, and even PhD programmes at University of Connecticut USA." />
         <link rel="canonical" href="https://letsstudyms.com/testimonials" />
       </Helmet>
 
-      <div className="min-h-screen bg-gray-50">
-        <Header />
+      <Header />
 
-        {/* Hero Section */}
-        <section className="bg-[#0F5A7A] text-white py-20 relative overflow-hidden">
+      {/* Hero Section */}
+      <section className="relative py-24 px-4 overflow-hidden border-b border-border">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
+        </div>
+
+        <div className="container mx-auto text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto">
+            <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center mx-auto mb-8 ring-1 ring-primary/20">
+              <Trophy size={40} className="text-primary" />
+            </div>
+            <h1 className="text-6xl font-black mb-6 shimmer-text tracking-tight uppercase">Hall of Fame</h1>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+              Celebrating the exceptional achievements of our students in the world's most prestigious mathematical institutions.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Achievement Grid */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            {studentSuccess.map((student, index) => (
+              <motion.div
+                key={index}
+                {...fadeInUp}
+                transition={{ delay: index * 0.05 }}
+                className="bg-card rounded-[2.5rem] overflow-hidden border border-border group hover-lift shadow-sm hover:shadow-2xl transition-all duration-500"
+              >
+                <div className="h-72 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                  <img
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    alt={student.name}
+                    src={student.image}
+                  />
+
+                </div>
+
+                <div className="p-10">
+                  <h3 className="text-3xl font-black text-foreground mb-4 group-hover:text-primary transition-colors">{student.name}</h3>
+
+                  <div className="flex items-start space-x-3 mb-6">
+                    <GraduationCap className="text-primary mt-1 flex-shrink-0" size={20} />
+                    <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                      {student.achievement}
+                    </p>
+                  </div>
+
+                  <div className="pt-6 border-t border-border flex items-center text-primary font-black text-xs uppercase tracking-[0.2em]">
+                    <MapPin size={16} className="mr-3" />
+                    {student.current || "Research Scholar"}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-24 relative overflow-hidden bg-primary">
+          <div className="absolute inset-0 opacity-10 noise-bg" />
           <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl font-bold mb-4">Hall of Fame</h1>
-              <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
-              <p className="text-xl max-w-2xl mx-auto font-light">
-                Celebrating the exceptional achievements of our students in the world's most prestigious mathematical institutions.
+            <motion.div {...fadeInUp}>
+              <h2 className="text-5xl font-black text-primary-foreground mb-8 tracking-tight">Want to be our next success story?</h2>
+              <p className="text-primary-foreground/80 text-xl mb-12 max-w-2xl mx-auto">
+                Join our specialized batches and start your journey towards excellence in mathematics.
               </p>
+              <button
+                onClick={() => window.location.href = '/contact'}
+                className="bg-primary-foreground text-primary hover:scale-105 transition-all font-black px-12 py-5 rounded-2xl text-lg shadow-2xl uppercase tracking-widest"
+              >
+                Enroll Now
+              </button>
             </motion.div>
           </div>
-        </section>
+      </section>
 
-        {/* Achievement Grid */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {studentSuccess.map((student, index) => (
-                <motion.div
-                  key={index}
-                  {...fadeInUp}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 group"
-                >
-                  <div className="h-64 overflow-hidden relative">
-                    <img
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                      alt={student.name}
-                      src={student.image}
-                    />
-                  </div>
+      <Footer />
+    </div>
 
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">{student.name}</h3>
-
-                    <div className="flex items-start space-x-2 mb-4">
-                      <GraduationCap className="text-[#0F5A7A] mt-1 flex-shrink-0" size={18} />
-                      <p className="text-gray-600 text-sm leading-relaxed">
-                        {student.achievement}
-                      </p>
-                    </div>
-
-                    <div className="pt-4 border-t border-gray-100 flex items-center text-[#0F5A7A] font-semibold text-sm">
-                      <MapPin size={16} className="mr-2" />
-                      {student.current}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="bg-white py-16 border-t border-gray-100">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold text-[#0F5A7A] mb-4">Want to be our next success story?</h2>
-            <p className="text-gray-600 mb-8 max-w-xl mx-auto">Join our specialized batches and start your journey towards excellence in mathematics.</p>
-            <button
-              onClick={() => window.location.href = '/contact'}
-              className="bg-[#0F5A7A] text-white px-10 py-3 rounded-full font-bold hover:bg-[#0d4a63] transition-colors"
-            >
-              Enroll Now
-            </button>
-          </div>
-        </section>
-
-        <Footer />
-      </div>
-    </>
   );
 };
 

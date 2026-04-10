@@ -4,8 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   BookOpen, Users, Award, TrendingUp,
-  GraduationCap, Brain, Trophy, Target, Quote, ExternalLink
+  GraduationCap, Brain, Trophy, Target, Quote, ExternalLink, ArrowRight
 } from 'lucide-react';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -297,21 +298,21 @@ const Home = () => {
   };
 
   const MemberCard = ({ member }) => (
-    <div className="group bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-default">
+    <div className="group bg-card rounded-2xl p-5 shadow-md hover:shadow-2xl transition-all duration-500 border border-border cursor-default hover-lift">
       <div className="flex items-center space-x-4">
-        <div className="bg-[#0F5A7A]/10 p-3 rounded-full flex-shrink-0 group-hover:bg-[#0F5A7A] transition-colors duration-300">
-          <Users className="text-[#0F5A7A] group-hover:text-white transition-colors duration-300" size={24} />
+        <div className="bg-primary/10 p-3 rounded-full flex-shrink-0 group-hover:bg-primary transition-colors duration-300">
+          <Users className="text-primary group-hover:text-primary-foreground transition-colors duration-300" size={24} />
         </div>
         <div className="flex-1">
-          <h3 className="font-bold text-gray-800 text-lg group-hover:text-[#0F5A7A] transition-colors">{member.name}</h3>
-          <p className="text-[#0F5A7A] text-xs font-bold uppercase tracking-wide">{member.highlight}</p>
+          <h3 className="font-bold text-foreground text-lg group-hover:text-primary transition-colors">{member.name}</h3>
+          <p className="text-primary text-xs font-bold uppercase tracking-wide">{member.highlight}</p>
         </div>
       </div>
       <div className="max-h-0 overflow-hidden group-hover:max-h-96 transition-all duration-500 ease-in-out">
-        <div className="pt-4 mt-4 border-t border-gray-200 text-sm text-gray-700 space-y-2">
+        <div className="pt-4 mt-4 border-t border-border text-sm text-muted-foreground space-y-2">
           {member.details.map((line, i) => (
             <div key={i} className="flex items-start">
-              <span className="text-[#0F5A7A] mr-2">•</span>
+              <span className="text-primary mr-2">•</span>
               <p className="leading-snug">{line}</p>
             </div>
           ))}
@@ -320,8 +321,18 @@ const Home = () => {
     </div>
   );
 
+
+  const floatingSymbols = [
+    { icon: '∑', top: '15%', left: '10%', delay: 0 },
+    { icon: 'π', top: '25%', left: '85%', delay: 1 },
+    { icon: '∫', top: '75%', left: '15%', delay: 2 },
+    { icon: '√', top: '65%', left: '80%', delay: 0.5 },
+    { icon: '∞', top: '45%', left: '5%', delay: 1.5 },
+    { icon: '∆', top: '10%', left: '90%', delay: 2.5 },
+  ];
+
   return (
-    <>
+    <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden">
       <Helmet>
         <title>Let's Study MS | Top Mathematical Institute in West Bengal for Higher Education</title>
         <meta name="description" content="Let's Study MS is one of the top mathematical institutes in West Bengal for higher education. Coaching for IIT JAM, MSc Entrances, TIFR, NBHM, ISI MMath and PhD entrances. Faculty from IIT Kanpur, ISI Kolkata, IISc Bangalore. Join hundreds of successful students." />
@@ -334,35 +345,99 @@ const Home = () => {
         <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Courses","item":"https://letsstudyms.com/#courses"},{"@type":"ListItem","position":3,"name":"Contact","item":"https://letsstudyms.com/contact"}]})}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Header />
+      <Header />
 
         {/* Hero Section */}
-        <section className="bg-[#0F5A7A] text-white py-20">
-          <div className="container mx-auto px-4 text-center">
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="mb-8">
-							<img src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" alt="Logo" className="h-32 w-auto mx-auto mb-6 bg-white rounded-2xl p-4 shadow-2xl" />
-              <h1 className="text-5xl font-bold mb-2">Let's Study MS</h1>
-              <p className="text-2xl font-light">School of Mathematics</p>
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24">
+          {/* Animated Background Mesh */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px]" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px]" />
+          </div>
+
+          {/* Floating Math Symbols */}
+          {floatingSymbols.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.2, 0.5, 0.2], y: [0, -20, 0] }}
+              transition={{ duration: 5, repeat: Infinity, delay: item.delay }}
+              className="absolute pointer-events-none select-none text-primary/20 font-bold text-4xl"
+              style={{ top: item.top, left: item.left }}
+            >
+              {item.icon}
             </motion.div>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-xl italic max-w-3xl mx-auto">
-              "Mathematics is not about numbers, equations, or algorithms: <br />
-              it is about understanding."
-              <span className="block mt-2 text-sm">- William Paul Thurston</span>
-            </motion.p>
+          ))}
+
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.23, 1, 0.32, 1] }}
+            >
+              <div className="relative inline-block mb-10 group">
+                <div className="absolute -inset-4 bg-primary/20 rounded-[2.5rem] blur-2xl group-hover:bg-primary/30 transition-all duration-700 opacity-50" />
+                <img 
+                  src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" 
+                  alt="Logo" 
+                  className="h-32 md:h-40 w-auto mx-auto relative z-10 rounded-3xl p-2 bg-background border border-border shadow-2xl transform transition-transform group-hover:rotate-2" 
+                />
+              </div>
+
+              <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tight">
+                LET'S <span className="shimmer-text pr-2">STUDY </span> MS
+              </h1>
+              
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <div className="h-[1px] w-12 bg-primary/50" />
+                <p className="text-2xl md:text-3xl font-light tracking-[0.2em] uppercase">School of Mathematics</p>
+                <div className="h-[1px] w-12 bg-primary/50" />
+              </div>
+
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="text-lg md:text-xl text-muted-foreground italic max-w-2xl mx-auto leading-relaxed mt-8"
+              >
+                "Where logical thinking transcends mere numbers, <br className="hidden md:block" />
+                shaping the analytical minds of tomorrow."
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="mt-16 flex flex-col items-center"
+              >
+                <button 
+                  onClick={() => document.getElementById('courses').scrollIntoView({ behavior: 'smooth' })}
+                  className="group relative px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold overflow-hidden transition-all hover:pr-12"
+                >
+                  <span className="relative z-10">EXPLORE COURSES</span>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">
+                    <ArrowRight size={20} />
+                  </div>
+                </button>
+                
+
+              </motion.div>
+            </motion.div>
           </div>
         </section>
 
+
         {/* Why Join Us */}
-<section className="py-16 bg-gray-50">
+<section className="py-16 bg-secondary/50">
   <div className="container mx-auto px-4">
-    <h2 className="text-4xl font-bold text-center text-[#0F5A7A] mb-12">Why Join Us?</h2>
+    <h2 className="text-4xl font-bold text-center text-primary mb-12 transition-colors">Why Join Us?</h2>
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
       {whyJoinUsItems.map((item, index) => (
         <motion.div
           key={index}
           {...fadeInUp}
-          className="bg-gradient-to-br from-[#0F5A7A] to-[#0d4a63] rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105"
+          className="bg-card hover:bg-primary/5 rounded-2xl shadow-lg overflow-hidden transform transition-all duration-300 hover-lift border border-border"
         >
           {/* LOGIC: Check if it has a link, then check if external or internal */}
           {item.link ? (
@@ -372,15 +447,15 @@ const Home = () => {
                 href={item.link} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="block p-8 h-full text-white cursor-pointer"
+                className="block p-8 h-full text-foreground cursor-pointer group"
               >
                 <div className="flex justify-between items-start">
-                  <item.icon size={48} className="mb-4" />
-                  <ExternalLink size={20} className="opacity-50" />
+                  <item.icon size={48} className="mb-4 text-primary group-hover:scale-110 transition-transform" />
+                  <ExternalLink size={20} className="text-primary/50" />
                 </div>
                 {/* No underline classes here */}
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                <p className="text-justify text-gray-100">{item.description}</p>
+                <h3 className="text-2xl font-bold mb-3 text-primary">{item.title}</h3>
+                <p className="text-justify text-muted-foreground">{item.description}</p>
               </a>
             ) : (
               // 2. Internal Link (Foundation/Team) - Whole Card Clickable
@@ -397,20 +472,21 @@ const Home = () => {
                     window.scrollTo(0, 0);
                   }
                 }}
-                className="block p-8 h-full text-white cursor-pointer"
+                className="block p-8 h-full text-foreground cursor-pointer group"
               >
-                <item.icon size={48} className="mb-4" />
+                <item.icon size={48} className="mb-4 text-primary group-hover:scale-110 transition-transform" />
                 {/* Removed underline classes */}
-                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                <p className="text-justify text-gray-100">{item.description}</p>
+                <h3 className="text-2xl font-bold mb-3 text-primary">{item.title}</h3>
+                <p className="text-justify text-muted-foreground">{item.description}</p>
               </Link>
                   )
             ) : (
             // 3. No Link (Proven Results) - Just a div
-            <div className="block p-8 h-full text-white cursor-default">
-              <item.icon size={48} className="mb-4" />
-              <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-              <p className="text-justify text-gray-100">{item.description}</p>
+            <div className="block p-8 h-full text-foreground cursor-default">
+              <item.icon size={48} className="mb-4 text-primary" />
+              <h3 className="text-2xl font-bold mb-3 text-primary">{item.title}</h3>
+              <p className="text-justify text-muted-foreground">{item.description}</p>
+
                       </div>
                     )}
                   </motion.div>
@@ -420,29 +496,70 @@ const Home = () => {
         </section>
 
         {/* Courses Section */}
-        <section id="courses" className="py-20 bg-white scroll-mt-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center text-[#0F5A7A] mb-12">Our Courses</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section id="courses" className="py-24 bg-background scroll-mt-20 relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none opacity-50">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-5xl font-black text-foreground mb-4 tracking-tight uppercase">Explore Our Batches</h2>
+              <div className="w-24 h-1.5 bg-primary mx-auto rounded-full mb-8" />
+            </motion.div>
+
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1
+                  }
+                }
+              }}
+            >
               {courses.map((course, index) => (
-                <motion.div key={index} {...fadeInUp}>
-                  <Link to={course.path} onClick={() => window.scrollTo(0, 0)}>
-                    <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border-t-4 h-full" style={{ borderColor: course.color }}>
-                      <course.icon size={36} style={{ color: course.color }} className="mb-4" />
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">{course.title}</h3>
-                      <p className="text-gray-600 text-sm">{course.description}</p>
+                <motion.div 
+                  key={index}
+                  variants={{
+                    hidden: { opacity: 0, y: 30, scale: 0.9 },
+                    show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 100 } }
+                  }}
+                >
+                  <Link to={course.path} onClick={() => window.scrollTo(0, 0)} className="block h-full">
+                    <div className="bg-card p-8 rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-border h-full hover-lift group overflow-hidden relative">
+                      <div className="relative z-10 flex flex-col h-full">
+                        <div className="w-16 h-16 bg-primary/5 rounded-2xl flex items-center justify-center mb-8 ring-1 ring-primary/20 group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
+                          <course.icon size={32} className="text-primary group-hover:text-primary-foreground transition-colors duration-500" />
+                        </div>
+                        <h3 className="text-2xl font-black text-foreground mb-4 group-hover:text-primary transition-colors tracking-tight">{course.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed flex-grow font-medium">{course.description}</p>
+                        <div className="mt-8 pt-6 border-t border-border flex items-center text-primary text-xs font-black uppercase tracking-[0.2em] transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                          View Details <ArrowRight size={14} className="ml-2" />
+                        </div>
+                      </div>
                     </div>
                   </Link>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
+
         {/* Success Stories Section */}
-        <section id="success-stories" className="py-20 bg-white scroll-mt-20">
+        <section id="success-stories" className="py-20 bg-background scroll-mt-20">
           <div className="container mx-auto px-4">
-            <motion.h2 {...fadeInUp} className="text-4xl font-bold text-center text-[#0F5A7A] mb-16">Success Stories</motion.h2>
+            <motion.h2 {...fadeInUp} className="text-4xl font-bold text-center text-primary mb-16">Success Stories</motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {testimonials.map((student, index) => (
@@ -454,17 +571,18 @@ const Home = () => {
                   className="cursor-pointer"
                 >
                   <Link to="/testimonials" onClick={() => window.scrollTo(0, 0)} className="block h-full">
-                    <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center text-center group hover:border-[#0F5A7A] transition-all h-full">
+                    <div className="bg-card p-6 rounded-2xl shadow-xl border border-border flex flex-col items-center text-center group hover:border-primary transition-all h-full hover-lift">
                       <div className="relative -mt-16 mb-4">
-                        <img src={student.image} alt={student.name} className="w-24 h-24 rounded-full border-4 border-white shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                        <img src={student.image} alt={student.name} className="w-24 h-24 rounded-full border-4 border-card shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                       </div>
-                      <h3 className="text-lg font-bold text-gray-800">{student.name}</h3>
-                      <p className="text-[#0F5A7A] text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
-                      <p className="text-gray-400 text-[10px] mb-4">{student.current}</p>
-                      <div className="relative italic text-gray-600 text-sm">
+                      <h3 className="text-lg font-bold text-foreground">{student.name}</h3>
+                      <p className="text-primary text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
+                      <p className="text-muted-foreground text-[10px] mb-4">{student.current}</p>
+                      <div className="relative italic text-muted-foreground text-sm">
                         <Quote size={12} className="inline mr-1 opacity-20" /> {student.quote}
                       </div>
                     </div>
+
                   </Link>
                 </motion.div>
               ))}
@@ -475,7 +593,7 @@ const Home = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#0F5A7A] text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg hover:bg-[#0d4a63] transition-colors"
+                  className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-xl hover:bg-primary/90 transition-all"
                 >
                   Read Success Stories
                 </motion.button>
@@ -485,12 +603,12 @@ const Home = () => {
         </section>
 
         {/* TEAM SECTION */}
-        <section id="team" className="py-20 bg-gray-50 scroll-mt-20 overflow-hidden">
+        <section id="team" className="py-20 bg-secondary/50 scroll-mt-20 overflow-hidden">
           <div className="container mx-auto px-4">
 
             <motion.h2
               {...fadeInUp}
-              className="text-4xl font-bold text-center text-[#0F5A7A] mb-16 drop-shadow-sm"
+              className="text-4xl font-bold text-center text-primary mb-16 drop-shadow-sm transition-colors"
             >
               Our Team of Mentors
             </motion.h2>
@@ -562,8 +680,7 @@ const Home = () => {
         </div>
 
         <Footer />
-      </div>
-    </>
+    </div>
   );
 };
 

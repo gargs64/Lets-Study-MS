@@ -99,28 +99,26 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
         <title>Free Study Material - Let's Study School of Mathematics</title>
         <meta name="description" content="Access free study materials, notes, and previous year questions for JEE, JAM, NET, and University Exams." />
       </Helmet>
 
-      {/* Header */}
       <Header />
 
-      <div className="min-h-screen bg-gray-50 py-12">
-
+      <div className="py-24">
         {/* Page Header */}
-        <div className="container mx-auto px-4 mb-12 text-center">
+        <div className="container mx-auto px-4 mb-16 text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl font-bold text-[#0F5A7A] mb-4">Study Repository</h1>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+            <h1 className="text-5xl font-black text-primary mb-6 shimmer-text tracking-tight">Study Repository</h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
               Curated notes, assignments, and problem sets to help you excel in your exams.
-              Select your category below to access resources.
+              Access high-quality mathematical resources.
             </p>
           </motion.div>
         </div>
@@ -131,33 +129,32 @@ const Login = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {materialSections.map((section) => (
               <motion.div
                 key={section.id}
                 variants={itemVariants}
-                className="bg-white rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col"
+                className="bg-card rounded-3xl shadow-sm border border-border hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col group"
               >
-                <div className="p-6 flex-1">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-lg ${section.color}`}>
-                      <section.icon size={24} />
+                <div className="p-8 flex-1 relative z-10">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className={`p-4 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300`}>
+                      <section.icon size={28} />
                     </div>
-                    {/* Placeholder Lock Icon */}
-                    <Lock size={16} className="text-gray-300" />
+                    <Lock size={16} className="text-muted-foreground/30" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{section.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{section.description}</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{section.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{section.description}</p>
                 </div>
 
-                <div className="p-4 bg-gray-50 border-t border-gray-100 mt-auto">
+                <div className="p-6 bg-secondary/30 mt-auto relative z-10">
                   <button
                     onClick={() => handlePlaceholderClick(section.title)}
-                    className="w-full flex items-center justify-center gap-2 bg-white border border-[#0F5A7A] text-[#0F5A7A] hover:bg-[#0F5A7A] hover:text-white py-2 px-4 rounded-lg transition-all duration-300 font-medium text-sm"
+                    className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground py-3 px-6 rounded-2xl transition-all duration-500 font-bold text-sm tracking-wide"
                   >
-                    <Download size={16} />
+                    <Download size={18} />
                     Access Material
                   </button>
                 </div>
@@ -167,26 +164,24 @@ const Login = () => {
 
           {/* Bottom Call to Action */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="mt-16 text-center bg-[#0F5A7A]/10 rounded-2xl p-8"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="mt-20 text-center bg-primary/5 rounded-[2.5rem] p-12 border border-primary/10"
           >
-            <h3 className="text-xl font-bold text-[#0F5A7A] mb-2">Can't find what you're looking for?</h3>
-            <p className="text-gray-600 mb-6">Join our student forum to request specific notes or solutions.</p>
+            <h3 className="text-2xl font-bold text-primary mb-4">Can't find what you're looking for?</h3>
+            <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Join our student forum to request specific notes or solutions from our expert faculty.</p>
             <button
               onClick={() => handlePlaceholderClick("Student Forum")}
-              className="bg-[#0F5A7A] text-white px-6 py-2 rounded-full font-semibold hover:bg-[#0d4a63] transition-colors"
+              className="bg-primary text-primary-foreground px-10 py-4 rounded-full font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20"
             >
               Request Notes
             </button>
           </motion.div>
-
         </div>
       </div>
 
-      {/* Footer */}
       <Footer />
-    </>
+    </div>
   );
 };
 

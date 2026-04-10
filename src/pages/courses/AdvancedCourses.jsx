@@ -640,193 +640,228 @@ const AdvancedCourses = () => {
   const currentModuleData = currentCourse.subOptions.find(m => m.id === selectedModule) || currentCourse.subOptions[0];
 
   return (
-    <>
+    <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
         <title>Advanced Mathematics Courses West Bengal | Research Level Coaching | Let's Study MS</title>
-        <meta name="description" content="Advanced and research-level mathematics courses in West Bengal. Specialized topics including Algebraic Topology, Differential Geometry, Functional Analysis, Measure Theory and Representation Theory. For serious mathematics students targeting top institutes." />
+        <meta name="description" content="Advanced and research-level mathematics courses in West Bengal. Specialized topics including Algebraic Topology, Differential Geometry, Functional Analysis and more." />
         <link rel="canonical" href="https://letsstudyms.com/courses/advanced-courses" />
       </Helmet>
 
-      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Header />
+      <Header />
 
-        {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#0F5A7A] to-[#0d4a63] text-white py-20">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <Target size={64} className="mx-auto mb-6" />
-              <h1 className="text-5xl font-bold mb-4">Advanced Courses</h1>
-              <p className="text-xl">Specialized topics for research and competitive excellence</p>
-            </motion.div>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="relative py-24 px-4 overflow-hidden border-b border-border">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
+        </div>
 
-        {/* Course Overview */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div {...fadeInUp}>
-                <h2 className="text-4xl font-bold text-[#0F5A7A] mb-6">Course Overview</h2>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  Our Advanced Courses program is designed for mathematics enthusiasts who want to delve deeper
-                  into specialized topics. These courses are perfect for students preparing for research careers,
-                  competitive examinations, or those simply passionate about advanced mathematics.
-                </p>
-                <p className="text-justify hyphens-auto text-gray-700 text-lg mb-6">
-                  Led by faculty with active research interests, these courses provide exposure to cutting-edge
-                  mathematical concepts and methodologies, preparing you for the highest levels of mathematical inquiry.
-                </p>
-              </motion.div>
-              <motion.div
-                {...fadeInUp}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <img className="w-full h-96 rounded-xl shadow-2xl object-cover" alt="Advanced mathematics students" src="https://images.unsplash.com/photo-1581090124321-d19ad6d7cd5a" />
-              </motion.div>
+        <div className="container mx-auto text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-5xl mx-auto">
+            <div className="w-20 h-20 bg-primary/10 rounded-[2rem] flex items-center justify-center mx-auto mb-8 ring-1 ring-primary/20">
+              <Target size={40} className="text-primary" />
             </div>
-          </div>
-        </section>
+            <h1 className="text-6xl font-black mb-6 shimmer-text tracking-tight uppercase leading-tight">Advanced Research Tracks</h1>
+            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-medium">
+              Specialized higher-order mathematics for doctoral aspirants and research excellence.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-        {/* Curriculum Explorer */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <motion.div {...fadeInUp} className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#0F5A7A] mb-4">Advanced Curriculum Explorer</h2>
-              <p className="text-gray-600 text-lg mb-8">Select a specialized topic to view detailed modules and references</p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-                {/* Course Selector */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Specialization</label>
-                  <div className="relative">
-                    <select
-                      value={selectedCourse}
-                      onChange={handleCourseChange}
-                      className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
-                    >
-                      {Object.entries(CURRICULA).map(([key, data]) => (
-                        <option key={key} value={key}>{data.name}</option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
-                      <ChevronDown size={24} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Module Selector */}
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Select Module</label>
-                  <div className="relative">
-                    <select
-                      value={selectedModule}
-                      onChange={(e) => setSelectedModule(e.target.value)}
-                      className="w-full appearance-none bg-white border-2 border-[#0F5A7A] text-[#0F5A7A] font-bold text-lg py-3 px-6 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-[#0F5A7A]/20 cursor-pointer transition-all"
-                    >
-                      {currentCourse.subOptions.map(option => (
-                        <option key={option.id} value={option.id}>
-                          {/* We clean the text for dropdowns so it shows "sl2(C)" instead of math code */}
-                          {cleanText(option.name)}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#0F5A7A]">
-                      <ChevronDown size={24} />
-                    </div>
-                  </div>
-                </div>
+      {/* Course Overview */}
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <motion.div {...fadeInUp}>
+              <h2 className="text-4xl font-bold text-primary mb-8 tracking-tight uppercase">Expanding Frontiers</h2>
+              <div className="space-y-6">
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Our Advanced Courses program is designed for mathematics enthusiasts who want to delve deeper into specialized research topics. These courses are perfect for students targeting top-tier research fellowships.
+                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Led by faculty with active research interests from ISI and IITs, these modules provide exposure to cutting-edge mathematical methodologies and rigorous inquiry.
+                </p>
               </div>
             </motion.div>
 
-            {/* Content Display */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`${selectedCourse}-${selectedModule}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="max-w-5xl mx-auto"
-              >
-                {/* Header Card */}
-                <div className="bg-white p-8 rounded-2xl shadow-xl border-t-8 border-[#0F5A7A] mb-8">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-[#0F5A7A]/10 p-3 rounded-full mr-4">
-                      <currentCourse.icon className="text-[#0F5A7A]" size={32} />
-                    </div>
-                    <div>
-                      <h3 className="text-3xl font-bold text-[#0F5A7A]">
-                        <Latex>{currentCourse.name}</Latex>
-                      </h3>
-                      <span className="inline-block bg-[#0F5A7A] text-white text-xs px-2 py-1 rounded mt-1">
-                        <Latex>{currentModuleData.name}</Latex>
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-lg italic border-l-4 border-gray-200 pl-4">
-                    {currentCourse.description}
-                  </p>
+            <motion.div {...fadeInUp} transition={{ duration: 0.6, delay: 0.2 }} className="relative group">
+               <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-2xl opacity-50 group-hover:opacity-100 transition duration-700" />
+               <img className="relative w-full h-[500px] rounded-[2.5rem] shadow-2xl object-cover border border-border" alt="Advanced research mathematics" src="https://images.unsplash.com/photo-1581090124321-d19ad6d7cd5a" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Curriculum Explorer */}
+      <section className="py-24 bg-secondary/30 relative">
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <h2 className="text-5xl font-black text-foreground mb-4 tracking-tight uppercase">Advanced Curriculum Explorer</h2>
+            <p className="text-muted-foreground text-lg mb-10">Select a specialized track to discover advanced modules</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
+              <div className="relative">
+                <select 
+                  value={selectedCourse} 
+                  onChange={handleCourseChange}
+                  className="w-full appearance-none bg-card border-2 border-primary/20 text-foreground font-bold text-lg py-5 px-8 rounded-2xl shadow-xl focus:ring-4 focus:ring-primary/10 outline-none cursor-pointer transition-all hover:border-primary/40"
+                >
+                  {Object.entries(CURRICULA).map(([key, data]) => (
+                    <option key={key} value={key}>{data.name}</option>
+                  ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-primary">
+                  <ChevronDown size={24} />
                 </div>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Topics Card */}
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
-                    <div className="bg-gray-50 p-6 border-b border-gray-200">
-                      <h4 className="text-xl font-bold text-[#0F5A7A] flex items-center">
-                        <BookOpen size={24} className="mr-3" /> Syllabus & Topics
-                      </h4>
-                    </div>
-                    <div className="p-6">
-                      <ul className="space-y-3">
-                        {currentModuleData.topics.map((topic, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <CheckCircle size={18} className="text-[#0F5A7A] mr-2 mt-1 flex-shrink-0" />
-                            <span className="text-gray-700">
-                              <Latex>{topic}</Latex>
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+              <div className="relative">
+                <select 
+                  value={selectedModule} 
+                  onChange={e => setSelectedModule(e.target.value)}
+                  className="w-full appearance-none bg-card border-2 border-primary/20 text-foreground font-bold text-lg py-5 px-8 rounded-2xl shadow-xl focus:ring-4 focus:ring-primary/10 outline-none cursor-pointer transition-all hover:border-primary/40"
+                >
+                  {currentCourse.subOptions.map(option => (
+                    <option key={option.id} value={option.id}>{cleanText(option.name)}</option>
+                  ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-6 flex items-center text-primary">
+                  <ChevronDown size={24} />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Content Display */}
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={`${selectedCourse}-${selectedModule}`} 
+              initial={{ opacity: 0, x: -20 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              exit={{ opacity: 0, x: 20 }} 
+              transition={{ duration: 0.5, ease: "circOut" }} 
+              className="max-w-6xl mx-auto"
+            >
+              <div className="bg-card p-10 rounded-[2.5rem] shadow-2xl border border-border mb-12 relative overflow-hidden group">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-[1.5rem] flex items-center justify-center mr-6 ring-1 ring-primary/20">
+                    <currentCourse.icon className="text-primary" size={36} />
+                  </div>
+                  <div>
+                    <h3 className="text-4xl font-black text-primary leading-tight">
+                      <Latex>{currentCourse.name}</Latex>
+                    </h3>
+                    <div className="mt-2 text-xs font-black bg-primary/10 text-primary px-4 py-1.5 rounded-full uppercase tracking-widest inline-block">
+                      <Latex>{currentModuleData.name}</Latex>
                     </div>
                   </div>
+                </div>
+                <p className="text-muted-foreground text-lg italic pl-24 font-medium border-l-2 border-primary/20 ml-8">
+                  {currentCourse.description}
+                </p>
+              </div>
 
-                  {/* References Card */}
-                  <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-full">
-                    <div className="bg-gray-50 p-6 border-b border-gray-200">
-                      <h4 className="text-xl font-bold text-[#0F5A7A] flex items-center">
-                        <Library size={24} className="mr-3" /> Recommended Readings
-                      </h4>
-                    </div>
-                    <div className="p-6">
-                      <div className="grid gap-3">
-                        {currentModuleData.refs.map((ref, idx) => (
-                          <div key={idx} className="flex items-center p-3 bg-blue-50 rounded-lg border border-blue-100">
-                            <Book size={18} className="text-[#0F5A7A] mr-3" />
-                            <span className="text-gray-800 font-medium"><Latex>{ref}</Latex></span>
-                          </div>
-                        ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Topics Card */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }} 
+                  whileInView={{ opacity: 1, y: 0 }} 
+                  className="bg-card rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-border overflow-hidden hover-lift group"
+                >
+                  <div className="bg-secondary/50 p-6 border-b border-border">
+                    <h4 className="font-black text-primary flex items-center text-xl uppercase tracking-tight">
+                       <BookOpen size={24} className="mr-3" /> Syllabus Breakdown
+                    </h4>
+                  </div>
+                  <div className="p-8">
+                    <ul className="space-y-4">
+                      {currentModuleData.topics.map((topic, idx) => (
+                        <li key={idx} className="flex items-start text-foreground/80 font-medium text-sm">
+                           <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mr-3 mt-1.5 flex-shrink-0" />
+                           <Latex>{topic}</Latex>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+
+                {/* References Card */}
+                <motion.div 
+                   initial={{ opacity: 0, y: 20 }} 
+                   whileInView={{ opacity: 1, y: 0 }} 
+                   className="bg-card rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-border overflow-hidden hover-lift group"
+                >
+                   <div className="bg-secondary/50 p-6 border-b border-border">
+                     <h4 className="font-black text-primary flex items-center text-xl uppercase tracking-tight">
+                        <Library size={24} className="mr-3" /> Recommended Literature
+                     </h4>
+                   </div>
+                   <div className="p-8">
+                      <div className="space-y-4">
+                         {currentModuleData.refs && currentModuleData.refs.map((ref, idx) => (
+                           <div key={idx} className="flex items-center p-4 bg-secondary/30 rounded-2xl border border-border group-hover:border-primary/20 transition-all">
+                              <Book size={18} className="text-primary mr-4 shrink-0" />
+                              <span className="text-foreground text-sm font-medium leading-relaxed italic"><Latex>{ref}</Latex></span>
+                           </div>
+                         ))}
                       </div>
-                      <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-100 text-sm text-yellow-800">
-                        <p className="font-bold mb-1 flex items-center"><GraduationCap size={16} className="mr-2" /> Research Tip:</p>
+                      <div className="mt-8 p-6 bg-primary/5 rounded-3xl border border-primary/20 text-sm text-foreground/80 font-medium">
+                        <p className="font-black mb-2 flex items-center text-primary uppercase tracking-wider"><GraduationCap size={18} className="mr-2" /> Research Tip:</p>
                         "Reading original texts and working through proofs is essential for mastering these advanced topics."
                       </div>
-                    </div>
-                  </div>
+                   </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div {...fadeInUp} className="mb-16">
+            <h2 className="text-5xl font-black text-foreground mb-4 tracking-tight uppercase">Why This Track?</h2>
+            <p className="text-muted-foreground text-lg font-medium">Equipping the next generation of mathematical researchers with profound depth.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {['In-depth proof-based learning', 'Active research mentoring', 'Exposure to modern mathematics'].map((benefit, index) => (
+              <motion.div 
+                key={index} 
+                {...fadeInUp} 
+                transition={{ duration: 0.5, delay: index * 0.1 }} 
+                className="bg-card p-10 rounded-[2.5rem] border border-border hover:border-primary/30 transition-all group shadow-sm"
+              >
+                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                  <CheckCircle size={28} />
                 </div>
-
+                <p className="text-foreground text-left font-bold text-lg leading-tight uppercase tracking-tight">{benefit}</p>
               </motion.div>
-            </AnimatePresence>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Footer />
-      </div>
-    </>
+      {/* CTA section */}
+      <section className="py-24 relative overflow-hidden bg-primary">
+          <div className="absolute inset-0 opacity-10 noise-bg" />
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <motion.div {...fadeInUp}>
+              <h2 className="text-6xl font-black text-primary-foreground mb-8 tracking-tighter uppercase leading-none">Pioneer Mathematical Discovery</h2>
+              <p className="text-primary-foreground/80 text-xl mb-12 max-w-2xl mx-auto font-medium">
+                 Step beyond the textbook into the frontier of mathematical research.
+              </p>
+              <button className="bg-primary-foreground text-primary hover:scale-105 transition-all font-black px-12 py-5 rounded-2xl text-lg shadow-2xl flex items-center mx-auto uppercase tracking-widest">
+                Enquire Now
+              </button>
+            </motion.div>
+          </div>
+      </section>
+
+      <Footer />
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, Youtube, Send, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Youtube, Send, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -24,121 +25,164 @@ const Footer = () => {
     { name: 'M.Tech/Data Science Entrances', path: '/courses/mtech-datascience' },
     { name: 'Engineering Mathematics', path: '/courses/engineering-mathematics' },
     { name: 'PhD Entrances', path: '/courses/phd-entrances' },
-    { name: 'Advanced Courses', path: '/courses/advanced-courses' }
+    { name: 'Advanced Courses', path: '/courses/advanced-courses' },
+    { name: 'Personalized Coaching', path: '/contact' }
   ];
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 }
+  };
+
+  const staggerContainer = {
+    initial: { opacity: 0 },
+    whileInView: { 
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    },
+    viewport: { once: true }
+  };
+
   return (
-    <footer className="bg-[#0F5A7A] text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="relative bg-card text-foreground pt-20 pb-10 border-t border-border overflow-hidden">
+      {/* Footer Backdrop */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div 
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16"
+        >
 
-          {/* Brand */}
-          <div>
-            <img
-              src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg"
-              alt="Logo"
-              className="h-20 w-auto mb-4 bg-white rounded-lg p-2"
-            />
-            <p className="text-gray-200 text-sm mb-4">
-              Empowering students with excellence in mathematics education through expert guidance.
+          {/* Brand Info */}
+          <motion.div variants={fadeInUp} className="md:col-span-4 space-y-8">
+            <Link to="/" onClick={() => window.scrollTo(0,0)} className="inline-block group">
+              <img
+                src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg"
+                alt="Logo"
+                className="h-20 w-auto rounded-2xl p-2 bg-background border border-border shadow-2xl transition-transform group-hover:rotate-2"
+              />
+            </Link>
+            <p className="text-muted-foreground text-base leading-relaxed max-w-sm">
+              One of West Bengal's leading mathematical institutes, dedicated to nurturing analytical brilliance through expert mentorship.
             </p>
-            <div className="flex space-x-4">
-              {/* Facebook */}
-              <a href="https://www.facebook.com/profile.php?id=61584835031140" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
-                <Facebook size={20} />
-              </a>
-
-              {/* Instagram */}
-              <a href="https://www.instagram.com/ls2m_maths?utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
-                <Instagram size={20} />
-              </a>
-
-              {/* LinkedIn */}
-							<a href="https://www.linkedin.com/in/let-s-study-school-of-mathematics-3443073a4/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
-                <Linkedin size={20} />
-              </a>
-
-              {/* YouTube */}
-              <a href="https://youtube.com/@letsstudysom" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">
-                <Youtube size={20} />
-              </a>
-
-              {/* Telegram (Using Send icon with a slight tilt) */}
-              <a
-                href="https://t.me/LetsstudySOM"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-300 transition-colors"
-              >
-                <Send size={20} className="rotate-[-20deg]" />
-              </a>
+            <div className="flex space-x-5">
+              {[
+                { icon: Facebook, url: 'https://www.facebook.com/profile.php?id=61584835031140' },
+                { icon: Instagram, url: 'https://www.instagram.com/ls2m_maths?utm_source=qr' },
+                { icon: Linkedin, url: 'https://www.linkedin.com/in/let-s-study-school-of-mathematics-3443073a4/' },
+                { icon: Youtube, url: 'https://youtube.com/@letsstudysom' },
+                { icon: Send, url: 'https://t.me/LetsstudySOM' }
+              ].map((item, i) => (
+                <motion.a 
+                  key={i}
+                  href={item.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  whileHover={{ y: -4, scale: 1.1 }}
+                  className="w-10 h-10 flex items-center justify-center bg-secondary/50 text-muted-foreground rounded-xl hover:bg-primary hover:text-primary-foreground transition-all"
+                >
+                  <item.icon size={18} />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Quick Links */}
-          <div>
-            <span className="text-xl font-bold mb-4 block border-b border-white/20 pb-2 w-fit">Quick Links</span>
-            <ul className="space-y-3">
-              <li>
-                <button onClick={() => handleScrollToSection('courses')} className="text-gray-300 hover:text-white transition-all text-sm text-left">
-                  Our Courses
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleScrollToSection('success-stories')} className="text-gray-300 hover:text-white transition-all text-sm text-left">
-                  Success Stories
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleScrollToSection('team')} className="text-gray-300 hover:text-white transition-all text-sm text-left">
-                  Expert Team
-                </button>
-              </li>
+          {/* Exploration */}
+          <motion.div variants={fadeInUp} className="md:col-span-2 space-y-6">
+            <h4 className="font-black text-xs uppercase tracking-[0.2em] text-primary">Explore</h4>
+            <ul className="space-y-4">
+              <li><button onClick={() => handleScrollToSection('courses')} className="text-muted-foreground hover:text-primary transition-all text-sm font-medium">Batches</button></li>
+              <li><Link to="/testimonials" onClick={() => window.scrollTo(0,0)} className="text-muted-foreground hover:text-primary transition-all text-sm font-medium">Success Stories</Link></li>
+              <li><button onClick={() => handleScrollToSection('team')} className="text-muted-foreground hover:text-primary transition-all text-sm font-medium">Mentors</button></li>
+              <li><Link to="/contact" onClick={() => window.scrollTo(0,0)} className="text-muted-foreground hover:text-primary transition-all text-sm font-medium">Admissions</Link></li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Programs */}
-          <div>
-            <span className="text-xl font-bold mb-4 block border-b border-white/20 pb-2 w-fit">Programs</span>
+          {/* All 8 Courses */}
+          <motion.div variants={fadeInUp} className="md:col-span-3 space-y-6">
+            <h4 className="font-black text-xs uppercase tracking-[0.2em] text-primary">Our Curricula</h4>
             <ul className="space-y-3">
               {courses.map((course, index) => (
                 <li key={index}>
-                  <Link to={course.path} onClick={() => window.scrollTo(0, 0)} className="text-gray-300 hover:text-white transition-all text-sm block">
+                  <Link 
+                    to={course.path} 
+                    onClick={() => window.scrollTo(0, 0)} 
+                    className="text-muted-foreground hover:text-primary transition-all text-[13px] font-medium block truncate flex items-center group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/20 mr-2 group-hover:bg-primary transition-all" />
                     {course.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Contact */}
-          <div>
-            <span className="text-xl font-bold mb-4 block border-b border-white/20 pb-2 w-fit">Contact Us</span>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-3 text-gray-200">
-                <MapPin size={18} />
-                <p>Kolkata, West Bengal, India</p>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-200">
-                <Phone size={18} />
-                <div>
-                  <p>+91 8481819726</p>
-                  <p>+91 8777415940</p>
+          {/* Contact Details */}
+          <motion.div variants={fadeInUp} className="md:col-span-3 space-y-6">
+            <h4 className="font-black text-xs uppercase tracking-[0.2em] text-primary">Get in Touch</h4>
+            <div className="space-y-6">
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin size={16} className="text-primary" />
+                </div>
+                <div className="text-sm">
+                  <p className="font-bold text-foreground">Visit Us</p>
+                  <p className="text-muted-foreground leading-snug">
+                    118/105, Rabindrapally, Khardaha,<br />
+                    Kolkata - 700117
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3 text-gray-200">
-                <Mail size={18} />
-                <p>letsstudy2022bu@gmail.com</p>
+              <a 
+                href="mailto:letsstudy2022bu@gmail.com" 
+                className="flex items-start space-x-4 group hover:bg-primary/5 p-2 -m-2 rounded-xl transition-all"
+              >
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-colors">
+                  <Mail size={16} className="text-primary group-hover:text-primary-foreground" />
+                </div>
+                <div className="text-sm">
+                  <p className="font-bold text-foreground">Email</p>
+                  <p className="text-muted-foreground truncate max-w-[150px] lg:max-w-none">letsstudy2022bu@gmail.com</p>
+                </div>
+              </a>
+              <div className="flex items-start space-x-4">
+                <div className="w-10 h-10 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Phone size={16} className="text-primary" />
+                </div>
+                <div className="text-sm">
+                  <p className="font-bold text-foreground">Call Us</p>
+                  <a href="tel:+918777415940" className="text-muted-foreground hover:text-primary transition-colors block">+91 8777415940</a>
+                  <a href="tel:+918481819726" className="text-muted-foreground hover:text-primary transition-colors block">+91 8481819726</a>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
 
-        <div className="border-t border-white/20 mt-8 pt-8 text-center">
-          <p className="text-gray-300 text-xs italic">
-            © {new Date().getFullYear()} Let's Study MS - School of Mathematics.
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-20 pt-10 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6"
+        >
+          <p className="text-muted-foreground text-xs font-medium italic">
+            © {new Date().getFullYear()} Let's Study MS - School of Mathematics. Dedicated to Analytical Brilliance.
           </p>
-        </div>
+          <div className="flex items-center space-x-6">
+            <Link to="/privacy" className="text-xs text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link to="/contact" className="text-xs text-muted-foreground hover:text-primary transition-colors">Help Center</Link>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );

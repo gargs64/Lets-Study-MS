@@ -215,7 +215,7 @@ const ChatBot = () => {
       </AnimatePresence>
 
       {/* Buttons Container */}
-      <div className="flex flex-col items-end gap-6">
+      <div className="flex flex-col items-end gap-3 md:gap-6">
 
         {/* WhatsApp Button */}
         <motion.a
@@ -224,12 +224,12 @@ const ChatBot = () => {
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="bg-[#25D366] text-white p-4 rounded-[1.25rem] shadow-2xl flex items-center justify-center transition-all relative group ring-4 ring-[#25D366]/20"
+          className="bg-[#25D366] text-white p-3 md:p-4 rounded-2xl md:rounded-[1.25rem] shadow-2xl flex items-center justify-center transition-all relative group ring-4 ring-[#25D366]/20"
         >
-          <span className="absolute right-full mr-4 bg-gray-900 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest py-2 px-3 rounded-xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
+          <span className="hidden md:block absolute right-full mr-4 bg-gray-900 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest py-2 px-3 rounded-xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
             WhatsApp Support
           </span>
-          <WhatsAppIcon size={28} className="text-white" />
+          <WhatsAppIcon size={24} className="text-white md:w-7 md:h-7" />
         </motion.a>
 
         {/* Chat Toggle Button */}
@@ -237,14 +237,14 @@ const ChatBot = () => {
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9 }}
-          className={`relative group p-4 rounded-[1.25rem] shadow-2xl flex items-center justify-center transition-all ring-4 ${isOpen ? 'bg-secondary text-foreground ring-foreground/5 rotate-90' : 'bg-primary text-primary-foreground ring-primary/20'
+          className={`relative group p-3 md:p-4 rounded-2xl md:rounded-[1.25rem] shadow-2xl flex items-center justify-center transition-all ring-4 ${isOpen ? 'bg-secondary text-foreground ring-foreground/5 rotate-90' : 'bg-primary text-primary-foreground ring-primary/20'
             }`}
         >
-          <span className="absolute right-full mr-4 bg-gray-900 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest py-2 px-3 rounded-xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
+          <span className="hidden md:block absolute right-full mr-4 bg-gray-900 border border-white/10 text-white text-[10px] font-black uppercase tracking-widest py-2 px-3 rounded-xl opacity-0 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none translate-x-4 group-hover:translate-x-0">
             {isOpen ? 'Close' : 'Chat Assistant'}
           </span>
 
-          {isOpen ? <X size={28} /> : <Bot size={28} />}
+          {isOpen ? <X size={24} className="md:w-7 md:h-7" /> : <Bot size={24} className="md:w-7 md:h-7" />}
         </motion.button>
       </div>
     </div>

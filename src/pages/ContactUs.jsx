@@ -109,7 +109,7 @@ const ContactUs = () => {
             {/* Contact Info */}
             <motion.div {...fadeInUp} className="space-y-10">
               <div>
-                <h2 className="text-4xl font-bold text-primary mb-6">Contact Information</h2>
+                <h2 className="text-2xl md:text-4xl font-bold text-primary mb-6">Contact Information</h2>
                 <p className="text-muted-foreground text-lg mb-8">Reach out via any of these channels. Our team typically responds within 24 hours.</p>
               </div>
 

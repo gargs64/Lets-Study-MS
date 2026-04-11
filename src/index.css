@@ -54,9 +54,16 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-    cursor: none !important;
+  @media (pointer: fine) {
+    * {
+      @apply border-border;
+      cursor: none !important;
+    }
+  }
+  @media (pointer: coarse) {
+    * {
+      @apply border-border;
+    }
   }
   body {
     @apply bg-background text-foreground font-['Outfit',sans-serif] selection:bg-primary/30 selection:text-foreground overflow-x-hidden;
@@ -75,7 +82,7 @@
 
 /* Dynamic Island Style */
 .dynamic-island {
-  @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 glass rounded-full px-6 py-2 transition-all duration-500;
+  @apply fixed top-6 left-1/2 -translate-x-1/2 z-50 glass rounded-[2.5rem] px-6 py-2 transition-all duration-500;
   transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
 }
 

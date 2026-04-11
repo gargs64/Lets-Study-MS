@@ -98,12 +98,6 @@ const Testimonials = () => {
       image: 'https://i.postimg.cc/2SLwPsb2/Silvia-Hazari.jpg'
     },
     {
-      name: 'Umme Joinab',
-      achievement: "M.Sc Calcutta University | Cracked: CSIR NET",
-      current: 'Currently in TCG Crest (PhD)',
-      image: 'https://i.postimg.cc/jjVXKMPm/Umme-Joinab.jpg'
-    },
-    {
       name: 'Nikhil Chand',
       achievement: "Bsc Ramanada College, Bishnupur| M.Sc Vidyasagar University | Cracked: GATE (2025) AIR 1280",
       current: 'Currently in IISER Bhopal (Project Assistant)',
@@ -204,21 +198,21 @@ const Testimonials = () => {
 
       {/* Call to Action */}
       <section className="py-24 relative overflow-hidden bg-primary">
-          <div className="absolute inset-0 opacity-10 noise-bg" />
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <motion.div {...fadeInUp}>
-              <h2 className="text-5xl font-black text-primary-foreground mb-8 tracking-tight">Want to be our next success story?</h2>
-              <p className="text-primary-foreground/80 text-xl mb-12 max-w-2xl mx-auto">
-                Join our specialized batches and start your journey towards excellence in mathematics.
-              </p>
-              <button
-                onClick={() => window.location.href = '/contact'}
-                className="bg-primary-foreground text-primary hover:scale-105 transition-all font-black px-12 py-5 rounded-2xl text-lg shadow-2xl uppercase tracking-widest"
-              >
-                Enroll Now
-              </button>
-            </motion.div>
-          </div>
+        <div className="absolute inset-0 opacity-10 noise-bg" />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <motion.div {...fadeInUp}>
+            <h2 className="text-5xl font-black text-primary-foreground mb-8 tracking-tight">Want to be our next success story?</h2>
+            <p className="text-primary-foreground/80 text-xl mb-12 max-w-2xl mx-auto">
+              Join our specialized batches and start your journey towards excellence in mathematics.
+            </p>
+            <button
+              onClick={() => window.location.href = '/contact'}
+              className="bg-primary-foreground text-primary hover:scale-105 transition-all font-black px-12 py-5 rounded-2xl text-lg shadow-2xl uppercase tracking-widest"
+            >
+              Enroll Now
+            </button>
+          </motion.div>
+        </div>
       </section>
 
       <Footer />

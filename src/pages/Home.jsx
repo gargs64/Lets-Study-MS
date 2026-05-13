@@ -234,6 +234,14 @@ const Home = () => {
       ]
     },
     {
+      name: 'Sukhomoy Debnath',
+      highlight: 'Consultant, KPMG',
+      details: [
+        'Consultant at KPMG',
+        'Industry Expert & Alumni Mentor'
+      ]
+    },
+    {
       name: 'Rahul',
       highlight: 'CSIR-NET AIR: 184',
       details: [
@@ -360,7 +368,7 @@ const Home = () => {
               <div className="absolute -inset-4 bg-primary/20 rounded-[2.5rem] blur-2xl group-hover:bg-primary/30 transition-all duration-700 opacity-50" />
               <img
                 src="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg"
-                alt="Logo"
+                alt="Let's Study MS School of Mathematics Logo - Premier Mathematics Institute West Bengal"
                 className="h-32 md:h-40 w-auto mx-auto relative z-10 rounded-3xl p-2 bg-background border border-border shadow-2xl transform transition-transform group-hover:rotate-2"
               />
             </div>

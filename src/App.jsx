@@ -13,6 +13,7 @@ import MTechDataScience from '@/pages/courses/MTechDataScience';
 import EngineeringMathematics from '@/pages/courses/EngineeringMathematics';
 import PhDEntrances from '@/pages/courses/PhDEntrances';
 import AdvancedCourses from '@/pages/courses/AdvancedCourses';
+import NotFound from '@/pages/NotFound';
 import CustomCursor from '@/components/CustomCursor';
 import ScrollProgress from '@/components/ScrollProgress';
 import { AnimatePresence } from 'framer-motion';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/courses/engineering-mathematics" element={<EngineeringMathematics />} />
             <Route path="/courses/phd-entrances" element={<PhDEntrances />} />
             <Route path="/courses/advanced-courses" element={<AdvancedCourses />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
         <ChatBot />

@@ -114,6 +114,18 @@ const Testimonials = () => {
       achievement: "Bsc St. Xavier's Kolkata | Cracked: IISC Banglore (2024)",
       current: 'Currently in IISC Banglore',
       image: 'https://i.postimg.cc/T1k06GJb/Ayan_Chodhury.jpg'
+    },
+    {
+      name: 'Aditya Pratap Saha',
+      achievement: "Future Institute of Engineering and Management | GATE DA AIR 91",
+      current: 'AIR 91 in GATE DA Paper',
+      image: '/images/Aditya_Pratap_Saha.png'
+    },
+    {
+      name: 'Sukhomoy Debnath',
+      achievement: "Consultant at KPMG",
+      current: 'Currently Consultant at KPMG',
+      image: '/images/Sukhomoy_Debnath.png'
     }
   ];
 
@@ -130,6 +142,15 @@ const Testimonials = () => {
         <title>Student Success Stories | IIT JAM AIR 37, CSIR NET AIR 6, ISI, TIFR | Let's Study MS</title>
         <meta name="description" content="Real success stories from Let's Study MS students in West Bengal. Alumni have secured IIT JAM AIR 37, CSIR NET AIR 6, AIR 25 GATE, joined ISI Kolkata, TIFR, IIT Bombay, HRI, IISER, and even PhD programmes at University of Connecticut USA." />
         <link rel="canonical" href="https://letsstudyms.com/testimonials" />
+        <meta property="og:title" content="Student Success Stories | Let's Study MS" />
+        <meta property="og:description" content="Alumni achievements: IIT JAM AIR 37, CSIR NET AIR 6, GATE AIR 25. Students at ISI, IISc, TIFR, HRI, IIT Bombay, and international universities." />
+        <meta property="og:url" content="https://letsstudyms.com/testimonials" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Student Success Stories | Let's Study MS" />
+        <meta name="twitter:description" content="Alumni at IIT, ISI, IISc, TIFR, HRI and international universities. See real results from West Bengal's top maths institute." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
       <Header />

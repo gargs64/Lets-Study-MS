@@ -82,6 +82,15 @@ const ContactUs = () => {
         <title>Contact Let's Study MS | Mathematics Coaching Enquiry West Bengal</title>
         <meta name="description" content="Contact Let's Study MS for mathematics coaching enquiries in West Bengal. Enroll for BSc foundation, semester batch, MSc entrance, PhD entrance or advanced mathematics courses." />
         <link rel="canonical" href="https://letsstudyms.com/contact" />
+        <meta property="og:title" content="Contact Let's Study MS | Maths Coaching Enquiry" />
+        <meta property="og:description" content="Reach out for coaching enquiries. BSc foundation, MSc entrance, PhD prep and more. Call +91 8481819726 or visit us in Khardaha, Kolkata." />
+        <meta property="og:url" content="https://letsstudyms.com/contact" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Let's Study MS | Maths Coaching Enquiry" />
+        <meta name="twitter:description" content="Enquire about mathematics coaching in West Bengal. Call, email, or visit us in Khardaha, Kolkata." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
       </Helmet>
 
       <Header />

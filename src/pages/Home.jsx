@@ -269,6 +269,15 @@ const Home = () => {
         'GATE AIR: 25 (2024)',
         'CSIR-NET AIR: 95 (2024)'
       ]
+    },
+    {
+      name: 'Pranjal Das',
+      highlight: 'ISI Delhi | MSQE\'24 | Ex-EY',
+      details: [
+        'Graduation: B.Sc. Economics Hons., Scottish Church College',
+        'Post Graduation: ISI Delhi (MSQE\'24)',
+        'Previously: Worked at Ernst and Young'
+      ]
     }
 
   ];

@@ -642,9 +642,19 @@ const AdvancedCourses = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>Advanced Mathematics Courses West Bengal | Research Level Coaching | Let's Study MS</title>
-        <meta name="description" content="Advanced and research-level mathematics courses in West Bengal. Specialized topics including Algebraic Topology, Differential Geometry, Functional Analysis and more." />
+        <title>Advanced Maths Courses West Bengal | Research Level</title>
+        <meta name="description" content="Research-level advanced mathematics courses in West Bengal: Algebraic Topology, Differential Geometry, Functional Analysis, Representation Theory & more." />
         <link rel="canonical" href="https://letsstudyms.com/courses/advanced-courses" />
+        <meta property="og:title" content="Advanced Maths Courses West Bengal | Research Level" />
+        <meta property="og:description" content="Specialized research-level math courses: Commutative Algebra, Algebraic Geometry, Representation Theory, Differential Geometry and Functional Analysis." />
+        <meta property="og:url" content="https://letsstudyms.com/courses/advanced-courses" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Advanced Maths Courses West Bengal | Research Level" />
+        <meta name="twitter:description" content="Research-level math courses: Algebraic Topology, Differential Geometry, Functional Analysis, and more by ISI and IIT faculty." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Advanced Courses","item":"https://letsstudyms.com/courses/advanced-courses"}]})}</script>
       </Helmet>
 
       <Header />

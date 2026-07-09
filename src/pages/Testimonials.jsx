@@ -139,8 +139,8 @@ const Testimonials = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>Student Success Stories | IIT JAM AIR 37, CSIR NET AIR 6, ISI, TIFR | Let's Study MS</title>
-        <meta name="description" content="Real success stories from Let's Study MS students in West Bengal. Alumni have secured IIT JAM AIR 37, CSIR NET AIR 6, AIR 25 GATE, joined ISI Kolkata, TIFR, IIT Bombay, HRI, IISER, and even PhD programmes at University of Connecticut USA." />
+        <title>Student Success Stories | Let's Study MS</title>
+        <meta name="description" content="Real success stories from Let's Study MS students. Alumni secured IIT JAM AIR 37, CSIR NET AIR 6, joined ISI, TIFR, IIT Bombay, IISER & PhD programs in USA." />
         <link rel="canonical" href="https://letsstudyms.com/testimonials" />
         <meta property="og:title" content="Student Success Stories | Let's Study MS" />
         <meta property="og:description" content="Alumni achievements: IIT JAM AIR 37, CSIR NET AIR 6, GATE AIR 25. Students at ISI, IISc, TIFR, HRI, IIT Bombay, and international universities." />
@@ -151,6 +151,7 @@ const Testimonials = () => {
         <meta name="twitter:title" content="Student Success Stories | Let's Study MS" />
         <meta name="twitter:description" content="Alumni at IIT, ISI, IISc, TIFR, HRI and international universities. See real results from West Bengal's top maths institute." />
         <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://letsstudyms.com/" }, { "@type": "ListItem", "position": 2, "name": "Testimonials", "item": "https://letsstudyms.com/testimonials" }] })}</script>
       </Helmet>
 
       <Header />
@@ -190,7 +191,8 @@ const Testimonials = () => {
                   <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                   <img
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    alt={student.name}
+                    alt={`${student.name} - ${student.achievement}`}
+                    loading="lazy"
                     src={student.image}
                   />
 

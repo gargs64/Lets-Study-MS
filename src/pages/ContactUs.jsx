@@ -79,18 +79,19 @@ const ContactUs = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>Contact Let's Study MS | Mathematics Coaching Enquiry West Bengal</title>
-        <meta name="description" content="Contact Let's Study MS for mathematics coaching enquiries in West Bengal. Enroll for BSc foundation, semester batch, MSc entrance, PhD entrance or advanced mathematics courses." />
+        <title>Contact Let's Study MS | Math Coaching Enquiry</title>
+        <meta name="description" content="Contact Let's Study MS for mathematics coaching enquiries in West Bengal. Enroll for BSc foundation, MSc entrance, or PhD entrance courses today." />
         <link rel="canonical" href="https://letsstudyms.com/contact" />
-        <meta property="og:title" content="Contact Let's Study MS | Maths Coaching Enquiry" />
-        <meta property="og:description" content="Reach out for coaching enquiries. BSc foundation, MSc entrance, PhD prep and more. Call +91 8481819726 or visit us in Khardaha, Kolkata." />
+        <meta property="og:title" content="Contact Let's Study MS | Math Coaching Enquiry" />
+        <meta property="og:description" content="Reach out for coaching enquiries. BSc foundation, MSc entrance, PhD prep and more. Call +91 8777484102 or visit us in Khardaha, Kolkata." />
         <meta property="og:url" content="https://letsstudyms.com/contact" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Let's Study MS | Maths Coaching Enquiry" />
+        <meta name="twitter:title" content="Contact Let's Study MS | Math Coaching Enquiry" />
         <meta name="twitter:description" content="Enquire about mathematics coaching in West Bengal. Call, email, or visit us in Khardaha, Kolkata." />
         <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://letsstudyms.com/" }, { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://letsstudyms.com/contact" }] })}</script>
       </Helmet>
 
       <Header />
@@ -133,7 +134,7 @@ const ContactUs = () => {
                   { 
                     icon: Phone, 
                     links: [
-                      { text: '+91 8777415940', url: 'tel:+918777415940' },
+                      { text: '+91 8777484102', url: 'tel:+918777484102' },
                       { text: '+91 8481819726', url: 'tel:+918481819726' }
                     ], 
                     label: 'Call Us Anytime' 

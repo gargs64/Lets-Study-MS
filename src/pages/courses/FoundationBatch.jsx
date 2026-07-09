@@ -309,9 +309,19 @@ const FoundationBatch = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>Foundation Batch | Mathematics Coaching for BSc Students in West Bengal | Let's Study MS</title>
-        <meta name="description" content="Foundation Batch at Let's Study MS — one of West Bengal's top mathematical institutes for higher education. University-specific curriculum for Jadavpur, Calcutta, St. Xavier's and Presidency University BSc students. Build a world-class mathematical foundation." />
+        <title>Foundation Batch | BSc Maths Coaching West Bengal</title>
+        <meta name="description" content="Foundation Batch at Let's Study MS — university-specific curriculum for Jadavpur, Calcutta, St. Xavier's & Presidency BSc students. Build world-class math foundations." />
         <link rel="canonical" href="https://letsstudyms.com/courses/foundation-batch" />
+        <meta property="og:title" content="Foundation Batch | BSc Maths Coaching West Bengal" />
+        <meta property="og:description" content="University-specific math coaching for Jadavpur, Calcutta, St. Xavier's & Presidency University students. Build a world-class mathematical foundation." />
+        <meta property="og:url" content="https://letsstudyms.com/courses/foundation-batch" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Foundation Batch | BSc Maths Coaching West Bengal" />
+        <meta name="twitter:description" content="University-specific math coaching for West Bengal BSc students. Build world-class foundations from faculty at IITs and ISI." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Foundation Batch","item":"https://letsstudyms.com/courses/foundation-batch"}]})}</script>
       </Helmet>
 
       <Header />

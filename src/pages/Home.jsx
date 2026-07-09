@@ -278,6 +278,16 @@ const Home = () => {
         'Post Graduation: ISI Delhi (MSQE\'24)',
         'Previously: Worked at Ernst and Young'
       ]
+    },
+    {
+      name: 'Sirsha Das',
+      highlight: 'IIT JAM ST AIR 16 | GATE ST AIR 8',
+      details: [
+        'Graduation: B.Sc. : Lady Brabourne College',
+        'Post Graduation: M.Sc. : Indian Institute of Technology, Bombay',
+        'IIT JAM ST AIR 16',
+        'GATE ST AIR 8'
+      ]
     }
 
   ];
@@ -331,14 +341,18 @@ const Home = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500 overflow-x-hidden">
       <Helmet>
-        <title>Let's Study MS | Top Mathematical Institute in West Bengal for Higher Education</title>
-        <meta name="description" content="Let's Study MS is one of the top mathematical institutes in West Bengal for higher education. Coaching for IIT JAM, MSc Entrances, TIFR, NBHM, ISI MMath and PhD entrances. Faculty from IIT Kanpur, ISI Kolkata, IISc Bangalore. Join hundreds of successful students." />
+        <title>Let's Study MS | Top Math Institute in West Bengal</title>
+        <meta name="description" content="Top math institute in West Bengal for higher education. Expert coaching for IIT JAM, MSc Entrances, TIFR, ISI, & PhD. Faculty from IIT, ISI, IISc." />
         <meta name="keywords" content="mathematical institutes in west bengal, mathematics institute west bengal higher education, mathematics coaching West Bengal, college maths tutor Kolkata, IIT JAM coaching, BSc mathematics coaching, MSc entrance preparation West Bengal, higher education maths West Bengal, best maths coaching kolkata" />
         <link rel="canonical" href="https://letsstudyms.com/" />
-        <meta property="og:title" content="Let's Study MS | Top Mathematical Institute in West Bengal for Higher Education" />
-        <meta property="og:description" content="One of West Bengal's top mathematical institutes for higher education. Expert faculty, proven results, 100s of successful students at IITs, ISI, TIFR, HRI and global universities." />
+        <meta property="og:title" content="Let's Study MS | Top Math Institute in West Bengal" />
+        <meta property="og:description" content="Top math institute in West Bengal for higher education. Expert coaching for IIT JAM, MSc Entrances, TIFR, ISI, & PhD. Faculty from IIT, ISI, IISc." />
         <meta property="og:url" content="https://letsstudyms.com/" />
         <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Let's Study MS | Top Math Institute in West Bengal" />
+        <meta name="twitter:description" content="Top math institute in West Bengal for higher education. Expert coaching for IIT JAM, MSc Entrances, TIFR, ISI, & PhD." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
         <script type="application/ld+json">{JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://letsstudyms.com/" }, { "@type": "ListItem", "position": 2, "name": "Courses", "item": "https://letsstudyms.com/#courses" }, { "@type": "ListItem", "position": 3, "name": "Contact", "item": "https://letsstudyms.com/contact" }] })}</script>
       </Helmet>
 
@@ -570,7 +584,7 @@ const Home = () => {
                 <Link to="/testimonials" onClick={() => window.scrollTo(0, 0)} className="block h-full">
                   <div className="bg-card p-6 rounded-2xl shadow-xl border border-border flex flex-col items-center text-center group hover:border-primary transition-all h-full hover-lift">
                     <div className="relative -mt-16 mb-4">
-                      <img src={student.image} alt={student.name} className="w-24 h-24 rounded-full border-4 border-card shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                      <img src={student.image} alt={`${student.name} - ${student.achievement}`} loading="lazy" className="w-24 h-24 rounded-full border-4 border-card shadow-lg object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                     </div>
                     <h3 className="text-lg font-bold text-foreground">{student.name}</h3>
                     <p className="text-primary text-[11px] font-bold uppercase tracking-tight mt-1">{student.achievement}</p>
@@ -629,6 +643,7 @@ const Home = () => {
               <img
                 src="https://i.postimg.cc/8C37fr0X/undraw-educator-6dgp-Photoroom-(1).png"
                 alt="Expert Faculty Illustration"
+                loading="lazy"
                 className="w-full h-auto max-h-[500px] object-contain"
               />
             </div>

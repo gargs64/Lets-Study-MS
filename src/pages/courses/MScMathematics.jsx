@@ -257,9 +257,19 @@ const MScMathematics = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>MSc Mathematics Entrance Coaching West Bengal | IIT JAM, TIFR, ISI, NBHM | Let's Study MS</title>
-        <meta name="description" content="Top MSc Mathematics entrance coaching at one of West Bengal's leading mathematical institutes for higher education. Prepare for IIT JAM, TIFR, ISI MMath, NBHM and CMI with expert faculty from IIT Kanpur and ISI Kolkata." />
+        <title>MSc Maths Entrance Coaching | IIT JAM TIFR ISI</title>
+        <meta name="description" content="Top MSc Mathematics entrance coaching in West Bengal. Prepare for IIT JAM, TIFR, ISI MMath, NBHM & CMI. Faculty from IIT Kanpur & ISI Kolkata." />
         <link rel="canonical" href="https://letsstudyms.com/courses/msc-mathematics" />
+        <meta property="og:title" content="MSc Maths Entrance Coaching | IIT JAM TIFR ISI NBHM" />
+        <meta property="og:description" content="Comprehensive coaching for IIT JAM, TIFR, ISI MMath, NBHM and CMI entrance exams. Expert faculty from IIT Kanpur and ISI Kolkata." />
+        <meta property="og:url" content="https://letsstudyms.com/courses/msc-mathematics" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MSc Maths Entrance Coaching | IIT JAM TIFR ISI NBHM" />
+        <meta name="twitter:description" content="Expert coaching for IIT JAM, TIFR, ISI MMath, NBHM and CMI in West Bengal. Proven results." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"MSc Mathematics","item":"https://letsstudyms.com/courses/msc-mathematics"}]})}</script>
       </Helmet>
 
       <Header />

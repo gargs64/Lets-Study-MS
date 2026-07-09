@@ -164,9 +164,19 @@ const SemesterBatch = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>Semester Batch | Mathematics Exam Coaching for West Bengal University Students | Let's Study MS</title>
-        <meta name="description" content="Semester Batch at Let's Study MS — specialized maths coaching for West Bengal university students. Targeted preparation for Jadavpur, Calcutta, St. Xavier's and Presidency University semester examinations by expert faculty." />
+        <title>Semester Batch | Maths Exam Coaching West Bengal</title>
+        <meta name="description" content="Semester Batch at Let's Study MS — targeted maths coaching for Jadavpur, Calcutta, St. Xavier's & Presidency University semester exams by expert faculty." />
         <link rel="canonical" href="https://letsstudyms.com/courses/semester-batch" />
+        <meta property="og:title" content="Semester Batch | Maths Exam Coaching West Bengal" />
+        <meta property="og:description" content="Targeted semester exam coaching for West Bengal universities. Syllabus-aligned preparation, weekly mocks, and expert guidance from ISI and IIT alumni." />
+        <meta property="og:url" content="https://letsstudyms.com/courses/semester-batch" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Semester Batch | Maths Exam Coaching West Bengal" />
+        <meta name="twitter:description" content="Semester exam coaching for Jadavpur, Calcutta, Xavier's & Presidency. Syllabus-focused, expert-led classes." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Semester Batch","item":"https://letsstudyms.com/courses/semester-batch"}]})}</script>
       </Helmet>
 
       <Header />

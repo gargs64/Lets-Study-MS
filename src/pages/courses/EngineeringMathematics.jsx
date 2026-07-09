@@ -184,9 +184,19 @@ const EngineeringMathematics = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>Engineering Mathematics Coaching West Bengal | GATE Preparation | Let's Study MS</title>
-        <meta name="description" content="Engineering Mathematics coaching for college students in West Bengal. GATE mathematics preparation, semester coaching and competitive exam training by expert faculty." />
+        <title>Engineering Maths Coaching West Bengal | GATE Prep</title>
+        <meta name="description" content="Engineering Mathematics coaching in West Bengal. Expert GATE maths prep, semester support for JU, MAKAUT and more. Theory and shortcuts by experienced faculty." />
         <link rel="canonical" href="https://letsstudyms.com/courses/engineering-mathematics" />
+        <meta property="og:title" content="Engineering Maths Coaching West Bengal | GATE Preparation" />
+        <meta property="og:description" content="GATE engineering mathematics preparation and semester coaching for JU, MAKAUT students. Expert faculty, branch-specific depth." />
+        <meta property="og:url" content="https://letsstudyms.com/courses/engineering-mathematics" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Engineering Maths Coaching West Bengal | GATE Prep" />
+        <meta name="twitter:description" content="GATE engineering mathematics and semester exam coaching in West Bengal. Expert faculty for JU, MAKAUT and all branches." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"Engineering Mathematics","item":"https://letsstudyms.com/courses/engineering-mathematics"}]})}</script>
       </Helmet>
 
       <Header />

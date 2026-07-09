@@ -475,9 +475,19 @@ const MTechDataScience = () => {
   return (
     <div className="noise-bg min-h-screen bg-background text-foreground transition-colors duration-500">
       <Helmet>
-        <title>MTech Data Science MSc Economics Entrance Coaching West Bengal | Let's Study MS</title>
-        <meta name="description" content="Expert coaching for MTech, Data Science and MSc Economics entrance exams. Strategic preparation with ISI and IIT alumni mentors." />
+        <title>MTech Data Science MSc Economics Coaching West Bengal</title>
+        <meta name="description" content="Expert coaching for MTech, Data Science & MSc Economics entrance exams in West Bengal. Strategic preparation with ISI and IIT alumni mentors." />
         <link rel="canonical" href="https://letsstudyms.com/courses/mtech-datascience" />
+        <meta property="og:title" content="MTech Data Science MSc Economics Coaching West Bengal" />
+        <meta property="og:description" content="Coaching for ISI MTech, GATE Data Science, CMI/RKMVERI Data Science and MSc Economics entrance exams. Mentors from ISI and IIT." />
+        <meta property="og:url" content="https://letsstudyms.com/courses/mtech-datascience" />
+        <meta property="og:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MTech Data Science MSc Economics Coaching West Bengal" />
+        <meta name="twitter:description" content="Coaching for ISI MTech, GATE DA, CMI Data Science, and MSc Economics entrance exams by ISI and IIT alumni." />
+        <meta name="twitter:image" content="https://i.postimg.cc/SR35cFPJ/Lets_Study_Logo.jpg" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letsstudyms.com/"},{"@type":"ListItem","position":2,"name":"MTech/Data Science","item":"https://letsstudyms.com/courses/mtech-datascience"}]})}</script>
       </Helmet>
 
       <Header />
